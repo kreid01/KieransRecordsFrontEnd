@@ -1,0 +1,146 @@
+.blog--page {
+    margin:0;
+    height: 75vh;
+    padding-bottom: 1em;
+    .page--header {
+        padding-bottom :0.5em;
+        margin-left: 1.75em;
+        &:before {
+            width: 1.1em;
+            left: 1.5em;
+        }
+    }
+}
+.post--container {
+    displaY:flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 15%;
+    font-size: 1.4em;
+    & h1 {
+        margin: 0;
+        margin-bottom: 0.5em;
+        ordeR: 0;
+        font-sizE:1.2em;
+    }
+    & h2 {
+        font-sizE: 1em;
+        margin: 0;
+        ordeR: 4;
+    }
+    & .post--album--info {
+        ordeR:4;
+        margin-bottom: 0.5em;
+        & .post--date--span {
+            opacity: 70%;
+            margin-left:-10em;
+         }
+         & p {
+            margin-top: 0.5em;
+         }
+    }
+    & img {
+        margin-bottom: 0.5em;
+        max-width: 65%;
+        order: 2;
+    }
+    & p {
+        max-width: 70%;
+        font-size: 0.5em;
+        margin-bottom: 1em;;
+        order: 4;
+    }
+    & .post--details--container {
+        display: flex;
+        flex-direction: column;
+    }
+    & .post--title--date{
+        display: flex;
+        & p {
+            margin-left: 17em;
+        }
+    }
+    
+}
+@media (min-width: 600px) {
+    .blog--page {
+        & .page--header {
+        margin-left:1.75em;
+        padding-bottom :0.5em;
+        }
+    }
+    .post--container {
+        font-size:1.5em;
+        margin-left: 10%;
+        & img {
+            width: 30%;
+            height: 30%;
+            order: 2;
+        }
+        & .post--details--container {
+            margin-left:0;
+            flex-direction: row;
+        }
+        .post--album--info {
+            margin:0;
+            margin-left: 0.5em;
+        }
+    }
+
+}
+@media (min-width:768px) {
+    .blog--page {
+        & .page--header {
+        margin-left:0;
+        padding-bottom :0.5em;
+        }
+    }
+    .post--container {
+        width: 110%;
+        margin-left: 1em;
+        font-size: 0.9em;;
+        & img {
+            width: 30%;
+            height: 30%;
+            order: 2;
+        }
+        & h1 {
+            width: 100%;
+        }
+        .post--album--info {
+            margin:0;
+            margin-left: 0.5em;
+            & p {
+                margin:0;
+             }
+        }
+        & .post--title--date{
+            & p {
+                margin-left: 17em;
+            }
+        }
+    }
+}
+@media (min-width:1200px) {
+    .blog--page {
+        & .page--header {
+        padding-bottom: 0.5em;
+        }
+    }
+    .post--container {
+        margin-left :1em;
+        font-size: 0.8em;;
+        & img {
+            width: 20%;
+            order: 2;
+        }
+    }
+}
+@media (min-width:1500px) {
+    .post--container {
+        font-size: 1em;
+        & img {
+            width: 15%;
+        }
+    }
+}

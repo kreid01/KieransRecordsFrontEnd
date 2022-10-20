@@ -1,0 +1,139 @@
+@import 'mixins';   
+.new--records .page--header {
+    &:before {
+        width:2.9em;
+    }
+}
+.new--record--container {
+    font-size:1em;
+    margin-bottom: -1em;;
+    padding-bottom: 5em;
+    & img {
+        border-radius: 5px;
+        min-width: 100%;;
+        max-width: 100%;
+        max-height:70%;
+        min-height: 50%;
+    }
+
+}
+.new--record--info, .new--record--name ,.new--record--artist, .new--record--buying {
+    margin:0.2em 0;
+}
+.new--record--buying {
+    display: flex;
+    justify-content: space-between;
+    & button {
+        @include button;
+        font-size:1em;
+    }
+}
+.featured--record--info {
+    padding-left: 0;
+}
+.featured--records .page--header {
+    padding-top: 1.5em;
+    &:before {
+        top: 2.7em;
+        left: 4em;
+        width: 5em;
+    }
+}
+.featured--record--container, .similar--records, .wishlist--items {
+    box-shadow: 2px 2px 2px 2px rgb(84, 84, 84);;
+    border-radius: 10px;;
+    display: flex;
+    width:100%;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: 1.1em;
+    padding:0.5em;
+    padding-bottom:0;
+    & .record {
+        padding-left:0.5em;
+        font-size:0.75em;
+        margin-right:0;
+        min-width: 30vw;
+        max-width: 30vw;
+        min-height: 30vw;
+        & button {
+            @include button;
+        }
+        & img {
+            max-width: 30vw;
+            min-width: 30vw;
+            min-height: 30vw;
+            max-height: 30vw;;
+        }
+    }      
+}
+@media(min-width: 768px) {
+    .new--record--container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 0.7em;
+        & .record  {
+            padding-left: 0.5em;;
+            min-height:28vw;
+            min-width:22vw;; 
+            max-width: 22vw;; 
+            max-height: 30vw;        
+            & img {
+            max-width:22vw;
+            min-width:22vw;
+            max-height:22vw;
+            min-height:22vw;
+            }
+            & button {
+                font-size:0.6em;
+            }
+        }
+    }
+    .featured--record--container, .similar--records, .wishlist--items {
+        margin-left: -1em;
+        padding-right:1em;
+        & .record {
+            height:50vh;
+            padding-bottom: 5em;
+            font-size:0.5em;
+            margin-right:0;
+            min-width: 25vw;
+            max-width: 25vw;
+            min-height:20vw;
+            max-height: 40vw;
+            & img {
+                max-width: 25vw;
+                min-width: 25vw;
+                min-height: 25vw;
+                max-height: 25vw;;
+            }
+        }      
+    }
+} 
+@media(min-width: 1200px) {
+    .new--record--container {
+        font-size: 0.7em;
+    }
+    .featured--record--container, .similar--records, .wishlist--items {
+        & .record {
+            .record--buying {
+             & button {
+               font-sizE: 0.6em;
+            }}
+            font-size:0.5em;
+            margin-right:0;
+            min-width: 13vw;
+            max-width: 13vw;
+            min-height:20vw;
+            max-height: 20vw;
+            & img {
+                max-width: 13vw;
+                min-width: 13vw;
+                min-height: 13vw;
+                max-height: 13vw;;
+            }
+        }      
+    }
+}         
+

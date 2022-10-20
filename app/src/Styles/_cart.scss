@@ -1,0 +1,277 @@
+/* Cart */
+@import 'mixins';
+
+.cart--page {
+     height: 100%;
+    box-sizing: content-box;
+    width: 90%;
+}
+.wishlist--container {
+    min-height:45vh;
+}
+.cart--record {
+    margin: 0.75em 1em;
+    displaY:flex;
+    width:95%;
+    font-size: 1em;
+    height: 70%;
+    background-color: rgba(175, 175, 175, 0.2);
+    padding:1em;
+    border-radius: 5px;
+    & img {
+        max-width: 25vw;
+        max-height: 25vw;
+        height:100%;
+        border-radius: 3px;
+    }
+    & .cart--record--buying {
+        font-size:1.2em;    
+        display:flex;
+        width:100%;
+        justify-content: space-evenly;
+        margin-top: auto;
+        padding-left:0.5em;
+        & button {
+            font-size:0.5em;
+            align-self: center;
+            background-color: rgb(66, 66, 66);
+            border-radius: 5px;
+            border:none;
+            color:white;
+            height:2.5em;
+            font-family: 'Inter';
+            cursor:pointer;
+            font-weight: bold;
+            margin: 0 0.3em;
+            &:hover {
+                filter:brightness(80%);
+            }
+        }
+    } 
+}
+.wishlist--container .page--header{
+    &:before {
+        left: 2em;
+        width: 80px;
+      }
+}
+.wishlist--items .record {
+    margin-bottom: 1em;
+}
+.cart--header .page--header {
+    &:before {
+        left: 1.3em;
+        width: 45px;
+      }
+}
+.cart--item--details {
+    display: flex;
+    width:90%;
+    flex-direction: column;;
+    font-family: bold;
+    font-size:1.3em;
+    height: 70%;
+}
+.cart--record--name, .cart--record--artist {
+    padding:0 0 0 15px;
+    margin:0;
+}
+.cart--record--name {
+    letter-spacing: 1px;
+    font-size:1em;
+    max-width: 90%;
+}
+.cart--record--artist {
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 0.7em;
+}
+.cart--total--price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.cart--page--container  {
+    display:flex;
+    flex-direction: column;
+    margin-right: 0;
+}
+.cart--summary {
+    margin-top:1em;
+    font-size: 0.8em;
+    width:95%;
+    min-height: 20vh;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    border-radius: 20px;
+    padding:1em;
+    margin-lefT: 2em;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.checkout--button {
+    @include button;
+    height: 3em;
+    font-size:1.2em;
+    padding: 0 1em;
+    align-self: flex-end;
+}
+.cart-record--total {
+    displaY:flex;
+    justify-content: space-between;
+    padding-right: 1em;
+}
+.cart--quantity {
+    padding:0 1em;
+}
+.cart {
+    height: 20px;
+    background-color: rgba(66, 66, 66, 0.3);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+.wishlist--add {
+    width: 7em;
+}
+.paypal--container {
+    height: 100vh;
+    width: 100vw;
+    & .paypal--button {
+    margin: 0 auto;
+    margin-lefT:1.5em;
+    }
+}
+.checkout--button {
+    font-sizE: 0.6em;
+}
+
+@media (min-width: 768px) {
+    .cart--page--container  {
+        width:100%;
+        font-size: 1em;
+    }
+     .wishlist--container .page--header{
+        &:before {
+            left: 2em;
+            width: 160px;
+          }
+    }
+    .cart--header .page--header {
+        &:before {
+            left: 1.3em;
+            width: 90px;
+          }
+    }
+    .cart--record {
+        padding:0.5em;
+        max-height:18vh;
+        & img {
+            margin-right:-0.7em;
+        }
+        & .cart--record--buying {
+            font-size:0.8em;    
+            display:flex;
+            width:100%;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-left:0.5em;
+            & button {
+                padding:0.33em;
+                margin: 0 01em;
+                cursor:pointer;
+                &:hover {
+                    filter: brightness(80%);
+                }
+            }
+        } 
+    }
+    .cart--summary {
+    font-size: 0.5em;
+    }
+
+    .checkout--button {
+        font-sizE: 0.7em;
+    }
+}
+@media (min-width: 1000px) {
+    .cart--page--container  {
+        width:100%;
+        flex-direction: row;
+        margin-left:0em;
+        font-size: 0.7em;
+    }
+    .cart--items--container {
+        margin-right:2em;
+        height: 90%;
+        width: 80%;
+        & .cart--record {
+            padding:0.5em;
+            height:16vh;
+            font-size: 1em;
+            min-height: 13vh;
+            & img {
+                margin-right:-0.7em;
+                max-height:20vh;
+            }
+        }
+    }
+    .cart--items {
+        overflow-x: hidden;
+        }
+    .cart--record--artist, .cart--record--name {
+        margin-left:5%;
+    }
+    .cart--record--buying  {
+        padding-left:4em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        font-size: 1em;
+        & button {
+            font-size: 0.9em;
+        }
+        & .cart--record--price, .cart--quantity {
+            font-size: 0.7em;
+            margin-top:1em;
+            align-self: center;
+        }
+     }
+    .cart--summary {
+        margin-left :1em;
+        margin-right:-2em;
+        width:50%;
+    }
+}
+@media (min-width: 1300px) {
+    .cart--page--container  {
+        width:110%;
+        flex-direction: row;
+        margin-left:-2em;
+        font-size: 0.9em;
+        & .cart--items {
+            & img {
+                height: 130%;
+               margin-top:-0.75em;
+               margin-left:-0.7em
+            }
+        }
+    }
+    .cart--record--buying  {
+        margin-left: 1em;
+        margin-bottom: 1em;
+        font-size: 0.8em;
+            & button {
+                font-size: 0.6em;
+            }
+            & .cart--record--price, .cart--quantity {
+                font-size: 1em;
+                margin-top:1em;
+            }
+        }     
+        .cart--page {
+            padding:2em;
+        }
+         .paypal--container {
+            margin-left: 30%;
+         }
+}

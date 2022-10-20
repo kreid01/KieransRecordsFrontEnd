@@ -1,0 +1,76 @@
+@import 'mixins';
+
+.filter--select{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    width:20%;
+    height:2.3em;
+    align-self: center;
+}
+.search--record {
+    align-self: center;
+    margin-right:0;
+}
+.display--sort--selector {
+    align-self: center;
+    margin-left: 1em;
+    width: 20%;
+    background-color: whitesmoke;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding:5px;
+    border:none;
+    box-shadow: 1px 1px 1px 0 lightgrey;
+    height: 2.3em;
+}
+.filter--container {
+    margin-left:1em;
+    width:95vw;
+    display:flex;
+    font-size:0.8em;
+}
+.search--input {
+    height:2.3em;
+    width: 30%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+#search--button {
+    height:2.3em;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding:5px;
+    align-self: center;
+    border:none;
+    box-shadow: 1px 1px 1px 0 lightgrey;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+.search--record--button {
+    @include button;
+}
+.reset--button {
+    margin-left: 0.5em;
+    height:2.3em;
+    background-color: whitesmoke;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    padding:5px;
+    border:none;
+    box-shadow: 1px 1px 1px 0 lightgrey;
+}
+
+@media (min-width: 768px) {
+    .filter--container {
+        margin-left:0;
+        min-width: 100%;
+        font-size:0.5em;
+    }
+    .filter--select {
+        min-width: 30%;
+    }
+    .search--input {
+        height:2.3em;
+        width: 45%;
+    }
+}

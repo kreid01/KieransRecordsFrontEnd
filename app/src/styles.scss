@@ -1,0 +1,69 @@
+@import "./styles/cart";
+@import "./styles/home";
+@import "./styles/currentRecord";
+@import "./styles/filter";
+@import "./styles/form";
+@import "./styles/newRecord";
+@import "./styles/recordlist";
+@import "./styles/nav";
+@import "./styles/collections";
+@import "./styles/footer";
+@import "./styles/blog";
+@import "./styles/profilepage";
+
+
+$primary--color: rgb(66, 66, 66);
+
+body {
+    margin: 0 0em;
+    padding:0;
+    font-family: 'Inter', sans-serif;
+    width:100%;
+    overflow-x: hidden;
+}
+.main {
+    margin:0;
+}
+
+.page--header {
+    margin-top:0;
+    padding-top:0.5em;
+    padding-left:0.5em;
+    margin-bottom:0;
+    position: relative;
+    margin-bottom: 0.3em;
+    &:before {
+        position: absolute;
+        left: 4em;
+        top: 1.7em;
+        height: 0;
+        width: 70px;
+        content: '';
+        border-top: 2px solid pink;
+      }   
+    & .record--buying {
+        margin-top:auto;
+    }
+}
+@media (min-width: 768px) {
+    body {
+        margin: 0 0em;;
+        font-size: 2em;
+    }
+    .form-group {
+        font-size: 0.2em;
+    }
+    .page--header {
+        font-sizE: 1.5em;;
+    }
+}
+@media (min-width: 768px) {
+.page {
+    margin: 0 1em;
+    }
+}
+@media (min-width: 1000px) {
+    .page {
+        margin: 0 2.5em;
+        }
+    }

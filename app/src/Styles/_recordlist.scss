@@ -1,0 +1,161 @@
+/* Record */
+@import "./mixins";
+
+.record--list--page {
+    height:100%;
+    margin-bottom:-2em;
+} 
+.record--list--header{
+    justify-content: space-between;
+    display:flex;
+    & .page--header {
+        &:before {
+            left: 2em;
+            width:2.6em;
+        }
+    }
+        & button {
+        height:50%;
+        align-self: center;
+        background-color: rgb(66, 66, 66);
+        border-radius: 5px;
+        border:none;
+        color:white;
+        font-size:1em;
+    
+        width: 7em;
+        height:2.7em;
+        font-family: 'Inter';
+        cursor:pointer;
+        font-weight: bold;
+        &:hover {
+            filter:brightness(80%);
+        }
+    }
+}
+.record {
+    position: relative;
+    margin: 0.5em;
+    @include record;
+    padding-bottom:2em;
+    width:85%;
+    height: 100%;
+    margin-left: 1.5em;
+    padding-left:0.7em;
+    & .record--list--cart--add {
+        @include button;
+        width: 95%;
+        position: absolute;
+        bottom: 2%;
+    }
+    & img {
+        margin-bottom: 1em;
+        border-radius: 5px;
+        min-width: 70vw;;
+        max-width: 75vw;
+        max-height:75vw;
+        min-height: 75vw;
+    }
+    & .record--name--price {
+        width:98%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.page--number--container {
+    display:flex;
+    justify-content:space-between;
+    width: 40%;
+    & button {
+        height:50%;
+    align-self: center;
+    background-color: rgb(66, 66, 66);
+    border-radius: 5px;
+    border:none;
+    color:white;
+    font-size:0.6em;
+    width: 2em;
+    height:2em;
+    font-family: 'Inter';
+    cursor:pointer;
+    font-weight: bold;
+    &:hover {
+        filter:brightness(80%);
+    }
+    }
+    margin: 2em auto;
+    height: 2.5em;
+}
+.record--container, .collection--record--container{
+    displaY:grid;
+    margin: 0 0.25em;
+    font-size: 1.3em;
+}
+.record--list--header button {
+    align-self: center;
+    margin: 1.5em;
+    height:0%;
+}
+@media (min-width: 768px) {
+    .record--container, .record--collection--container {
+        grid-template-columns:  repeat(3, 1fr);
+        width: 100%;
+        font-size: 0.5em;
+        & .record {
+            border-radius: 5px;;
+            padding-bottom:-1em;
+            margin-bottom: 1em;
+            min-width: 22vw;
+            max-width: 33vw;;
+            min-height: 46vh;
+            max-height:55vw;
+            & .record--name {
+                font-size:1.5em;
+            }
+            & .record--artist {
+                font-size:1em;
+            }
+            & img {
+                border-radius: 5px;
+                min-width: 22vw;;
+                max-width: 22vw;
+                max-height:22vw;
+                min-height: 22vw;
+             }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .record--container {
+        grid-template-columns:  repeat(4, 1fr);
+        & .record {
+            padding-bottom:-1em;
+            min-width: 16vw;
+            max-width: 20vw;
+            max-height: 20vh;
+            & img {
+                min-width: 17vw;;
+                max-width: 17vw;
+                max-height:17vw;
+                min-height: 17vw;
+             }
+        }
+    }
+}
+@media (min-width: 1500px) {
+    .record--container {
+        grid-template-columns:  repeat(5, 1fr);
+        & .record {
+            min-width: 13vw;
+            max-width: 13vw;
+            & img {
+                min-width: 12vw;;
+                max-width: 12vw;
+                max-height:12vw;
+                min-height: 12vw;
+             }
+        }
+    }
+}
+
+
