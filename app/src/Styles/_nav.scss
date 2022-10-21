@@ -142,6 +142,37 @@ li {
     margin: 1em 1em 0 1.5em;
     displaY:flex;
 }
+.dropdown--menu--main {
+    position: relative;
+}
+.dropdown--menu {
+    display: grid;
+    position: absolute;
+    height:6em;
+    font-size:2em;
+    margin: 0.5em 0;
+    z-index: 1;
+    padding: 0.5em;
+    border:1px solid #343434;
+    box-shadow: 0 px 5px rgba(0,0,0,.1);
+    background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
+    opacity: 0;
+    transform: translateY(-3em);
+    border-radius: 2px;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2em);
+    } 
+  }
+.dropdown--item {  
+    padding:0.5em;
+    &:link, &:visited {
+        text-decoration: none;
+        color:whitesmoke
+    }
+}
+
 
 .auth--btn {
     @include button;
@@ -153,6 +184,25 @@ li {
     color:#343434;
 }
 @media (min-width: 768px) {
+    .dropdown--menu {
+        height:6em;
+        font-size:1em;
+        margin: 0.5em 0;
+        left:3em;
+        z-index: 1;
+        padding: 0.5em;
+        border:1px solid #343434;
+        box-shadow: 0 px 5px rgba(0,0,0,.1);
+        background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
+        opacity: 0;
+        transform: translateY(-3em);
+        border-radius: 2px;
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        &:hover {
+          opacity: 1;
+          transform: translateY(-2em);
+        } 
+      }
     .toggle-dark--mode--light {
         width:4em;
         height:2em;

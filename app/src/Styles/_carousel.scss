@@ -28,7 +28,7 @@
     border:none;
     padding-bottom:2em;
     min-width:71vw;
-    height: 120vw;;
+    height: 115vw;;
     & .record--list--cart--add{
         @include button;
         width: 90%;
@@ -119,7 +119,7 @@
     .carousel--container {
         font-sizE: 1.7em;
         & .record {
-            max-height: 60vh;
+            max-height: 65vh;
         }
     }
 }

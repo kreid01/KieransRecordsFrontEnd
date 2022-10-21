@@ -1,9 +1,7 @@
 /* Form  */
-.form-group {
-    displaY:flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0 auto;
+.form {
+    color: black;
+    font-size:0.6em;
 }
 form input, form button, select, input, .search--button {
     width: 100%;;
@@ -26,22 +24,7 @@ form input, form button, select, input, .search--button {
 }
 .submit--button {
     width: 101%;
-}
-.customer--form {
-    padding-top: 2em;
-    margin-left:2em;
-}
-.data--val--msg {
-    max-height: 5em;;
-    font-size:0.75em;
-    color:red;
-        & li {
-        padding: 0 2em;
-        }
-    }
-.input-validation-errorr {
-    color:red;
-}
+
 @media (min-width: 768px) {
     .data--val--msg {
     font-size:3em;
@@ -57,12 +40,6 @@ form input, form button, select, input, .search--button {
         width: 50vw;
         min-height: 80vh;
         margin-left:0.5em;
-    .data--val--msg {
-        font-size:2em;
-        color:red;
-            & li {
-            padding: 0 1.5em;
-            }
-        }   
+    }
     }
 }

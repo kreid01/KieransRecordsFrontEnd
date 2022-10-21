@@ -1,6 +1,24 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 export default function NewRecordForm(props) {
+
+        const [validated, setValidated] = React.useState(false);
+      
+        const handleSubmit = (event) => {
+          const form = event.currentTarget;
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+      
+          setValidated(true);
+        };      
     
     const genreOptions = 
     <>
@@ -101,135 +119,152 @@ export default function NewRecordForm(props) {
     return (
             <div>
             <h1 className='page--header'>New Record</h1>
-            <form>
-                <div className="form-group">
-                    <input 
+            <Form className='form' noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Row className='mb-3'>
+                    <Form.Group as={Col} md='6' controlId='validateCustom01'>
+                    <FloatingLabel
+                    controlId='floatingInput'
+                    label='Ablum title'
+                    className='mb-3'>
+                    <Form.Control
                     type='text' 
                     style={props.inputThemeStyles}
-                    placeholder='Record Title'
                     name='name'
-                    for='name'
+                    placeholder='Ablum title'
+                    class='form-control'
                     value={props.newRecord.name.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-valmsg-for="name" 
-                    data-valmsg-replace="true"
-                    data-val-required="Name is required." 
-                    data-val="true" 
+                    required
                     />
-                    <input 
-                    style={props.inputThemeStyles}
-                    for='artist'
-                    type='text' 
-                    name='artist'
-                    placeholder='Record Artist'
-                    value={props.newRecord.artist.value}
-                    onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-valmsg-for="artist" 
-                    data-valmsg-replace="true"
-                    data-val-required="Artist is required." 
-                    data-val="true" 
-                    />
-                    <input 
+                    </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group as={Col} md='6' controlId='validateCustom01'>
+                      <FloatingLabel
+                      controlId='floatingInput'
+                      label='Artist'
+                      className='mb-3'>
+                      <Form.Control
+                        style={props.inputThemeStyles}
+                        for='artist'
+                        type='text' 
+                        name='artist'
+                        required
+                        class='form-control'
+                        placeholder='Artist'
+                        value={props.newRecord.artist.value}
+                        onChange={(e) => props.handleChange(e, props.setNewRecord)}>
+                        </Form.Control>
+                     </FloatingLabel>
+                    </Form.Group>
+                    </Row>
+                    <FloatingLabel
+                    controlId='floatingInput'
+                    label='Image URL'
+                    className='mb-3'>
+                    <Form.Control
                      style={props.inputThemeStyles}
-                    for='imagegUrl'
                     type='text' 
                     name='imageUrl'
-                    placeholder='Record Image URL'
-                    data-val="true"
+                    placeholder=' '
                     value={props.newRecord.imageUrl.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-valmsg-for="artist" 
-                    data-valmsg-replace="true"
-                    data-val-regex="Image URL is invalid"
-                    data-val-regex-pattern="/(https?:\/\/.*\.(?: png|jpg))/i"
-                    data-val-required="Image URL is required."
-                    />
-                    <input 
+                    pattern="/(https?:\/\/.*\.(?: png|jpg))/i"
+                    required
+                    class='form-control'/>
+                    <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>
+                    </FloatingLabel>
+                    <Row>
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                    controlId='floatingInput'
+                    label='Release Year'
+                    className='mb-3'>
+                    <Form.Control 
                      style={props.inputThemeStyles}
                     type='number' 
                     name='releaseYear'
-                    for='releaseYear'
-                    placeholder='Record Release Year'
+                    placeholder=' '
                     value={props.newRecord.releaseYear.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-valmsg-for="releaseYear" 
-                    data-valmsg-replace="true"
-                    data-val="true"
-                    data-val-required="Release Year is required."
-                    data-val-range-max="2030"
-                    data-val-range-min="1940"
-                    data-val-range="Release Year is outwith the range"
-                    />
-                    <input 
+                    required
+                    class='form-control'/>
+                    </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                    controlId='floatingInput'
+                    label='image URL'
+                    className='mb-3'>
+                    <Form.Control 
                      style={props.inputThemeStyles}
                     type='number' 
-                    placeholder='Record Song Count'
+                    placeholder=''
                     name='songCount'
-                    data-val="true"
-                    fpr='songCount'
                     value={props.newRecord.songCount.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-val-range-max="40"
-                    data-val-range-min="1"
-                    data-valmsg-for="soungCount" 
-                    data-valmsg-replace="true"
-                    data-val-range="Song Count is outwith the range"
-                    data-val-required="Song count is required."
+                    required
+                    class='form-control'
                     />
-                    <input
+                    </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                    controlId='floatingInput'
+                    label='image URL'
+                    className='mb-3'>
+                    <Form.Control 
                      style={props.inputThemeStyles} 
                     type='decimal' 
                     placeholder='Record Price'
                     name='price'
                     data-val="true"
-                    for='price'
                     value={props.newRecord.price.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    data-valmsg-for="price" 
-                    data-valmsg-replace="true"
-                    data-val-required="Price is required."
-                    data-val-range-max="200"
-                    data-val-range-min="1"
-                    data-val-range="Song Count is outwith the range"
+                    required
+                    class='form-control'
                     />
+                    </FloatingLabel>
+                    </Form.Group>
+                    </Row>
                     <div className='genre--selectors'>
-                    <select 
+                    <Form.Select
                      style={props.inputThemeStyles}
                     type='text' 
+                    placeholder='Record Genre'
+                    name='genres'
+                    required
+                    class='form-control'
+                    value={props.newRecord.genres.value}
+                    onChange={(e) => props.handleChange(e, props.setNewRecord)}>
+                        {genreOptions}
+                    </Form.Select>                
+                    <Form.Select
+                     style={props.inputThemeStyles}
+                    type='text' 
+                    placeholder='Record Genre'
+                    name='genres'
+                    required
+                    class='form-control'
+                    value={props.newRecord.genres.value}
+                    onChange={(e) => props.handleChange(e, props.setNewRecord)}>
+                        {genreOptions}
+                    </Form.Select>
+                    <Form.Select 
+                     style={props.inputThemeStyles}
+                    type='text' 
+                    class='form-control'
                     placeholder='Record Genre'
                     name='genres'
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </select>                
-                    <select 
-                     style={props.inputThemeStyles}
-                    type='text' 
-                    placeholder='Record Genre'
-                    name='genres'
-                    value={props.newRecord.genres.value}
-                    onChange={(e) => props.handleChange(e, props.setNewRecord)}>
-                        {genreOptions}
-                    </select>
-                    <select 
-                     style={props.inputThemeStyles}
-                    type='text' 
-                    placeholder='Record Genre'
-                    name='genres'
-                    value={props.newRecord.genres.value}
-                    onChange={(e) => props.handleChange(e, props.setNewRecord)}>
-                        {genreOptions}
-                    </select>
+                    </Form.Select>
                     </div>
-                    <button 
+                    <Button 
                      style={props.inputThemeStyles}
                      className='submit--button'
-                     
-                      value="Submit" onClick={() => props.postRecord(props.newRecord, props.setNewRecord)}>Submit Record</button> 
-                    <div className='data--val--msg' data-valmsg-summary="true">
-                    </div>
-                </div>
-            </form>
+                    type="Submit" onClick={() => props.postRecord(props.newRecord, props.setNewRecord)}>Submit Record</Button> 
+            </Form>
      </div>
      )
 }

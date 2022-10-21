@@ -14,6 +14,12 @@ export default function NavBar(props) {
     const toggleTheme = useThemeUpdate()
     const darkThemeToggle = (props.darkTheme) ? 'toggle--dark--mode--dark' : 'toggle-dark--mode--light'
 
+    const [open, setOpen] = React.useState(false)
+
+    const handleClick = () => {
+      setOpen(!open)
+    }
+
     return (
         <header className='nav--bar'>
         <nav style={props.themeStyles}>
@@ -24,14 +30,22 @@ export default function NavBar(props) {
           </div>
         </NavLink>
           <ul>
-            <li>
-              <NavLink
-                className='nav--item'
-                style = {({ isActive }) => {
-                  return isActive ? { background : 'rgb(56, 56, 56)'} : {}
-                }} end to='/records'>
+            <li className='dropdown--menu--main' onClick={handleClick}>
+              <div className='nav--item'>Records</div>
+              <ul className='dropdown--menu'>
+                <li>
+                <NavLink 
+                className='dropdown--item'
+                 end to='/records'>
                 Records
-            </NavLink>
+                </NavLink>
+                </li>
+                <li>
+                  <NavLink className='dropdown--item' 
+                  end to='/records/new'>New Record
+                  </NavLink>
+                </li>
+              </ul>
             </li>
           <li>
               <NavLink
