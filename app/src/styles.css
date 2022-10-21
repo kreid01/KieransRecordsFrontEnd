@@ -305,6 +305,9 @@
     max-height: 23.5vw;
     min-height: 23.5vw;
   }
+  .new--record--container .record h3 {
+    font-sizE: 1.5em;
+  }
 }
 @media (min-width: 1200px) {
   .new--record--container {
@@ -649,6 +652,7 @@ form input, form button, select, input, .search--button {
   position: relative;
   displaY: flex;
   flex-direction: column;
+  border-radius: 5px;
   border-left: 1px solid rgba(150, 150, 150, 0.7);
   border-right: 1px solid rgba(150, 150, 150, 0.7);
   border-bottom: 1px solid rgba(150, 150, 150, 0.7);
@@ -656,15 +660,42 @@ form input, form button, select, input, .search--button {
   min-width: 25vh;
   min-height: 20vh;
   font-size: 0.8em;
+  transition: scale 500ms ease-in-out;
   padding-bottom: 2em;
   width: 80%;
   height: 100%;
   padding-left: 0.7em;
 }
+.record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  left: 0em;
+  bottom: 0em;
+  border: 3px solid pink;
+  transition: width 800ms ease-in-out;
+}
+.record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  top: 0em;
+  border-radius: 5px;
+  border: 1px solid pink;
+  transition: width 800ms ease-in-out;
+}
 .record img {
   min-height: 25vh;
   min-width: 25vh;
   border: 0.5px solid grey;
+}
+.record:hover {
+  scale: 1.05;
+}
+.record:hover:after {
+  width: 100%;
 }
 .record .record--list--cart--add {
   height: 50%;
@@ -1345,13 +1376,14 @@ li {
   width: 100vw;
   margin: 5vw;
   display: flex;
-  overflow-y: hidden;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .slides--container .record {
   position: relative;
   displaY: flex;
   flex-direction: column;
+  border-radius: 5px;
   border-left: 1px solid rgba(150, 150, 150, 0.7);
   border-right: 1px solid rgba(150, 150, 150, 0.7);
   border-bottom: 1px solid rgba(150, 150, 150, 0.7);
@@ -1359,6 +1391,7 @@ li {
   min-width: 25vh;
   min-height: 20vh;
   font-size: 0.8em;
+  transition: scale 500ms ease-in-out;
   display: flex;
   position: relative;
   margin: 0 auto;
@@ -1367,10 +1400,36 @@ li {
   min-width: 71vw;
   height: 115vw;
 }
+.slides--container .record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  left: 0em;
+  bottom: 0em;
+  border: 3px solid pink;
+  transition: width 800ms ease-in-out;
+}
+.slides--container .record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  top: 0em;
+  border-radius: 5px;
+  border: 1px solid pink;
+  transition: width 800ms ease-in-out;
+}
 .slides--container .record img {
   min-height: 25vh;
   min-width: 25vh;
   border: 0.5px solid grey;
+}
+.slides--container .record:hover {
+  scale: 1.05;
+}
+.slides--container .record:hover:after {
+  width: 100%;
 }
 .slides--container .record .record--list--cart--add {
   height: 50%;
@@ -1436,6 +1495,7 @@ li {
   .carousel--container {
     margin: 0 auto;
     display: flex;
+    height: 70vh;
     font-size: 1.3em;
     padding-bottom: 2em;
   }
@@ -1449,12 +1509,16 @@ li {
   }
   .slides--container {
     margin: 1vw;
+    width: 110%;
     display: flex;
+    overflow-x: visible;
+    overflow-y: visible;
   }
   .slides--container .record {
     position: relative;
     displaY: flex;
     flex-direction: column;
+    border-radius: 5px;
     border-left: 1px solid rgba(150, 150, 150, 0.7);
     border-right: 1px solid rgba(150, 150, 150, 0.7);
     border-bottom: 1px solid rgba(150, 150, 150, 0.7);
@@ -1462,18 +1526,48 @@ li {
     min-width: 25vh;
     min-height: 20vh;
     font-size: 0.8em;
+    transition: scale 500ms ease-in-out;
+    margin: 0;
+    paddinG: 0.3em;
+    padding: 0.3em;
     padding-bottom: 2em;
     min-width: 25vw;
     max-width: 25vw;
-    max-height: 42vh;
+    max-height: 45vh;
   }
   .slides--container .record p {
     font-size: 0.3em;
+  }
+  .slides--container .record:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0%;
+    left: 0em;
+    bottom: 0em;
+    border: 3px solid pink;
+    transition: width 800ms ease-in-out;
+  }
+  .slides--container .record:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    top: 0em;
+    border-radius: 5px;
+    border: 1px solid pink;
+    transition: width 800ms ease-in-out;
   }
   .slides--container .record img {
     min-height: 25vh;
     min-width: 25vh;
     border: 0.5px solid grey;
+  }
+  .slides--container .record:hover {
+    scale: 1.05;
+  }
+  .slides--container .record:hover:after {
+    width: 100%;
   }
   .slides--container .record button {
     max-height: 2em;
@@ -1504,10 +1598,10 @@ li {
   .slides--container .record img {
     margin-bottom: 0.3em;
     border-radius: 5px;
-    min-width: 22vw;
-    max-width: 22vw;
-    max-height: 22vw;
-    min-height: 22vw;
+    min-width: 23vw;
+    max-width: 23vw;
+    max-height: 23vw;
+    min-height: 23vw;
   }
   .slides--container .record .record--name--price {
     width: 95%;
@@ -1520,7 +1614,7 @@ li {
     font-sizE: 1.7em;
   }
   .carousel--container .record {
-    max-height: 65vh;
+    max-height: 62vh;
   }
 }
 .customer--form {

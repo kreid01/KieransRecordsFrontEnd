@@ -18,8 +18,8 @@
     width:100vw;
     margin: 5vw;
     display: flex;
-    overflow-y: hidden;
     overflow-x: hidden;
+    overflow-y: hidden;
     & .record {
     @include record;
     display: flex;
@@ -64,6 +64,7 @@
     .carousel--container {
         margin: 0 auto;
         display: flex;
+        height: 70vh;
         font-size: 1.3em;
         & button {
             height:1.4em;
@@ -77,35 +78,41 @@
     }
     .slides--container {
         margin: 1vw;
+        width:110%;
         display: flex;
+        overflow-x:visible;
+        overflow-y:visible;
         & .record {
+
         & p {
             font-size: 0.3em;
         }
         @include record;
+        margin:0;
+        paddinG:0.3em;
         & button {
             max-height: 2em;
         }
         &  h3 {
             font-size: 0.32em;
         }
+        padding:0.3em;
         padding-bottom:2em;
         min-width:25vw;
         max-width:25vw;
-        max-height: 42vh;;
+        max-height: 45vh;;
         & .record--list--cart--add, .record--wishlist--add {
             @include button;
             font-size:0.4em;
             width: 95%;
-
         }
         & img {
             margin-bottom: 0.3em;
             border-radius: 5px;
-            min-width: 22vw;;
-            max-width: 22vw;
-            max-height:22vw;
-            min-height:22vw;
+            min-width: 23vw;;
+            max-width: 23vw;
+            max-height:23vw;
+            min-height:23vw;
         }
         & .record--name--price {
             width:95%;
@@ -119,7 +126,7 @@
     .carousel--container {
         font-sizE: 1.7em;
         & .record {
-            max-height: 65vh;
+            max-height: 62vh;
         }
     }
 }
