@@ -40,7 +40,7 @@ li {
         color:white;
     }
     font-size: 1.5em;
-    padding:2.7em 0.5em;
+    padding:2.5em 0.5em;
     margin:0;
 }
 .nav--buttons {
@@ -108,8 +108,8 @@ li {
             content: "";
             width:22px;
             top:0px;
-            right:1px;
-            height: 21px;
+            right:0px;
+            height: 22px;
             position: absolute;
             background: linear-gradient(180deg,#2b2b2b,#343434);
             border-radius: 180px;
@@ -171,11 +171,11 @@ li {
         margin-top:1.5em;
     }
     nav h1 {
-        font-size: 1.3em;
-        margin-bottom: 2em;
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
     }
     .nav--item {
-        padding:  2em 1em;
+        padding:  1.9em 1em;
         font-size: 1em;
         margin-left: 2em
     }

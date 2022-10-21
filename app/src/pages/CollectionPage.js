@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link  } from 'react-router-dom'
+import Record from '../components/UI/Record'
 
 export default function Collection(props) {
        
@@ -16,25 +16,21 @@ export default function Collection(props) {
             }
         })
             return (
-                    <div className='record' id={id} key={i}>
-                        <Link to={`/records/${id}`}>
-                        <img className='record--image'                        
-                        src={record.imageUrl}
-                        alt='radiohead'
-                        />
-                        </Link>
-                        <div className='record--details'>
-                            <h3 className='record--name'>{record.name}</h3>
-                            <h3 className='record--artist'>{record.artist}</h3>
-                        </div>
-                        <p className='record--info'>{record.releaseYear}  • 
-                        {record.songCount} songs</p>
-                            <div className='record--buying'>
-                                <p className='record--price'>£{record.price}</p>
-                                <button className='delete--button'style={props.inputThemeStyles} onClick={() => props.deleteFromCollection(i)}>Delete</button>
-                        </div>
-                    </div>
-                )
+                    <Record
+                    key={id} 
+                    record={record}
+                    name={record.name}
+                    artist={record.artist}
+                    id={id}
+                    i={i}
+                    releaseYear={record.releaseYear}
+                    songCount={record.songCount}
+                    price={record.price}
+                    imageUrl={record.imageUrl}
+                    inputThemeStyles={props.inputThemeStyles}
+                    buttonFunction={props.deleteFromWishlist}
+                    buttonText='Delete'/>
+                    )
             })
          
     return (

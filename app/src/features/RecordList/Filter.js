@@ -135,7 +135,7 @@ export default function Filter(props) {
             <button 
             className='reset--button' 
             style={props.inputThemeStyles}
-            onClick={props.resetFilters}>Reset Filters</button>
+            onClick={props.resetFilters}>Reset</button>
         </div>
     </div>
     )

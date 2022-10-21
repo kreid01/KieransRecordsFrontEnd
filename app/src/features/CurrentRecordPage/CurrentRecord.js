@@ -9,7 +9,7 @@ export default function CurrentRecordPage(props) {
     <div className='current--record' id={id} key={id}>
         <img className='current--record--image'                        
         src={recordData[id].imageUrl}
-        alt='radiohead'
+        alt=''
         />
         <div className='current--record--info'>
             <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>{props.recordData[id].quantity} Left</div></h3>
@@ -34,7 +34,7 @@ export default function CurrentRecordPage(props) {
     return (
     <div className='current--record--page' style={props.themeStyles}>
         <div className='current--record--header'>
-            <h1 className='page--header'>{recordData[id].name}</h1>
+            <h1 className='page--header'><strong>{recordData[id].name}</strong></h1>
         </div>
         <div className='current--record--container'>
           {currentRecordData}

@@ -1,13 +1,9 @@
-/* Cart */
 @import 'mixins';
 
 .cart--page {
      height: 100%;
     box-sizing: content-box;
     width: 90%;
-}
-.wishlist--container {
-    min-height:45vh;
 }
 .cart--record {
     margin: 0.75em 1em;
@@ -48,15 +44,6 @@
             }
         }
     } 
-}
-.wishlist--container .page--header{
-    &:before {
-        left: 2em;
-        width: 80px;
-      }
-}
-.wishlist--items .record {
-    margin-bottom: 1em;
 }
 .cart--header .page--header {
     &:before {

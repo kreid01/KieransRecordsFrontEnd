@@ -23,7 +23,7 @@ export default function Record(props) {
         {props.songCount} songs</p>
             
             <button style={props.inputThemeStyles} className='record--list--cart--add' 
-            onClick={() => props.addToCart(props.record, props.id)}>Add to Cart</button>
+            onClick={() => props.buttonFunction(props.record, props.id)}>{props.buttonText}</button>
     </div>
     )
 }

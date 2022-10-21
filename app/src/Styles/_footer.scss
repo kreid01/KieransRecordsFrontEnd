@@ -3,7 +3,7 @@
 .footer--container {
     border-top: 1px solid lightgrey;
     display: flex;
-    font-sizE: 0.5em;
+    font-sizE: 0.4em;
     color: rgba(255, 255, 255, 0.82);
     width: 100vw;
     height: 17vh;
@@ -21,12 +21,13 @@
         margin: auto 0;
     }
     & .signup--container {
+        font-size:0.9em;
         margin: auto 0;
-        max-width:20%;
+        max-width:22%;
         & button {
             @include button;
             height: 2.5em;
-            width: 105%;
+            width: 100%;
         }
         & input {
             font-size: 1em;

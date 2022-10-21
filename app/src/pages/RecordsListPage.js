@@ -5,6 +5,7 @@ import Filter from '../features/RecordList/Filter';
 import Record from '../components/UI/Record'
 
 export default function RecordsList(props) {
+            
             const emptyArr = Array(7).fill('')
             const pageNumberData = emptyArr.map((item, i) =>  {
                 return (
@@ -36,6 +37,7 @@ export default function RecordsList(props) {
                 } else 
                 return (
                    <Record 
+                   key={id}
                    id={id}
                    i={i}
                    name={record.name}
@@ -47,6 +49,8 @@ export default function RecordsList(props) {
                    record={record}
                    addToCart={props.addToCart}
                    inputThemeStyles={props.inputThemeStyles}
+                   buttonText='Add to Cart'
+                   buttonFunction={props.addToCart}
                    />
                 )}
             )
@@ -55,7 +59,7 @@ export default function RecordsList(props) {
         <main className='record--list--page'>
             <header style={props.themeStyles} className='record--list--header'>
                 <h1 className='page--header'>Records</h1>
-                <p>{props.pageNumber}</p>
+                <p className='page--number'>{props.pageNumber}</p>
                 <Link to='/records/new'><button
                 style={props.inputThemeStyles}
                 >New Record</button></Link>

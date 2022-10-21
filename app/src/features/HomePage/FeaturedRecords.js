@@ -1,5 +1,6 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom'
+import Carousel from '../../components/UI/Carousel';
+
 
 export default function FeaturedRecords(props) {
 
@@ -14,24 +15,6 @@ export default function FeaturedRecords(props) {
     
     const featuredRecordMapped = featuredRecords.map(record => {
         const id = props.recordData.indexOf(record)
-        return (
-            <div className='record' id={id} key={id}>
-                <Link to={`/records/${id}`}>
-                <img className='featured--record'                        
-                src={record.imageUrl}
-                alt=''
-                />
-                </Link>
-                <div className='new--record--details'>
-                    <h3 className='new--record--name'>{record.name}</h3>
-                    <h3 className='new--record--artist'>{record.artist}</h3>
-                </div>
-                <p className='record--info'>{record.releaseYear}  • {record.songCount} songs</p>
-                <div className='record--buying'>
-                    <p className='record--price'>£{record.price}</p>
-                </div>
-            </div>
-            )
     })
     
 
@@ -39,7 +22,11 @@ export default function FeaturedRecords(props) {
         <section style={props.themeStyles} className='featured--records'>
         <h2 className='page--header'>Featured Records</h2>
             <div className ='featured--record--container'>
-                {featuredRecordMapped}
+                <Carousel 
+                records={featuredRecords}
+                recordData={props.recordData}
+                inputThemeStyles={props.inputThemeStyles}
+                addToCart={props.addToCart}/>
             </div>
         </section>
     )

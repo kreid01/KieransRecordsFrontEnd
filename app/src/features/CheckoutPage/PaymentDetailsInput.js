@@ -1,5 +1,4 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form'
 
 export default function PaymentDeatilsInput(props) {
 
@@ -16,7 +15,7 @@ export default function PaymentDeatilsInput(props) {
       };
     return (
         <>
-        <Form noValidate validated={props.validated} onSubmit={handleSubmit} className='customer--form'>
+        <form noValidate validated={props.validated} onSubmit={handleSubmit} className='customer--form'>
             <input
             type='text' 
             style={props.inputThemeStyles}
@@ -88,7 +87,7 @@ export default function PaymentDeatilsInput(props) {
             onChange={(e) => props.handleChange(e, props.setFormData)}
             />
             <button class='btn primary-btn' type='submit'>Continue</button>
-            </Form>
+            </form>
             </>
     )
 }

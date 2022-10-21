@@ -8,6 +8,7 @@
 .record--list--header{
     justify-content: space-between;
     display:flex;
+    width: 96%;;
     & .page--header {
         &:before {
             left: 2em;
@@ -15,22 +16,25 @@
         }
     }
         & button {
-        height:50%;
+        min-height:2em;
         align-self: center;
-        background-color: rgb(66, 66, 66);
         border-radius: 5px;
         border:none;
-        color:white;
-        font-size:1em;
-    
+        font-size:0.9em;
+        margin-top:1em;
+        margin-right:1.7em;
         width: 7em;
-        height:2.7em;
         font-family: 'Inter';
         cursor:pointer;
         font-weight: bold;
         &:hover {
             filter:brightness(80%);
         }
+    }
+    & .page--number {
+        margin-top:0.5em;
+        font-size: 1.5em;;
+        align-self: center;
     }
 }
 .record {
@@ -91,24 +95,21 @@
     margin: 0 0.25em;
     font-size: 1.3em;
 }
-.record--list--header button {
-    align-self: center;
-    margin: 1.5em;
-    height:0%;
-}
+
 @media (min-width: 768px) {
     .record--container, .record--collection--container {
         grid-template-columns:  repeat(3, 1fr);
         width: 100%;
         font-size: 0.5em;
         & .record {
+            margin:0.3em;
             border-radius: 5px;;
             padding-bottom:-1em;
             margin-bottom: 1em;
-            min-width: 22vw;
-            max-width: 33vw;;
-            min-height: 46vh;
-            max-height:55vw;
+            min-width: 25vw;
+            max-width: 25vw;;
+            min-height: 50vh;
+            max-height:50vw;
             & .record--name {
                 font-size:1.5em;
             }
@@ -124,20 +125,34 @@
              }
         }
     }
+    .record--list--header{
+            & button {
+            margin-top: 2em;
+            margin-right:-1em;
+            min-height:1.5em;
+            font-size:0.75em;
+            width: 7em;
+        }
+        & .page--number {
+            margin-top:1em;
+            font-size: 1em;
+        }
+    }
 }
 @media (min-width: 1200px) {
     .record--container {
         grid-template-columns:  repeat(4, 1fr);
         & .record {
+            
             padding-bottom:-1em;
-            min-width: 16vw;
-            max-width: 20vw;
+            min-width: 20vw;
+            max-width: 22vw;
             max-height: 20vh;
             & img {
-                min-width: 17vw;;
-                max-width: 17vw;
-                max-height:17vw;
-                min-height: 17vw;
+                min-width: 19vw;;
+                max-width: 19vw;
+                max-height:19vw;
+                min-height: 19vw;
              }
         }
     }
@@ -146,13 +161,16 @@
     .record--container {
         grid-template-columns:  repeat(5, 1fr);
         & .record {
-            min-width: 13vw;
-            max-width: 13vw;
+            min-width: 15vw;
+            max-width: 15vw;
+            max-height:40vh;
+            min-height:40vh;
+            font-sizE: 0.6em;
             & img {
-                min-width: 12vw;;
-                max-width: 12vw;
-                max-height:12vw;
-                min-height: 12vw;
+                min-width: 14vw;;
+                max-width: 14vw;
+                max-height:14vw;
+                min-height: 14vw;
              }
         }
     }
