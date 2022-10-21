@@ -41,6 +41,26 @@
         font-size:0.8em;
     }
 }
+@media (max-width: 768px) {
+    .current--record {
+        font-size: 1.5em;
+        width:90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        & img {
+            margin-bottom: 1em;
+            border-radius: 5px;
+            min-width: 80vw;;
+            max-width: 80vw;
+            max-height:80vw;
+            min-height:80vw;
+        }
+        .current--record--info {
+            width:90%;
+        }
+    }
+}
 
 @media (min-width: 768px) {
     .current--record {

@@ -121,14 +121,6 @@
 .wishlist--add {
     width: 7em;
 }
-.paypal--container {
-    height: 100vh;
-    width: 100vw;
-    & .paypal--button {
-    margin: 0 auto;
-    margin-lefT:1.5em;
-    }
-}
 .checkout--button {
     font-sizE: 0.6em;
 }
@@ -255,7 +247,4 @@
                 margin-top:1em;
             }
         }     
-         .paypal--container {
-            margin-left: 30%;
-         }
 }

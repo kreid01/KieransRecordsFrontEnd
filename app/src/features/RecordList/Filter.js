@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 export default function Filter(props) {
     return (
     // eslint-disable-next-line react/jsx-no-comment-textnodes
     <div className='filter--container'> 
-       <select 
+       <Form.Select 
        style={props.inputThemeStyles}
        className='display--sort--selector'
         onChange={(e) => props.changeSortBy(e)}>
@@ -17,8 +19,8 @@ export default function Filter(props) {
         <option value="Artist <">Artist Decending</option>
         <option value="Record Name >">Record Name Acending</option>
         <option value="Record Name <">Record Name Decending</option>
-        </select>
-        <select 
+        </Form.Select>
+        <Form.Select
         onChange={(e) => props.selectGenre(e)}
         className='filter--select'
         name='genreSelector'
@@ -116,9 +118,9 @@ export default function Filter(props) {
         <option value="IDM">IDM</option>
         <option value="Downbeat">Downtempo</option>
         <option value="Ambient Techno">Ambient Techno</option>
-        </select>
+        </Form.Select>
         <div className='search--container'>
-            <input
+            <Form.Control
                 className='search--input' 
                 style={props.inputThemeStyles}
                 type='text'
@@ -126,16 +128,16 @@ export default function Filter(props) {
                 onChange={(e) => props.changeSearchParams(e)}
                 />
             <Link to ='/searchresults'>
-                <button 
+                <Button 
                 style={props.inputThemeStyles}
                     id='search--button'>
                     Search
-                </button>
+                </Button>
             </Link>
-            <button 
+            <Button 
             className='reset--button' 
             style={props.inputThemeStyles}
-            onClick={props.resetFilters}>Reset</button>
+            onClick={props.resetFilters}>Reset</Button>
         </div>
     </div>
     )

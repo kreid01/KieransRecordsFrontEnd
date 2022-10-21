@@ -2,7 +2,7 @@
 @import "./styles/homeNewRecords";
 @import "./styles/currentRecord";
 @import "./styles/filter";
-@import "./styles/form";
+@import "./styles/newRecordForm";
 @import "./styles/newRecord";
 @import "./styles/recordlist";
 @import "./styles/nav";
@@ -12,6 +12,7 @@
 @import "./styles/profilepage";
 @import './styles/wishlist';
 @import './styles/carousel';
+@import './styles/newCustomerForm';
 
 
 $primary--color: rgb(66, 66, 66);
@@ -25,6 +26,10 @@ body {
 }
 .main {
     margin:0;
+}
+
+.site {
+    height:100vh;
 }
 
 .page--header {

@@ -16,6 +16,7 @@ export default function CheckoutPage(props) {
         <>
         { !isAuthenticated ? ( 
         <PaymentDeatilsInput
+        inputThemeStyles={props.inputThemeStyles}
         validated={props.validated}
         setValidated={props.setValidated}
         customerDetails={props.customerDetails}
@@ -23,6 +24,7 @@ export default function CheckoutPage(props) {
         setFormData={props.setFormData}
         handleChange={props.handleChange}/>  ) : null }
         <PayPal 
+        validated={props.validated}
         customerDetails={props.customerDetails}
         customerData={props.customerDetails}
         formData={props.formData}

@@ -2,7 +2,6 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
@@ -221,13 +220,12 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.price.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
                     required
-                    class='form-control'
-                    />
+                    class='form-control'/>
                     </FloatingLabel>
                     </Form.Group>
                     </Row>
                     <div className='genre--selectors'>
-                    <Form.Select
+                    <select 
                      style={props.inputThemeStyles}
                     type='text' 
                     placeholder='Record Genre'
@@ -237,8 +235,8 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </Form.Select>                
-                    <Form.Select
+                    </select>                
+                    <select 
                      style={props.inputThemeStyles}
                     type='text' 
                     placeholder='Record Genre'
@@ -248,8 +246,8 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </Form.Select>
-                    <Form.Select 
+                    </select>
+                    <select 
                      style={props.inputThemeStyles}
                     type='text' 
                     class='form-control'
@@ -258,7 +256,7 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </Form.Select>
+                    </select>
                     </div>
                     <Button 
                      style={props.inputThemeStyles}

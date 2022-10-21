@@ -147,15 +147,6 @@
   width: 7em;
 }
 
-.paypal--container {
-  height: 100vh;
-  width: 100vw;
-}
-.paypal--container .paypal--button {
-  margin: 0 auto;
-  margin-lefT: 1.5em;
-}
-
 .checkout--button {
   font-sizE: 0.6em;
 }
@@ -275,9 +266,6 @@
     font-size: 1em;
     margin-top: 1em;
   }
-  .paypal--container {
-    margin-left: 30%;
-  }
 }
 .new--records .page--header:before {
   width: 2.9em;
@@ -380,6 +368,26 @@
   filter: brightness(80%);
 }
 
+@media (max-width: 768px) {
+  .current--record {
+    font-size: 1.5em;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .current--record img {
+    margin-bottom: 1em;
+    border-radius: 5px;
+    min-width: 80vw;
+    max-width: 80vw;
+    max-height: 80vw;
+    min-height: 80vw;
+  }
+  .current--record .current--record--info {
+    width: 90%;
+  }
+}
 @media (min-width: 768px) {
   .current--record {
     font-sizE: 0.8em;
@@ -428,52 +436,50 @@
     min-width: 19vw;
   }
 }
+.filter--container {
+  box-sizing: border-box;
+  margin: 1em;
+  max-width: 100vw;
+  display: flex;
+  font-size: 0.5em;
+}
+.filter--container input, .filter--container button, .filter--container select {
+  height: 2em;
+  font-sizE: 1.5em;
+}
+
 .filter--select {
   margin-left: 0.5em;
   margin-right: 0.5em;
   width: 20vw;
   height: 2.3em;
-  align-self: center;
 }
 
 .search--record {
-  align-self: center;
   margin-right: 0;
 }
 
 .display--sort--selector {
-  align-self: center;
   margin-left: 1em;
   width: 20vw;
-  background-color: whitesmoke;
-  margin-bottom: 1em;
   border-radius: 5px;
-  padding: 5px;
   border: none;
   box-shadow: 1px 1px 1px 0 lightgrey;
   height: 2.3em;
 }
 
-.filter--container {
-  box-sizing: border-box;
-  margin: 1em;
-  width: 100vw;
-  display: flex;
-  font-size: 0.75em;
-}
-
 .search--input {
-  height: 2.3em;
-  width: 17vw;
+  width: 20vw;
   border-top-right-radius: 0%;
   border-bottom-right-radius: 0%;
 }
 
+.search--container {
+  display: flex;
+}
+
 #search--button {
-  height: 2.3em;
-  background-color: whitesmoke;
   border-radius: 5px;
-  padding: 5px;
   align-self: center;
   border: none;
   box-shadow: 1px 1px 1px 0 lightgrey;
@@ -483,12 +489,8 @@
 
 .reset--button {
   margin-left: 0.5em;
-  height: 2.3em;
   width: 11vw;
-  background-color: whitesmoke;
-  margin-bottom: 1em;
   border-radius: 5px;
-  padding: 5px;
   border: none;
   box-shadow: 1px 1px 1px 0 lightgrey;
 }
@@ -497,38 +499,41 @@
   .filter--container {
     margin-left: 0;
     max-width: 100vw;
-    font-size: 0.4em;
+    font-size: 0.5em;
   }
-  .reset--button {
-    width: 10vw;
-  }
-  .search--input {
-    width: 22vw;
+  .filter--container input, .filter--container button, .filter--container select {
+    font-sizE: 1em;
   }
 }
 /* Form  */
 .form {
   color: black;
-  font-size: 0.6em;
+  font-size: 0.7em;
+  width: 80%;
+  margin: 0 auto;
+  height: 50vh;
 }
 
 form input, form button, select, input, .search--button {
-  width: 100%;
-  margin-bottom: 1em;
+  max-height: 2em;
+  width: 90%;
+  margin-bottom: 0.6em;
   border-radius: 5px;
-  padding: 5px;
   border: none;
   box-shadow: 1px 1px 1px 0 lightgrey;
   align-self: center;
 }
 
 .genre--selectors {
+  height: 4em;
   display: flex;
   justify-content: space-evenly;
   max-width: 100%;
+  margin-bottom: 1em;
 }
 .genre--selectors select {
-  min-width: 32.5%;
+  height: 3em;
+  min-width: 31.5%;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
@@ -536,21 +541,24 @@ form input, form button, select, input, .search--button {
 .submit--button {
   width: 101%;
 }
+
 @media (min-width: 768px) {
-  .submit--button .data--val--msg {
-    font-size: 3em;
-    color: red;
+  .form {
+    font-size: 0.5em;
+    height: 40vh;
   }
-  .submit--button .data--val--msg li {
-    padding: 0 1.5em;
+  .form input, .form select, .form .search--button {
+    max-height: 3em;
   }
 }
-@media (min-width: 1400px) {
-  .submit--button form {
-    width: 50vw;
-    min-height: 80vh;
-    margin-left: 0.5em;
+@media (min-width: 1200px) {
+  .form {
+    min-height: 70vw;
+    margin-lefT: 1em;
   }
+}
+.preview--record--container {
+  padding-bottom: 3em;
 }
 
 .preview--title {
@@ -833,15 +841,18 @@ ul {
 li {
   list-style: none;
   align-self: center;
+  width: 100%;
+  margin-right: 6%;
 }
 
-.nav--item {
+.nav--item, .nav--item--records {
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 1.5em;
-  padding: 2.5em 0.5em;
+  padding: 2.5em 0em;
   margin: 0;
 }
+
 .nav--item:hover {
   background-color: rgb(56, 56, 56);
 }
@@ -851,8 +862,8 @@ li {
 }
 
 .nav--buttons {
-  margin-left: 10%;
   width: 30%;
+  margin-left: 1.2em;
   display: flex;
 }
 
@@ -1058,10 +1069,10 @@ li {
     font-size: 1.2em;
     margin-bottom: 1.5em;
   }
-  .nav--item {
-    padding: 1.9em 1em;
+  .nav--item, .nav--item--records {
+    padding: 1.9em 0;
     font-size: 1em;
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
   .image--record {
     margin-bottom: 2em;
@@ -1454,7 +1465,7 @@ li {
     padding-bottom: 2em;
     min-width: 25vw;
     max-width: 25vw;
-    max-height: 45vh;
+    max-height: 42vh;
   }
   .slides--container .record p {
     font-size: 0.3em;
@@ -1468,7 +1479,7 @@ li {
     max-height: 2em;
   }
   .slides--container .record h3 {
-    font-size: 0.35em;
+    font-size: 0.32em;
   }
   .slides--container .record .record--list--cart--add, .slides--container .record .record--wishlist--add {
     height: 50%;
@@ -1512,6 +1523,37 @@ li {
     max-height: 65vh;
   }
 }
+.customer--form {
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 1em;
+}
+.customer--form input {
+  max-height: 3em;
+}
+.customer--form .submit--button {
+  max-height: 3em;
+  width: 100%;
+}
+
+.paypal--container {
+  min-width: 80vw;
+  max-width: 80vw;
+  height: 30vh;
+  padding: 1em;
+  margin: 0 auto;
+}
+.paypal--container .paypal--button {
+  min-width: 75vw;
+  max-width: 75vw;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .customer--form {
+    font-size: 0.5em;
+  }
+}
 body {
   margin: 0 0em;
   padding: 0;
@@ -1522,6 +1564,10 @@ body {
 
 .main {
   margin: 0;
+}
+
+.site {
+  height: 100vh;
 }
 
 .page--header {

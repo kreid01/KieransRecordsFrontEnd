@@ -1,0 +1,30 @@
+.customer--form {
+    max-width:80vw;
+    margin: 0 auto;
+    padding:1em;
+    & input {
+        max-height: 3em;
+    }
+    & .submit--button {
+        max-height: 3em;
+        width:100%;
+    }
+}
+.paypal--container {
+    min-width: 80vw;
+    max-width: 80vw;;
+    height:30vh;
+    padding:1em;
+    margin: 0 auto;
+    & .paypal--button {
+    min-width: 75vw;
+    max-width: 75vw;;
+    margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .customer--form {
+        font-size: 0.5em;
+    }
+}

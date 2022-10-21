@@ -360,7 +360,7 @@ React.useEffect(() => {
 },[isAuthenticated]);
 
   return (
-  <>
+  <div className='site' style={themeStyles}>
   <NavBar 
   inputThemeStyles={inputThemeStyles}
   goToCheckout={goToCheckout}
@@ -502,7 +502,7 @@ React.useEffect(() => {
   <Footer 
   inputThemeStyles={inputThemeStyles}
   themeStyles={themeStyles} />
-  </>
+  </div>
   )
 }
 

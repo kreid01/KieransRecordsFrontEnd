@@ -60,9 +60,6 @@ export default function RecordsList(props) {
             <header style={props.themeStyles} className='record--list--header'>
                 <h1 className='page--header'>Records</h1>
                 <p className='page--number'>{props.pageNumber}</p>
-                <Link to='/records/new'><button
-                style={props.inputThemeStyles}
-                >New Record</button></Link>
             </header>
                 <div style={props.themeStyles} className='record--list--container'>
                 <div className='filter--conatiner'>

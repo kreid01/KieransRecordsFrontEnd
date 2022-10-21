@@ -87,12 +87,12 @@
             max-height: 2em;
         }
         &  h3 {
-            font-size: 0.35em;
+            font-size: 0.32em;
         }
         padding-bottom:2em;
         min-width:25vw;
         max-width:25vw;
-        max-height: 45vh;;
+        max-height: 42vh;;
         & .record--list--cart--add, .record--wishlist--add {
             @include button;
             font-size:0.4em;

@@ -31,13 +31,13 @@ export default function NavBar(props) {
         </NavLink>
           <ul>
             <li className='dropdown--menu--main' onClick={handleClick}>
-              <div className='nav--item'>Records</div>
+              <div className='nav--item--records'>Records</div>
               <ul className='dropdown--menu'>
                 <li>
                 <NavLink 
                 className='dropdown--item'
                  end to='/records'>
-                Records
+                All Records
                 </NavLink>
                 </li>
                 <li>

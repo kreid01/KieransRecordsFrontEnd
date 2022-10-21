@@ -23,9 +23,9 @@ export default function PastOrders(props) {
     return (
         <>
         <h3>Your Details</h3>
-        <h2>Your Orders</h2>
         <p>Address {props.customerDetails.addressFirstLine}, {props.customerDetails.addressSecondLine}</p>
         <p>Postcode: {props.customerDetails.postcode}</p>
+        <h2>Your Orders</h2>
         <div className='prev--order--container'>{userPreviousOrders}</div>
         </>
     )

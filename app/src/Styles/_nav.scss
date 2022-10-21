@@ -28,10 +28,17 @@ ul {
 li {
     list-style: none;
     align-self: center;
+    width:100%;
+    margin-right:6%;
 }
-.nav--item {
+.nav--item, .nav--item--records {
     text-decoration: none;
     letter-spacing: 1px;
+    font-size: 1.5em;
+    padding:2.5em 0em;
+    margin:0;
+}
+.nav--item {
     &:hover {
         background-color:rgb(56, 56, 56);
     }
@@ -39,13 +46,11 @@ li {
         text-decoration: none;
         color:white;
     }
-    font-size: 1.5em;
-    padding:2.5em 0.5em;
-    margin:0;
+
 }
 .nav--buttons {
-    margin-left: 10%;
     width:30%;
+    margin-left:1.2em;
     display: flex;
 }
 .image--record {
@@ -164,6 +169,7 @@ li {
       opacity: 1;
       transform: translateY(-2em);
     } 
+    
   }
 .dropdown--item {  
     padding:0.5em;
@@ -225,10 +231,10 @@ li {
         font-size: 1.2em;
         margin-bottom: 1.5em;
     }
-    .nav--item {
-        padding:  1.9em 1em;
+    .nav--item, .nav--item--records {
+        padding:  1.9em 0;
         font-size: 1em;
-        margin-left: 2em
+        margin-left: 0.5em
     }
     .image--record {
         margin-bottom: 2em;
