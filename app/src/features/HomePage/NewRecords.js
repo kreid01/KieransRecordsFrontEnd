@@ -22,8 +22,7 @@ export default function NewRecords(props) {
             price={record.price}
             imageUrl={record.imageUrl}
             inputThemeStyles={props.inputThemeStyles}
-            buttonText='Add to Cart'
-            buttonFunction={props.addToCart}/>
+            addToCart={props.addToCart}/>
             )
         }
     })

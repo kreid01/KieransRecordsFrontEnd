@@ -9,9 +9,9 @@ const blog = [{
     date: '13/10/22',
     content: 'Bladees second studio album of 2022 brings a new musical aestetic from his previous his release. Spiderr incorporates current glitch pop, drill and rage musical trends. The album with its 13 tracks and just over 31 minutes runtime, keeps the listener constantly interested. With the outstanding production from whiteamor and Bladees signature autotune, the album created is very enjoyable and worth the listen.'
 }]
-const blogData = blog.map(post => {
+const blogData = blog.map((post , i)=> {
     return (
-    <div className='post--container'>
+    <div className='post--container' key={i}>
         <h1>{post.title}</h1>
         <div className='post--details--container'>
          <img src={post.imageUrl}  alt=''/>

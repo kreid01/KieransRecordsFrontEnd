@@ -38,7 +38,7 @@ const {user, isAuthenticated} = useAuth0()
 const [customerOrders, setCustomerOrders] = React.useState([])
 const darkTheme = useTheme()
 const themeStyles = {
-  backgroundColor: darkTheme ? '#333': '#CCC',
+  backgroundColor: darkTheme ? '#333': 'whitesmoke',
   color: darkTheme ? '#CCC' : '#333'
 }
 const inputThemeStyles = {
@@ -114,10 +114,11 @@ React.useEffect(() => {
 updatePage(pageNumber, setRecordDataForPaging)}, [pageNumber])
 
 React.useEffect(() =>{
+  if(cart.length >= 1) {
     fetch(`https://localhost:7143/cart/${cartId}`)
     .then(res => res.json())
     .then(data => setCartDataFromAPI(data))
-    .catch(err => console.error(err)) 
+    .catch(err => console.error(err))}
 }, [cart])  
 
 React.useEffect(() => {
@@ -350,7 +351,7 @@ function resetFilters() {
 
 React.useEffect(() => {
    if (isAuthenticated) {getCustomerDetails(user.sub, setCustomerDetails)
-  console.log(customerDetails)}},[cart]);
+}},[isAuthenticated]);
 
 React.useEffect(() => {
   if(isAuthenticated) {
@@ -362,7 +363,6 @@ React.useEffect(() => {
   <>
   <NavBar 
   inputThemeStyles={inputThemeStyles}
-  themeStyles={themeStyles}
   goToCheckout={goToCheckout}
   darkTheme={darkTheme}
   checkout={checkout}

@@ -57,8 +57,8 @@ export default function NavBar(props) {
                 end to='/cart'><img className='cart' src={cartImage} alt='cart'/>
                 <div className='counter'>{props.totalQuantity}</div>
               </NavLink>
-               <LoginButton inputThemeStyles={props.inputThemeStyles}/>
-               <LogoutButton inputThemeStyles={props.inputThemeStyles} />
+               <LoginButton/>
+               <LogoutButton />
                <button className={darkThemeToggle} onClick={toggleTheme} style={props.inputThemeStyles}></button>
             </li>
           </ul>                                              

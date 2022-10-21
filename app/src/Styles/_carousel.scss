@@ -1,5 +1,125 @@
 @import 'mixins';
 
-.slides--container {
+.carousel--container {
+    margin: 0 auto;
     display: flex;
+    & button {
+        height:2.5em;
+        width: 2.5em;
+        margin: 1.5vw;
+        align-self: center;
+        border-radius: 50%;
+        bordeR:none;
+    }
+    padding-bottom:2em;
+}
+.slides--container {
+    padding:0;
+    width:100vw;
+    margin: 5vw;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    & .record {
+    @include record;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    border:none;
+    padding-bottom:2em;
+    min-width:71vw;
+    height: 120vw;;
+    & .record--list--cart--add{
+        @include button;
+        width: 90%;
+        position: absolute;
+        bottom: 2%;
+    }
+    &  .record--wishlist--add {
+        @include button;
+        width:90%;
+        position: absolute;
+        bottom:10%;
+    }
+    & img {
+        margin-bottom: 1em;
+        border-radius: 5px;
+        min-width: 67vw;;
+        max-width: 67vw;
+        max-height:67vw;
+        min-height:67vw;
+    }
+    & .record--name--price {
+        font-sizE:1.2em;
+        width:95%;
+        display: flex;
+        justify-content: space-between;
+    }
+    }
+    & .record--buttons{
+        min-height: 50%;
+    }
+}
+@media (min-width: 768px) {
+    .carousel--container {
+        margin: 0 auto;
+        display: flex;
+        font-size: 1.3em;
+        & button {
+            height:1.4em;
+            width: 1.4em;
+            margin: -.25vw;
+            align-self: center;
+            border-radius: 50%;
+            bordeR:none;
+        }
+        padding-bottom:2em;
+    }
+    .slides--container {
+        margin: 1vw;
+        display: flex;
+        & .record {
+        & p {
+            font-size: 0.3em;
+        }
+        @include record;
+        & button {
+            max-height: 2em;
+        }
+        &  h3 {
+            font-size: 0.35em;
+        }
+        padding-bottom:2em;
+        min-width:25vw;
+        max-width:25vw;
+        max-height: 45vh;;
+        & .record--list--cart--add, .record--wishlist--add {
+            @include button;
+            font-size:0.4em;
+            width: 95%;
+
+        }
+        & img {
+            margin-bottom: 0.3em;
+            border-radius: 5px;
+            min-width: 22vw;;
+            max-width: 22vw;
+            max-height:22vw;
+            min-height:22vw;
+        }
+        & .record--name--price {
+            width:95%;
+            display: flex;
+            justify-content: space-between;
+        }
+        }
+    }
+}
+@media (min-width: 1100px) {
+    .carousel--container {
+        font-sizE: 1.7em;
+        & .record {
+            max-height: 60vh;
+        }
+    }
 }

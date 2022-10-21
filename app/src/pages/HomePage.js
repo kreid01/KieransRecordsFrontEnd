@@ -14,6 +14,7 @@ export default function Home(props) {
             recordData={props.recordData}
             addToCart={props.addToCart}/>
             <FeaturedRecords
+            addToCart={props.addToCart}
             recordDataUnique={props.recordDataUnique} 
             themeStyles={props.themeStyles}
             inputThemeStyles={props.inputThemeStyles}

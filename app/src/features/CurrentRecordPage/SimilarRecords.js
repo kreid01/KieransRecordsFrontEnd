@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import Carousel from "../../components/UI/Carousel";
 
 export default function SimilarRecords(props) {
     
@@ -19,34 +19,18 @@ export default function SimilarRecords(props) {
   
     // eslint-disable-next-line array-callback-return
     const similarRecordsData = similarRecords.map((record, i) => {
-        if (i < 6) {
-        const id = recordData.indexOf(record)
+        if (i < 1) {
         
         // eslint-disable-next-line no-unused-vars, array-callback-return
         return (
-            <div className='record' id={id} key={id}>
-                <Link to={`/records/${id}`}
-                 onClick={window.scrollTo(0, 0)}>
-                <img className='record--image featured--record'                        
-                src={record.imageUrl}
-                alt=''
-                />
-                </Link>
-                <div>
-                    <h3 className='record--name'>{record.name}</h3>
-                    <h3 className='record--artist'>{record.artist}</h3>
-                </div>
-                <div id='similar-record--info--container'>
-                    <p className='record--info'>{record.releaseYear}  • {record.songCount} songs</p>
-                    <div className='record--buying'>
-                        <p className='record--price'>£{record.price}</p>
-                        <button  id='similar--record--cart' style={props.inputThemeStyles} onClick={() => props.addToCart(record, id)}>Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            )
-            }
-        })
+            <Carousel 
+            records={similarRecords}
+            recordData={props.recordData}
+            inputThemeStyles={props.inputThemeStyles}
+            addToCart={props.addToCart}/>
+        )
+        }
+    })
     
 
     return (

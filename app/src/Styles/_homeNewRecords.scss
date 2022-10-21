@@ -13,31 +13,26 @@
     }
 }
 .new--record--container {
-    font-size:2em;
-    padding-bottom: 7em;
-    .record {
-        min-height: 80vh;
-    }
+    displaY:grid;
+    margin: 0 auto;
+    font-size: 1.3em;
 }
 @media(min-width: 768px) {
     .new--record--container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        font-size: 0.7em;
+        font-size: 0.5em;
         & .record  {
             padding-left: 0.5em;;
-            min-height:40vw;
+            min-height:45vw;
             min-width:25vw;; 
             max-width: 25vw;; 
-            max-height: 60vw;        
+            max-height: 45vw;        
             & img {
             max-width:23.5vw;
             min-width:23.5vw;
             max-height:23.5vw;
             min-height:23.5vw;
-            }
-            & button {
-                font-size:0.6em;
             }
         }
     }

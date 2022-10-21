@@ -7,7 +7,6 @@ export default function ProfilePage(props) {
 
     const { user, isAuthenticated, getAccessTokenSilently} = useAuth0();
     const [userMetadata, setUserMetadata] = React.useState(null) 
-   
   
     React.useEffect(() => {
         const getUserMetadata = async () => {
@@ -45,7 +44,7 @@ export default function ProfilePage(props) {
     <h1 className='page--header'>{user.name}</h1>
     <p>{user.email}</p>
     <PastOrders
-    customeOrders={props.customeOrders}
+    customerOrders={props.customerOrders}
     customerDetails={props.customerDetails}
     />
     <h3>Meta</h3>

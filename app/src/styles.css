@@ -1,12 +1,7 @@
-/* Cart */
 .cart--page {
   height: 100%;
   box-sizing: content-box;
-  width: 90%;
-}
-
-.wishlist--container {
-  min-height: 45vh;
+  width: 100%;
 }
 
 .cart--record {
@@ -48,15 +43,6 @@
 }
 .cart--record .cart--record--buying button:hover {
   filter: brightness(80%);
-}
-
-.wishlist--container .page--header:before {
-  left: 2em;
-  width: 80px;
-}
-
-.wishlist--items .record {
-  margin-bottom: 1em;
 }
 
 .cart--header .page--header:before {
@@ -289,23 +275,12 @@
     font-size: 1em;
     margin-top: 1em;
   }
-  .cart--page {
-    padding: 2em;
-  }
   .paypal--container {
     margin-left: 30%;
   }
 }
 .new--records .page--header:before {
   width: 2.9em;
-}
-
-.new--record--container {
-  font-size: 2em;
-  padding-bottom: 7em;
-}
-.new--record--container .record {
-  min-height: 80vh;
 }
 
 .featured--records .page--header {
@@ -317,63 +292,24 @@
   width: 5em;
 }
 
-.featured--record--container, .similar--records, .wishlist--items {
-  box-shadow: 2px 2px 2px 2px rgb(84, 84, 84);
-  border-radius: 10px;
-  display: flex;
-  width: 100%;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  font-size: 1.1em;
-  padding: 0.5em;
-  padding-bottom: 0;
-}
-.featured--record--container .record, .similar--records .record, .wishlist--items .record {
-  padding-left: 0.5em;
-  font-size: 0.75em;
-  margin-right: 0;
-  min-width: 30vw;
-  max-width: 30vw;
-  min-height: 35vw;
-}
-.featured--record--container .record button, .similar--records .record button, .wishlist--items .record button {
-  height: 50%;
-  align-self: center;
-  background-color: rgb(66, 66, 66);
-  border-radius: 5px;
-  border: none;
-  color: white;
-  font-size: 1em;
-  display: block;
-  width: 7em;
-  height: 2.7em;
-  font-family: "Inter";
-  cursor: pointer;
-  font-weight: bold;
-}
-.featured--record--container .record button:hover, .similar--records .record button:hover, .wishlist--items .record button:hover {
-  filter: brightness(80%);
-}
-.featured--record--container .record img, .similar--records .record img, .wishlist--items .record img {
-  max-width: 30vw;
-  min-width: 30vw;
-  min-height: 30vw;
-  max-height: 30vw;
+.new--record--container {
+  displaY: grid;
+  margin: 0 auto;
+  font-size: 1.3em;
 }
 
 @media (min-width: 768px) {
   .new--record--container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    font-size: 0.7em;
+    font-size: 0.5em;
   }
   .new--record--container .record {
     padding-left: 0.5em;
-    min-height: 40vw;
+    min-height: 45vw;
     min-width: 25vw;
     max-width: 25vw;
-    max-height: 60vw;
+    max-height: 45vw;
   }
   .new--record--container .record img {
     max-width: 23.5vw;
@@ -381,50 +317,10 @@
     max-height: 23.5vw;
     min-height: 23.5vw;
   }
-  .new--record--container .record button {
-    font-size: 0.6em;
-  }
-  .featured--record--container, .similar--records, .wishlist--items {
-    margin-left: -1em;
-    padding-right: 1em;
-  }
-  .featured--record--container .record, .similar--records .record, .wishlist--items .record {
-    height: 50vh;
-    padding-bottom: 5em;
-    font-size: 0.5em;
-    margin-right: 0;
-    min-width: 25vw;
-    max-width: 25vw;
-    min-height: 20vw;
-    max-height: 40vw;
-  }
-  .featured--record--container .record img, .similar--records .record img, .wishlist--items .record img {
-    max-width: 25vw;
-    min-width: 25vw;
-    min-height: 25vw;
-    max-height: 25vw;
-  }
 }
 @media (min-width: 1200px) {
   .new--record--container {
     font-size: 0.7em;
-  }
-  .featured--record--container .record, .similar--records .record, .wishlist--items .record {
-    font-size: 0.5em;
-    margin-right: 0;
-    min-width: 13vw;
-    max-width: 13vw;
-    min-height: 20vw;
-    max-height: 20vw;
-  }
-  .featured--record--container .record .record--buying button, .similar--records .record .record--buying button, .wishlist--items .record .record--buying button {
-    font-sizE: 0.6em;
-  }
-  .featured--record--container .record img, .similar--records .record img, .wishlist--items .record img {
-    max-width: 13vw;
-    min-width: 13vw;
-    min-height: 13vw;
-    max-height: 13vw;
   }
 }
 .current--record--page {
@@ -684,7 +580,6 @@ form input, form button, select, input, .search--button {
     padding: 0 1.5em;
   }
 }
-/* New Records */
 .preview--title {
   margin-left: 1em;
 }
@@ -769,7 +664,7 @@ form input, form button, select, input, .search--button {
 
 .record {
   position: relative;
-  margin: 0.5em;
+  margin: 1em auto;
   position: relative;
   displaY: flex;
   flex-direction: column;
@@ -781,9 +676,8 @@ form input, form button, select, input, .search--button {
   min-height: 20vh;
   font-size: 0.8em;
   padding-bottom: 2em;
-  width: 85%;
+  width: 80%;
   height: 100%;
-  margin-left: 1.5em;
   padding-left: 0.7em;
 }
 .record img {
@@ -815,10 +709,10 @@ form input, form button, select, input, .search--button {
 .record img {
   margin-bottom: 1em;
   border-radius: 5px;
-  min-width: 70vw;
-  max-width: 75vw;
-  max-height: 75vw;
-  min-height: 75vw;
+  min-width: 74vw;
+  max-width: 74vw;
+  max-height: 74vw;
+  min-height: 74vw;
 }
 .record .record--name--price {
   width: 98%;
@@ -852,8 +746,8 @@ form input, form button, select, input, .search--button {
 }
 
 .record--container, .collection--record--container {
+  width: 100%;
   displaY: grid;
-  margin: 0 0.25em;
   font-size: 1.3em;
 }
 
@@ -870,8 +764,8 @@ form input, form button, select, input, .search--button {
     margin-bottom: 1em;
     min-width: 25vw;
     max-width: 25vw;
-    min-height: 50vh;
-    max-height: 50vw;
+    min-height: 40vh;
+    max-height: 50vh;
   }
   .record--container .record .record--name, .record--collection--container .record .record--name {
     font-size: 1.5em;
@@ -881,10 +775,10 @@ form input, form button, select, input, .search--button {
   }
   .record--container .record img, .record--collection--container .record img {
     border-radius: 5px;
-    min-width: 22vw;
-    max-width: 22vw;
-    max-height: 22vw;
-    min-height: 22vw;
+    min-width: 23vw;
+    max-width: 23vw;
+    max-height: 23vw;
+    min-height: 23vw;
   }
   .record--list--header button {
     margin-top: 2em;
@@ -906,7 +800,8 @@ form input, form button, select, input, .search--button {
     padding-bottom: -1em;
     min-width: 20vw;
     max-width: 22vw;
-    max-height: 20vh;
+    max-height: 30vh;
+    min-height: 50vh;
   }
   .record--container .record img {
     min-width: 19vw;
@@ -947,7 +842,7 @@ nav {
   display: flex;
   font-size: 0.4em;
   margin: 0;
-  background-color: rgb(66, 66, 66);
+  background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));
   color: white;
   border-bottom: 1px solid rgb(161, 161, 161);
   height: 7vh;
@@ -1106,6 +1001,8 @@ li {
   width: 6em;
   height: 4em;
   margin: 0 1em;
+  background-color: #bfbfbf;
+  color: #343434;
 }
 .auth--btn:hover {
   filter: brightness(80%);
@@ -1121,26 +1018,10 @@ li {
     height: 2em;
   }
   .auth--btn {
-    height: 50%;
-    align-self: center;
-    background-color: rgb(66, 66, 66);
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-size: 1em;
-    display: block;
-    width: 7em;
-    height: 2.7em;
-    font-family: "Inter";
-    cursor: pointer;
-    font-weight: bold;
     font-sizE: 0.89em;
     width: 6em;
     height: 2em;
     margin: 0 1em;
-  }
-  .auth--btn:hover {
-    filter: brightness(80%);
   }
   ul {
     width: 100%;
@@ -1201,7 +1082,7 @@ li {
 .footer--container {
   border-top: 1px solid lightgrey;
   display: flex;
-  font-sizE: 0.4em;
+  font-sizE: 0.5em;
   color: rgba(255, 255, 255, 0.82);
   width: 100vw;
   height: 17vh;
@@ -1213,6 +1094,9 @@ li {
   max-width: 20%;
   margin: auto 0;
 }
+.footer--container h2 {
+  font-size: 1.6em;
+}
 .footer--container h3 {
   font-size: 1em;
 }
@@ -1220,9 +1104,8 @@ li {
   margin: auto 0;
 }
 .footer--container .signup--container {
-  font-size: 0.9em;
   margin: auto 0;
-  max-width: 22%;
+  max-width: 20%;
 }
 .footer--container .signup--container button {
   height: 50%;
@@ -1249,6 +1132,11 @@ li {
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .footer--container {
+    font-sizE: 0.3em;
+  }
+}
 .blog--page {
   margin: 0;
   height: 75vh;
@@ -1391,6 +1279,212 @@ li {
   font-size: 0.8em;
 }
 
+.wishlist--container {
+  min-height: 50vh;
+}
+
+.wishlist--container .page--header:before {
+  left: 2em;
+  width: 80px;
+}
+
+.carousel--container {
+  margin: 0 auto;
+  display: flex;
+  padding-bottom: 2em;
+}
+.carousel--container button {
+  height: 2.5em;
+  width: 2.5em;
+  margin: 1.5vw;
+  align-self: center;
+  border-radius: 50%;
+  bordeR: none;
+}
+
+.slides--container {
+  padding: 0;
+  width: 100vw;
+  margin: 5vw;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.slides--container .record {
+  position: relative;
+  displaY: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(150, 150, 150, 0.7);
+  border-right: 1px solid rgba(150, 150, 150, 0.7);
+  border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+  padding: 0.5em;
+  min-width: 25vh;
+  min-height: 20vh;
+  font-size: 0.8em;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  border: none;
+  padding-bottom: 2em;
+  min-width: 71vw;
+  height: 120vw;
+}
+.slides--container .record img {
+  min-height: 25vh;
+  min-width: 25vh;
+  border: 0.5px solid grey;
+}
+.slides--container .record .record--list--cart--add {
+  height: 50%;
+  align-self: center;
+  background-color: rgb(66, 66, 66);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 1em;
+  display: block;
+  width: 7em;
+  height: 2.7em;
+  font-family: "Inter";
+  cursor: pointer;
+  font-weight: bold;
+  width: 90%;
+  position: absolute;
+  bottom: 2%;
+}
+.slides--container .record .record--list--cart--add:hover {
+  filter: brightness(80%);
+}
+.slides--container .record .record--wishlist--add {
+  height: 50%;
+  align-self: center;
+  background-color: rgb(66, 66, 66);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 1em;
+  display: block;
+  width: 7em;
+  height: 2.7em;
+  font-family: "Inter";
+  cursor: pointer;
+  font-weight: bold;
+  width: 90%;
+  position: absolute;
+  bottom: 10%;
+}
+.slides--container .record .record--wishlist--add:hover {
+  filter: brightness(80%);
+}
+.slides--container .record img {
+  margin-bottom: 1em;
+  border-radius: 5px;
+  min-width: 67vw;
+  max-width: 67vw;
+  max-height: 67vw;
+  min-height: 67vw;
+}
+.slides--container .record .record--name--price {
+  font-sizE: 1.2em;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+.slides--container .record--buttons {
+  min-height: 50%;
+}
+
+@media (min-width: 768px) {
+  .carousel--container {
+    margin: 0 auto;
+    display: flex;
+    font-size: 1.3em;
+    padding-bottom: 2em;
+  }
+  .carousel--container button {
+    height: 1.4em;
+    width: 1.4em;
+    margin: -0.25vw;
+    align-self: center;
+    border-radius: 50%;
+    bordeR: none;
+  }
+  .slides--container {
+    margin: 1vw;
+    display: flex;
+  }
+  .slides--container .record {
+    position: relative;
+    displaY: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(150, 150, 150, 0.7);
+    border-right: 1px solid rgba(150, 150, 150, 0.7);
+    border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+    padding: 0.5em;
+    min-width: 25vh;
+    min-height: 20vh;
+    font-size: 0.8em;
+    padding-bottom: 2em;
+    min-width: 25vw;
+    max-width: 25vw;
+    max-height: 45vh;
+  }
+  .slides--container .record p {
+    font-size: 0.3em;
+  }
+  .slides--container .record img {
+    min-height: 25vh;
+    min-width: 25vh;
+    border: 0.5px solid grey;
+  }
+  .slides--container .record button {
+    max-height: 2em;
+  }
+  .slides--container .record h3 {
+    font-size: 0.35em;
+  }
+  .slides--container .record .record--list--cart--add, .slides--container .record .record--wishlist--add {
+    height: 50%;
+    align-self: center;
+    background-color: rgb(66, 66, 66);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 1em;
+    display: block;
+    width: 7em;
+    height: 2.7em;
+    font-family: "Inter";
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.4em;
+    width: 95%;
+  }
+  .slides--container .record .record--list--cart--add:hover, .slides--container .record .record--wishlist--add:hover {
+    filter: brightness(80%);
+  }
+  .slides--container .record img {
+    margin-bottom: 0.3em;
+    border-radius: 5px;
+    min-width: 22vw;
+    max-width: 22vw;
+    max-height: 22vw;
+    min-height: 22vw;
+  }
+  .slides--container .record .record--name--price {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1100px) {
+  .carousel--container {
+    font-sizE: 1.7em;
+  }
+  .carousel--container .record {
+    max-height: 60vh;
+  }
+}
 body {
   margin: 0 0em;
   padding: 0;

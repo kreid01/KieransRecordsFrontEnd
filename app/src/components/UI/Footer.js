@@ -4,7 +4,7 @@ export default function Fotter(props) {
     return (
         <div className='footer--container' style={props.themeStyles}>
              <div className='company-container'>
-                <h2>KR Records</h2>
+                <h2><strong>KR Records</strong></h2>
                 <p>KR records, continuously supplying your favorite for desriable prices.</p>
             </div>  
             <div className='contact--container'>

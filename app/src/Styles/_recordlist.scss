@@ -39,12 +39,11 @@
 }
 .record {
     position: relative;
-    margin: 0.5em;
+    margin: 1em auto;
     @include record;
     padding-bottom:2em;
-    width:85%;
+    width:80%;
     height: 100%;
-    margin-left: 1.5em;
     padding-left:0.7em;
     & .record--list--cart--add {
         @include button;
@@ -55,10 +54,10 @@
     & img {
         margin-bottom: 1em;
         border-radius: 5px;
-        min-width: 70vw;;
-        max-width: 75vw;
-        max-height:75vw;
-        min-height: 75vw;
+        min-width: 74vw;;
+        max-width: 74vw;
+        max-height:74vw;
+        min-height: 74vw;
     }
     & .record--name--price {
         width:98%;
@@ -91,8 +90,8 @@
     height: 2.5em;
 }
 .record--container, .collection--record--container{
+    width: 100%;
     displaY:grid;
-    margin: 0 0.25em;
     font-size: 1.3em;
 }
 
@@ -108,8 +107,8 @@
             margin-bottom: 1em;
             min-width: 25vw;
             max-width: 25vw;;
-            min-height: 50vh;
-            max-height:50vw;
+            min-height: 40vh;
+            max-height:50vh;
             & .record--name {
                 font-size:1.5em;
             }
@@ -118,10 +117,10 @@
             }
             & img {
                 border-radius: 5px;
-                min-width: 22vw;;
-                max-width: 22vw;
-                max-height:22vw;
-                min-height: 22vw;
+                min-width: 23vw;;
+                max-width: 23vw;
+                max-height:23vw;
+                min-height: 23vw;
              }
         }
     }
@@ -147,7 +146,8 @@
             padding-bottom:-1em;
             min-width: 20vw;
             max-width: 22vw;
-            max-height: 20vh;
+            max-height: 30vh;
+            min-height:50vh;
             & img {
                 min-width: 19vw;;
                 max-width: 19vw;

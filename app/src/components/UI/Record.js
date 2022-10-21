@@ -10,6 +10,7 @@ export default function Record(props) {
         <img className='record--image'                        
         src={props.imageUrl}
         alt=''
+        onClick={() => window.scrollTo(0, 0)}
         />
         </Link>
         <div className='record--details'>
@@ -21,9 +22,15 @@ export default function Record(props) {
         </div>
         <p className='record--info'>{props.releaseYear}  • 
         {props.songCount} songs</p>
-            
+            {(props.isFromCollection) ?
+             <button className='record--list--cart--add' style={props.inputThemeStyles}
+            onClick={() => props.deleteFromCollection(props.id)}>Delete from Collection</button> : 
             <button style={props.inputThemeStyles} className='record--list--cart--add' 
-            onClick={() => props.buttonFunction(props.record, props.id)}>{props.buttonText}</button>
+            onClick={() => props.addToCart(props.record, props.id)}>Add to Cart</button>}
+            {(props.isFromWishlist) ? <button 
+            style={props.inputThemeStyles} 
+            className='record--wishlist--add'
+            onClick={() => props.deleteFromWishlist(props.record, props.id)}>Delete from wishlist</button>: null}
     </div>
     )
 }

@@ -5,11 +5,11 @@ export default function PastOrders(props) {
 
     const previousOrders = []
  
-
+    if(props.customerOrders) {
     props.customerOrders.map(details => {
       details.orderContents.map(order => {
         previousOrders.push(order)
-      })})
+      })})}
  
     const userPreviousOrders = previousOrders.map(order => {
       console.log(order)  

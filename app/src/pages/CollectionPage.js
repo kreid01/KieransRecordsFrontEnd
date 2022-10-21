@@ -28,8 +28,8 @@ export default function Collection(props) {
                     price={record.price}
                     imageUrl={record.imageUrl}
                     inputThemeStyles={props.inputThemeStyles}
-                    buttonFunction={props.deleteFromWishlist}
-                    buttonText='Delete'/>
+                    deleteFromCollection={props.deleteFromCollection}
+                    isFromCollection={true}/>
                     )
             })
          

@@ -6,7 +6,7 @@ export default function LoginButton(props) {
 
     return (
         !isAuthenticated && (
-        <button  style={props.inputThemeStyles} className='auth--btn' onClick={() => loginWithRedirect()}>
+        <button className='auth--btn' onClick={() => loginWithRedirect()}>
             Login
         </button> )
     )

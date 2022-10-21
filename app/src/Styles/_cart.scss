@@ -1,9 +1,9 @@
 @import 'mixins';
 
 .cart--page {
-     height: 100%;
+    height: 100%;
     box-sizing: content-box;
-    width: 90%;
+    width: 100%;
 }
 .cart--record {
     margin: 0.75em 1em;
@@ -255,9 +255,6 @@
                 margin-top:1em;
             }
         }     
-        .cart--page {
-            padding:2em;
-        }
          .paypal--container {
             margin-left: 30%;
          }

@@ -37,7 +37,7 @@ export default function RecordsList(props) {
                 } else 
                 return (
                    <Record 
-                   key={id}
+                   key={i}
                    id={id}
                    i={i}
                    name={record.name}
