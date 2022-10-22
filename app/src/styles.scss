@@ -1,18 +1,18 @@
 @import "./styles/cart";
-@import "./styles/homeNewRecords";
-@import "./styles/currentRecord";
-@import "./styles/filter";
-@import "./styles/newRecordForm";
-@import "./styles/newRecord";
-@import "./styles/recordlist";
-@import "./styles/nav";
-@import "./styles/collections";
-@import "./styles/footer";
-@import "./styles/blog";
-@import "./styles/profilepage";
-@import './styles/wishlist';
-@import './styles/carousel';
-@import './styles/newCustomerForm';
+@import "./styles/pages/homeNewRecords";
+@import "./styles/pages/currentRecord";
+@import "./styles/components/filter";
+@import "./styles/forms/newRecordForm";
+@import "./styles/pages/recordlist";
+@import "./styles/components/nav";
+@import "./styles/pages/collections";
+@import "./styles/components/footer";
+@import "./styles/pages/blog";
+@import "./styles/pages/profilepage";
+@import './styles/pages/wishlist';
+@import './styles/components/carousel';
+@import './styles/forms/newCustomerForm';
+@import './styles/components/cartDropdown';
 
 
 $primary--color: rgb(66, 66, 66);

@@ -116,11 +116,11 @@ export default function NewRecordForm(props) {
     </>
 
     return (
-            <div>
+            <div className='new--record--form'>
             <h1 className='page--header'>New Record</h1>
             <Form className='form' noValidate validated={validated} onSubmit={handleSubmit}>
-                    <Row className='mb-3'>
-                    <Form.Group as={Col} md='6' controlId='validateCustom01'>
+                    <Row className='mb-6'>
+                    <Form.Group as={Col} md='6'>
                     <FloatingLabel
                     controlId='floatingInput'
                     label='Ablum title'
@@ -156,22 +156,24 @@ export default function NewRecordForm(props) {
                      </FloatingLabel>
                     </Form.Group>
                     </Row>
-                    <FloatingLabel
-                    controlId='floatingInput'
-                    label='Image URL'
-                    className='mb-3'>
-                    <Form.Control
-                     style={props.inputThemeStyles}
-                    type='text' 
-                    name='imageUrl'
-                    placeholder=' '
-                    value={props.newRecord.imageUrl.value}
-                    onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    pattern="/(https?:\/\/.*\.(?: png|jpg))/i"
-                    required
-                    class='form-control'/>
-                    <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>
-                    </FloatingLabel>
+                        <Form.Group as={Col} md={12}>
+                        <FloatingLabel
+                        controlId='floatingInput'
+                        label='Image URL'
+                        className='mb-3'>
+                        <Form.Control
+                        style={props.inputThemeStyles}
+                        type='text' 
+                        name='imageUrl'
+                        placeholder=' '
+                        value={props.newRecord.imageUrl.value}
+                        onChange={(e) => props.handleChange(e, props.setNewRecord)}
+                        pattern="/(https?:\/\/.*\.(?: png|jpg))/i"
+                        required
+                        class='form-control'/>
+                        <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>
+                        </FloatingLabel>
+                    </Form.Group>
                     <Row>
                     <Form.Group as={Col} md='4'>
                     <FloatingLabel
@@ -192,12 +194,12 @@ export default function NewRecordForm(props) {
                     <Form.Group as={Col} md='4'>
                     <FloatingLabel
                     controlId='floatingInput'
-                    label='image URL'
+                    label='Song Count'
                     className='mb-3'>
                     <Form.Control 
                      style={props.inputThemeStyles}
                     type='number' 
-                    placeholder=''
+                    placeholder=' '
                     name='songCount'
                     value={props.newRecord.songCount.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
@@ -209,7 +211,7 @@ export default function NewRecordForm(props) {
                     <Form.Group as={Col} md='4'>
                     <FloatingLabel
                     controlId='floatingInput'
-                    label='image URL'
+                    label='Price'
                     className='mb-3'>
                     <Form.Control 
                      style={props.inputThemeStyles} 

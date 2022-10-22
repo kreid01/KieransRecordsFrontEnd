@@ -1,0 +1,21 @@
+.cart--container {
+    position: relative;
+}
+.cart--dropdown {
+    position:absolute;
+    background:black;
+    top:14em;
+    right:3em;
+    min-height:11em;
+    width: 50em;
+    z-index: 10;
+    padding:2em;
+    font-size:0.8em;
+}
+.cart--link {
+    font-size: 3em;
+    &:visited, &:link {
+        color:white;
+        text-decoration: none;
+    }
+}

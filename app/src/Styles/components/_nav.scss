@@ -1,4 +1,4 @@
-@import 'mixins';
+@import '../mixins';
 nav h1 {
     font-sizE:2.3em;
     align-self: center;
@@ -49,8 +49,8 @@ li {
 
 }
 .nav--buttons {
-    width:30%;
-    margin-left:1.2em;
+    min-width:30%;
+    margin-left:1.5em;
     display: flex;
 }
 .image--record {
@@ -64,8 +64,6 @@ li {
 .cart--container {
     align-self: flex-end;
     position: relative;
-    margin-left: -3em;
-    margin-right: 0.2em;
 }
 .counter {
     background-color: rgb(255, 220, 220);
@@ -88,7 +86,8 @@ li {
     margin:0;
     background-color: lightgrey;
     border-radius: 5px;
-
+    padding: 0.5em;
+    border-radius: 5px;
 }
 
 .home--link {
@@ -123,7 +122,7 @@ li {
 }
 .toggle-dark--mode--light {
     align-self: center;
-    width:9em;
+    width:13em;
     height:4em;
     position: relative;
     display: block;
@@ -144,7 +143,7 @@ li {
       }
 }
 .logo--container {
-    margin: 1em 1em 0 1.5em;
+    margin:1em;
     displaY:flex;
 }
 .dropdown--menu--main {
@@ -185,7 +184,8 @@ li {
     font-sizE:0.9em;
     width:6em;
     height:4em;
-    margin: 0 1em;
+    margin-left: -3em;
+    margin-right: 1em;;
     background-color: #bfbfbf;
     color:#343434;
 }

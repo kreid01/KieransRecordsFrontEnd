@@ -1,5 +1,5 @@
 /* Record */
-@import "./mixins";
+@import "../mixins";
 
 .record--list--page {
     height:100%;
@@ -38,13 +38,12 @@
     }
 }
 .record {
+    @include record;
     position: relative;
     margin: 1em auto;
-    @include record;
     padding-bottom:2em;
     width:80%;
     height: 100%;
-    padding-left:0.7em;
     & .record--list--cart--add {
         @include button;
         width: 95%;
@@ -163,7 +162,7 @@
         & .record {
             min-width: 15vw;
             max-width: 15vw;
-            max-height:40vh;
+            max-height:45vh;
             min-height:40vh;
             font-sizE: 0.6em;
             & img {

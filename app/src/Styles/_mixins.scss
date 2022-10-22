@@ -29,6 +29,7 @@
     min-height:20vh;
     font-size: 0.8em;
     transition: scale 500ms ease-in-out;
+    z-index:1;
     &:after {
         content: '';
         display: block;
@@ -38,6 +39,7 @@
         bottom: 0em;
         border: 3px solid pink;;
         transition: width 800ms ease-in-out;
+        z-index: -1;
     }
     &:after {
         content: '';
@@ -50,6 +52,7 @@
         transition: width 800ms ease-in-out;
     }
     & img {
+
     min-height:25vh;
     min-width:25vh;
     border: 0.5px solid grey;

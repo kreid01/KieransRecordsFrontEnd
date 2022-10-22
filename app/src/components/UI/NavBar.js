@@ -7,6 +7,7 @@ import LogoutButton from '../buttons/LogoutButton';
 import Profile from '../buttons/Profile'
 import recordImage from '../../assets/record.png'
 import cartImage from '../../assets/cart-shopping-solid.svg'
+import CartDropdwon from './CartDropdown';
 
 export default function NavBar(props) {
 
@@ -22,15 +23,15 @@ export default function NavBar(props) {
 
     return (
         <header className='nav--bar'>
-        <nav style={props.themeStyles}>
+        <nav>
         <NavLink end to='/' className='home--link'>
           <div className='logo--container'>
-            <h1 style={props.themeStyles}>KR Records</h1>
+            <h1 >KR Records</h1>
             <img className='image--record' src={recordImage} alt='record'></img>
           </div>
         </NavLink>
           <ul>
-            <li className='dropdown--menu--main' onClick={handleClick}>
+            <li className='dropdown--menu--main'>
               <div className='nav--item--records'>Records</div>
               <ul className='dropdown--menu'>
                 <li>
@@ -64,15 +65,28 @@ export default function NavBar(props) {
             </NavLink>
             </li>
             {isAuthenticated && <Profile /> }
+           
             <li className='nav--buttons'>
-              <NavLink
-                onClick={(props.checkout)? props.goToCheckout : ''}
-                className='cart--container'
-                end to='/cart'><img className='cart' src={cartImage} alt='cart'/>
-                <div className='counter'>{props.totalQuantity}</div>
-              </NavLink>
-               <LoginButton/>
-               <LogoutButton />
+            <LoginButton/>
+            <LogoutButton />
+            <div className='cart--container' onClick={handleClick}>
+               <img className='cart' src={cartImage} alt='cart'/>
+            <div className='counter'>{props.totalQuantity}</div>
+                </div>
+              {open ? (<CartDropdwon
+                inputThemeStyles={props.inputThemeStyles}
+                goToCheckout={props.goToCheckout}
+                darkTheme={props.darkTheme}
+                checkout={props.checkout}
+                totalQuantity={props.totalQuantity}
+                totalPrice={props.totalPrice}
+                addToWishlist={props.addToWishlist}
+                addToCart={props.ddToCart}
+                decrement={props.decrement}
+                deleteFromCart={props.deleteFromCart}
+                themeStyles={props.themeStyles}
+              cart={props.cart}
+              recordData={props.recordData}/>) : null}
                <button className={darkThemeToggle} onClick={toggleTheme} style={props.inputThemeStyles}></button>
             </li>
           </ul>                                              

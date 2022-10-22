@@ -1,10 +1,17 @@
 import React from 'react'; 
+import { generatePath } from 'react-router-dom';
 
 export default function CurrentRecordPage(props) {
 
     const recordData = props.recordData
     const id = props.id
 
+    const genresData = recordData[id].genres.map(genre  => {
+        if(genre !== "undefined") {
+        return (
+         <div className="genre">{genre}</div>
+        )}
+    })
     const currentRecordData =
     <div className='current--record' id={id} key={id}>
         <img className='current--record--image'                        
@@ -15,7 +22,7 @@ export default function CurrentRecordPage(props) {
             <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>{props.recordData[id].quantity} Left</div></h3>
             <p className='current--record--details'>{recordData[id].releaseYear}  • {props.recordData[id].songCount} songs </p>
             <div className='current--record-genres'>
-                {recordData[id].genres.join(', ')}
+                {genresData}
             </div>
             <p className='current--record--price'>£{recordData[id].price}</p>
             <div className='current--record--buying'>

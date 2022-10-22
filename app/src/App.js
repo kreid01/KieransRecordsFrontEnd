@@ -364,9 +364,17 @@ React.useEffect(() => {
   <NavBar 
   inputThemeStyles={inputThemeStyles}
   goToCheckout={goToCheckout}
+  cart={cart}
+  recordData={recordData}
   darkTheme={darkTheme}
   checkout={checkout}
-  totalQuantity={totalQuantity}/>
+  totalQuantity={totalQuantity}
+  totalPrice={totalPrice}
+  addToWishlist={addToWishlist}
+  addToCart={addToCart}
+  decrement={decrement}
+  deleteFromCart={deleteFromCart}
+  themeStyles={themeStyles}/>
   <div className='page--container' style={themeStyles}>
   <div className='page'>
   <Routes>
