@@ -1,3 +1,27 @@
-.profile--page {
-    font-size: 0.8em;
+.profile--page--container {
+    margin:1em;
+    font-size: 1em;
+}
+.profile--details {
+    margin-bottom: 1em;
+    & p {
+        margin:0;
+    }
+}
+.prev--order--albums {
+    display:flex;
+}
+.prev--order--details {
+    background: pink;
+    color: black;
+    margin: 0.5em 0;
+    margin-right:1em;
+    & strong {
+        margin-right: 0.3em;
+    }
+}
+@media (min-width: 768px) {
+    .profile--page--container {
+        font-sizE: 0.7em;
+    }
 }

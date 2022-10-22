@@ -42,26 +42,28 @@ export default function ProfilePage(props) {
     
         return (
     <div className='profile--page'>
-    <h1 className='page--header'>{user.name}</h1>
-    <p>{user.email}</p>
-    <PastOrders
-    customerOrders={props.customerOrders}
-    customerDetails={props.customerDetails}
-    />
-    <h3>Meta</h3>
-    {userMetadata ?
-      (<pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-        ) : (
-            "No user metadata defined"
-        )}
-        <Wishlist
-        themeStyles={props.themeStyles}
-        inputThemeStyles={props.inputThemeStyles}
+        <h1 className='page--header'>{user.name}</h1>
+        <div className='profile--page--container'>
+        <PastOrders
+        customerOrders={props.customerOrders}
+        customerDetails={props.customerDetails}
         recordData={props.recordData}
-        cart={props.cart}
-        wishlist={props.wishlist}
-        addToCart={props.addToCart}
-        deleteFromWishlist={props.deleteFromWishlist}/>
+        />
+        <h3>Meta</h3>
+        {userMetadata ?
+          (<pre>{JSON.stringify(userMetadata, null, 2)}</pre>
+            ) : (
+                "No user metadata defined"
+            )}
+        </div>
+            <Wishlist
+            themeStyles={props.themeStyles}
+            inputThemeStyles={props.inputThemeStyles}
+            recordData={props.recordData}
+            cart={props.cart}
+            wishlist={props.wishlist}
+            addToCart={props.addToCart}
+            deleteFromWishlist={props.deleteFromWishlist}/>
     </div>
     )
 }}

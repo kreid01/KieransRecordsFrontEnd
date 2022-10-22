@@ -40,6 +40,9 @@ form input, form button, select, input, .search--button {
     width: 101%;
 }
 @media( min-width: 768px) {
+    .new--record--page {
+        display:flex;
+    }
     .form {
         font-size: 0.5em;
         height:40vh;

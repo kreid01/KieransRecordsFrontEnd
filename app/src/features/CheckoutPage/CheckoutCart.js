@@ -37,12 +37,11 @@ export default function CheckoutCart(props) {
 
 
         return (
-            <div className='cart--record' id={id} key={i}>
+            <div className='cart--record' style={props.inputThemeStyles} id={id} key={i}>
                 <Link to={`/records/${id}`}>
                     <img className='cart--record--img'                        
                     src={record.imageUrl}
                     alt={record.name}
-                    onClick={props.handleClick}
                     />
                 </Link>
                 <div className='cart--item--info'>
@@ -52,9 +51,12 @@ export default function CheckoutCart(props) {
                     </div>
                     <div className='cart--record--buying'>
                         <button 
+                        style={props.inputThemeStyles}
                         onClick={() => props.decrement(i, id)}><i class="fa-solid fa-minus"></i></button>
                         <p className='cart--quantity'>{quantityOfRecord}</p>
-                        <button  onClick={() => props.addToCart(record, id)}><i class="fa-solid fa-plus"></i></button>
+                        <button  
+                        style={props.inputThemeStyles}
+                        onClick={() => props.addToCart(record, id)}><i class="fa-solid fa-plus"></i></button>
                         <p className='cart--record--price'>£{record.totalPrice.toFixed(2)}</p>
                     </div>
                 </div>

@@ -503,6 +503,7 @@ React.useEffect(() => {
       addToCart={addToCart}
       setCustomerDetails={setCustomerDetails}
       deleteFromWishlist={deleteFromWishlist}
+      inputThemeStyles={inputThemeStyles}
       addToWishlist={addToWishlist}
       wishlist={wishlist} />}></Route>
       <Route path='*' element={<NotFoundPage />}></Route>

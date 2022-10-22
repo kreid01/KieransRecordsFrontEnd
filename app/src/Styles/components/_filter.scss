@@ -7,7 +7,7 @@
     display:flex;
     font-size:0.5em;
     & input, button, select {
-        height:2.5em;
+        max-height:2.5em;
         font-sizE:1.5em;
     }
 }
@@ -44,6 +44,7 @@
     box-shadow: 1px 1px 1px 0 lightgrey;
     border-top-left-radius: 0%;
     border-bottom-left-radius: 0%;
+    height: 2.5em;
 }
 .reset--button {
     margin-left: 0.5em;
@@ -61,5 +62,8 @@
             & input, button, select {
                 font-sizE:1em;
             }
+        #search--button {
+            height: 2.4em;
+         }
     }
 }

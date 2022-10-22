@@ -7,9 +7,9 @@ import postOrder from '../../services/orders/postOrder';
 
 export default function PayPal(props) {
     
+    
     const { user, isAuthenticated } = useAuth0()
     const paypal = React.useRef()
-    console.log(props.formData)
 
     const updateDatabase = () => props.cart.map(record => {
             updateRecord(record)

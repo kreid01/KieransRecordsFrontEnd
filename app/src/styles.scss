@@ -27,14 +27,15 @@ body {
 }
 .main {
     margin:0;
+   
 }
-
 .site {
     height:100vh;
 }
-
+.page--container {
+    padding-top:9vh;
+}
 .page--header {
-    margin-top:0;
     padding-top:0.5em;
     padding-left:0.5em;
     margin-bottom:0;
@@ -71,6 +72,6 @@ body {
 }
 @media (min-width: 1000px) {
     .page {
-        margin: 0 1em;
+        margin: 0 sem;
         }
     }

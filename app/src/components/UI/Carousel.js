@@ -16,6 +16,7 @@ export default function Carousel(props) {
             current === length - 2 ? 1 : current === length -  1 ?
            2 : current + 3);
         };  
+    
 
     const prevSlide = () => {
         setCurrent(current === 0 ? length - 1 : current - 1);

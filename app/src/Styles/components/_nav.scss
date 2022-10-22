@@ -8,6 +8,7 @@ nav h1 {
 }
 nav {
     width: 100%;
+    position: fixed;
     display: flex;
     font-size:0.4em;
     margin:0;
@@ -15,10 +16,11 @@ nav {
     color:white;
     border-bottom: 1px solid rgb(161, 161, 161);
     height: 7vh;
+    z-index: 10;
 }
 ul {
     display:flex;
-    width:72%;
+    width:100%;
     justify-content: space-between;
     align-items: center;
     margin-left:-4.7em;
@@ -52,6 +54,7 @@ li {
     min-width:30%;
     margin-left:1.5em;
     display: flex;
+    justify-content: flex-end;
 }
 .image--record {
     margin-bottom:1em;
@@ -111,10 +114,10 @@ li {
         cursor: pointer;
         &:after {
             content: "";
-            width:22px;
+            width:21px;
             top:0px;
             right:0px;
-            height: 22px;
+            height: 21px;
             position: absolute;
             background: linear-gradient(180deg,#2b2b2b,#343434);
             border-radius: 180px;
@@ -133,7 +136,7 @@ li {
     cursor: pointer;
     &:after {
         content: "";
-        width:22px;
+        width:21px;
         top:0px;
         lefT:1px;
         height: 21px;
@@ -178,8 +181,6 @@ li {
         color:whitesmoke
     }
 }
-
-
 .auth--btn {
     @include button;
     font-sizE:0.9em;
@@ -195,7 +196,7 @@ li {
         height:6em;
         font-size:1em;
         margin: 0.5em 0;
-        left:1em;
+        left:0.7em;
         z-index: 1;
         padding: 0.5em;
         border:1px solid #343434;
@@ -251,5 +252,8 @@ li {
     }
     .cart--container {
         scale: 1.1;
+    }
+    .nav--buttons {
+        margin-right: 0em;
     }
 }
