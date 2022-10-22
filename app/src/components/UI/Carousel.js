@@ -4,10 +4,18 @@ import Record from './Record'
 export default function Carousel(props) {
 
     const [current, setCurrent] = React.useState(0);
+    const [secondSlide, setSecondSlide] = React.useState(1);
+    const [thirdSlide, setThirdSlide] = React.useState(2)
     const length = props.records.length;
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
+        setSecondSlide(current === length - 2 ? 0 : current === length - 1 ?
+           1 :  current + 2);
+         setThirdSlide(current === length - 3 ? 0 : 
+            current === length - 2 ? 1 : current === length -  1 ?
+           2 : current + 3);
+        console.log(current, secondSlide, thirdSlide)
         };  
 
     const prevSlide = () => {
@@ -19,17 +27,8 @@ export default function Carousel(props) {
 
         const id = props.recordData.indexOf(record)
 
-       let secondSlide = current + 1
-       let thirdSlide = current + 2
-        if(current === length) {
-        secondSlide = current - length 
-        thirdSlide = current - length +3
-       }
-       if(current === length - 1) {
-        secondSlide = current - length + 1
-        thirdSlide =  current - length + 2
-       }
         if(i === current ||  i  === secondSlide || i === thirdSlide) {
+           
             return (
             <Record
             deleteFromWishlist={props.deleteFromWishlist}
@@ -52,11 +51,11 @@ export default function Carousel(props) {
 
     return (
         <div className='carousel--container'>
-            <button style={props.inputThemeStyles} onClick={prevSlide}><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
+            <button  onClick={prevSlide}><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
             <div className='slides--container'>
                 {CarouselData}
             </div>
-            <button style={props.inputThemeStyles} onClick={nextSlide}><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
+            <button  onClick={nextSlide}><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
         </div>
   )
 }

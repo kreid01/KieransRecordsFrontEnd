@@ -692,7 +692,7 @@ form input, form button, select, input, .search--button {
   border: 0.5px solid grey;
 }
 .record:hover {
-  scale: 1.05;
+  scale: 1;
 }
 .record:hover:after {
   width: 100%;
@@ -1062,7 +1062,7 @@ li {
     height: 6em;
     font-size: 1em;
     margin: 0.5em 0;
-    left: 3em;
+    left: 1em;
     z-index: 1;
     padding: 0.5em;
     border: 1px solid #343434;
@@ -1107,6 +1107,7 @@ li {
   }
   .image--record {
     margin-bottom: 2em;
+    margin-right: 3em;
   }
   li {
     padding: 0.4em;
@@ -1363,11 +1364,13 @@ li {
   padding-bottom: 2em;
 }
 .carousel--container button {
+  font-size: 1.2em;
   height: 2.5em;
   width: 2.5em;
-  margin: 1.5vw;
+  margin: 1vw;
   align-self: center;
-  border-radius: 50%;
+  background: none;
+  color: white;
   bordeR: none;
 }
 
@@ -1376,8 +1379,8 @@ li {
   width: 100vw;
   margin: 5vw;
   display: flex;
+  overflow-x: show;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 .slides--container .record {
   position: relative;
@@ -1394,11 +1397,11 @@ li {
   transition: scale 500ms ease-in-out;
   display: flex;
   position: relative;
-  margin: 0 auto;
   border: none;
   padding-bottom: 2em;
-  min-width: 71vw;
-  height: 115vw;
+  min-width: 68vw;
+  height: 120vw;
+  margin-right: 5vw;
 }
 .slides--container .record:after {
   content: "";
@@ -1426,7 +1429,7 @@ li {
   border: 0.5px solid grey;
 }
 .slides--container .record:hover {
-  scale: 1.05;
+  scale: 1;
 }
 .slides--container .record:hover:after {
   width: 100%;
@@ -1476,10 +1479,10 @@ li {
 .slides--container .record img {
   margin-bottom: 1em;
   border-radius: 5px;
-  min-width: 67vw;
-  max-width: 67vw;
-  max-height: 67vw;
-  min-height: 67vw;
+  min-width: 66vw;
+  max-width: 66vw;
+  max-height: 66vw;
+  min-height: 66vw;
 }
 .slides--container .record .record--name--price {
   font-sizE: 1.2em;
@@ -1500,15 +1503,16 @@ li {
     padding-bottom: 2em;
   }
   .carousel--container button {
-    height: 1.4em;
-    width: 1.4em;
+    font-sizE: 0.7em;
+    height: 1.5em;
+    width: 1.5em;
     margin: -0.25vw;
     align-self: center;
     border-radius: 50%;
     bordeR: none;
   }
   .slides--container {
-    margin: 1vw;
+    margin: 0 2vw;
     width: 110%;
     display: flex;
     overflow-x: visible;
@@ -1527,7 +1531,7 @@ li {
     min-height: 20vh;
     font-size: 0.8em;
     transition: scale 500ms ease-in-out;
-    margin: 0;
+    margin: 0 0.2em;
     paddinG: 0.3em;
     padding: 0.3em;
     padding-bottom: 2em;
@@ -1564,7 +1568,7 @@ li {
     border: 0.5px solid grey;
   }
   .slides--container .record:hover {
-    scale: 1.05;
+    scale: 1;
   }
   .slides--container .record:hover:after {
     width: 100%;
