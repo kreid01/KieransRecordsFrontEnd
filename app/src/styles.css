@@ -1593,27 +1593,35 @@ li {
 .right--checkout--container {
   display: none;
   font-size: 0.3em;
-  width: 30vw;
-  height: 100vh;
+  padding-right: 2em;
+  width: 100%;
+  min-height: 70vh;
   margin-left: 5em;
+}
+.right--checkout--container .cart--checkout {
+  margin-left: 1em;
   margin-top: 50%;
+  padding: 2em;
 }
 .right--checkout--container .cart--items--container {
   height: 100%;
+  max-width: 35vw;
 }
 .right--checkout--container .cart--items--container .cart--record {
-  min-width: 30vw;
-  max-width: 30vw;
+  position: relative;
+  min-width: 35vw;
+  max-width: 35vw;
   font-size: 1.3em;
 }
 .right--checkout--container .cart--items--container .cart--record img {
-  max-height: 5em;
-  min-height: 5em;
-  max-width: 5em;
-  min-width: 5em;
+  max-height: 6em;
+  min-height: 6em;
+  max-width: 6em;
+  min-width: 6em;
 }
 .right--checkout--container .cart--items--container .cart--record .cart--record--buying {
-  max-width: 10vw;
+  max-width: 30vw;
+  font-weight: bold;
 }
 .right--checkout--container .cart--items--container .cart--record .cart--record--name, .right--checkout--container .cart--items--container .cart--record .cart--record--artist {
   margin: 0;
@@ -1623,13 +1631,15 @@ li {
   font-size: 0.6em;
 }
 .right--checkout--container .cart--items--container .cart--record .cart--record--price {
-  right: 7%;
+  right: 0;
 }
 .right--checkout--container .cart--link--button {
   display: none;
 }
 .right--checkout--container .cart--total--price {
   font-size: 1.3em;
+  width: 35vw;
+  font-weight: bold;
 }
 
 @media (min-width: 850px) {
@@ -1638,8 +1648,10 @@ li {
   }
 }
 @media (min-width: 1100px) {
-  .right--checkout--container {
+  .right--checkout--container .cart--checkout {
     margin-top: 30%;
+  }
+  .right--checkout--container {
     font-size: 0.4em;
   }
 }
@@ -1662,10 +1674,44 @@ li {
 .checkout--container p {
   margin: 0;
 }
+.checkout--container .continue--button {
+  height: 50%;
+  align-self: center;
+  background-color: rgb(66, 66, 66);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 1em;
+  display: block;
+  width: 7em;
+  height: 2.7em;
+  font-family: "Inter";
+  cursor: pointer;
+  font-weight: bold;
+  font-sizE: 0.75em;
+  width: 50%;
+  margin: 2em auto;
+}
+.checkout--container .continue--button:hover {
+  filter: brightness(80%);
+}
+
+.paypal--container {
+  min-width: 40vw;
+  max-width: 40vw;
+  height: 30vh;
+  padding: 1em;
+  margin: 0 auto;
+}
+.paypal--container .paypal--button {
+  min-width: 40vw;
+  max-width: 40vw;
+  margin: 0 auto;
+}
 
 @media (min-width: 850px) {
   .checkout--container {
-    margin: 0.5em;
+    margin: 0em;
     display: grid;
     grid-template-columns: 6fr 4fr;
   }
@@ -1725,6 +1771,6 @@ body {
 }
 @media (min-width: 1000px) {
   .page {
-    margin: 0 2em;
+    margin: 0 1em;
   }
 }/*# sourceMappingURL=styles.css.map */

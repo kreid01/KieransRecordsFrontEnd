@@ -16,7 +16,7 @@ import Collection from './pages/CollectionPage';
 import ProfilePage from './pages/ProfilePage';
 import Blog from './pages/BlogPage'
 import Footer from './components/UI/Footer'
-import Cart from './pages/CheckoutPage'
+import CheckoutPage from './pages/CheckoutPage'
 import './styles.css';
 // Functions 
 import postRecord  from './services/records/postRecord'
@@ -39,12 +39,14 @@ const [customerOrders, setCustomerOrders] = React.useState([])
 const darkTheme = useTheme()
 const themeStyles = {
   backgroundColor: darkTheme ? '#333': 'whitesmoke',
-  color: darkTheme ? '#CCC' : '#333'
+  color: darkTheme ? '#CCC' : '#333',
+  borderColor: darkTheme ? 'whitesmoke' : 'black'
 }
 const inputThemeStyles = {
   backgroundColor: darkTheme ? '#CCC': '#333',
   color: darkTheme ? '#333': '#CCC',
 }
+
 const cartId = React.useMemo(() => nanoid(), []);
 const [sortBy, setSortBy] = React.useState('')
 const [searchParams, setSearchParams] = React.useState('')
@@ -475,13 +477,14 @@ React.useEffect(() => {
       collection={collection}
       />}></Route>
       <Route path='/cart' 
-      element={<Cart
+      element={<CheckoutPage
       validated={validated}
       setValidated={setValidated}
       customerDetails={customerDetails}
       handleChange={handleChange}
       setFormData={setFormData}
       formData={formData}
+      inputThemeStyles={inputThemeStyles}
       recordData={recordData}
       recordDataUnique={recordDataUnique}
       emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
