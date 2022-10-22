@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 import { NavLink, Link } from 'react-router-dom'
 
-export default function CartDropdown(props) {
-
+export default function CheckoutCart(props) {
 
     const counts = {}
     let cartDataUnique =[]
@@ -64,8 +63,8 @@ export default function CartDropdown(props) {
     })
 
     return (
-        <div className='cart--dropdown'>
-            <h2 className='cart--dropdown--header'>Your Cart</h2>   
+        <div className='cart--checkout' style={props.inputThemeStyles}>
+            <h2 className='cart--checkout--header'><strong>IN YOUR CART</strong></h2>   
             <div className='cart--items--container'>
                {cartData}
             </div>

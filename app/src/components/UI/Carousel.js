@@ -15,7 +15,6 @@ export default function Carousel(props) {
          setThirdSlide(current === length - 3 ? 0 : 
             current === length - 2 ? 1 : current === length -  1 ?
            2 : current + 3);
-        console.log(current, secondSlide, thirdSlide)
         };  
 
     const prevSlide = () => {

@@ -7,7 +7,7 @@ import LogoutButton from '../buttons/LogoutButton';
 import Profile from '../buttons/Profile'
 import recordImage from '../../assets/record.png'
 import cartImage from '../../assets/cart-shopping-solid.svg'
-import CartDropdwon from './CartDropdown';
+import CartDropdown from './CartDropdown';
 
 export default function NavBar(props) {
 
@@ -73,7 +73,8 @@ export default function NavBar(props) {
                <img className='cart' src={cartImage} alt='cart'/>
             <div className='counter'>{props.totalQuantity}</div>
                 </div>
-              {open ? (<CartDropdwon
+              {open ? (<CartDropdown
+                handleClick={handleClick}
                 inputThemeStyles={props.inputThemeStyles}
                 goToCheckout={props.goToCheckout}
                 darkTheme={props.darkTheme}
@@ -81,12 +82,12 @@ export default function NavBar(props) {
                 totalQuantity={props.totalQuantity}
                 totalPrice={props.totalPrice}
                 addToWishlist={props.addToWishlist}
-                addToCart={props.ddToCart}
+                addToCart={props.addToCart}
                 decrement={props.decrement}
                 deleteFromCart={props.deleteFromCart}
                 themeStyles={props.themeStyles}
-              cart={props.cart}
-              recordData={props.recordData}/>) : null}
+                cart={props.cart}
+                recordData={props.recordData}/>) : null}
                <button className={darkThemeToggle} onClick={toggleTheme} style={props.inputThemeStyles}></button>
             </li>
           </ul>                                              

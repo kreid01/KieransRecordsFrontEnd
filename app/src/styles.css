@@ -1,217 +1,3 @@
-.cart--page {
-  height: 100%;
-  box-sizing: content-box;
-  width: 100%;
-}
-
-.cart--dropdown--header {
-  text-align: center;
-}
-
-.cart--record {
-  displaY: flex;
-  width: 100%;
-  font-size: 2.5em;
-  height: 60%;
-  padding: 0.5em;
-  border-top: 1px solid whitesmoke;
-  border-bottom: 1px solid whitesmoke;
-}
-.cart--record img {
-  max-width: 13vw;
-  max-height: 13vw;
-  height: 100%;
-  border-radius: 3px;
-}
-.cart--record .cart--record--buying {
-  font-size: 1em;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: auto;
-  padding: 0 1em;
-}
-.cart--record .cart--record--buying button {
-  font-size: 1em;
-  background: none;
-  color: white;
-  border-radius: 1px;
-  border: 1px solid whitesmoke;
-  height: 1.5em;
-  margin: 0 0.5em;
-  font-family: "Inter";
-  cursor: pointer;
-  font-weight: bold;
-}
-.cart--record .cart--record--buying button:hover {
-  filter: brightness(80%);
-}
-
-.cart--item--details {
-  display: flex;
-  min-width: 100%;
-  flex-direction: column;
-  font-family: bold;
-  font-size: 1.3em;
-  height: 70%;
-}
-
-.cart--record--name, .cart--record--artist {
-  padding: 0 0 0 15px;
-  margin: 0;
-  font-weight: bold;
-}
-
-.cart--record--name {
-  letter-spacing: 1px;
-  font-size: 1em;
-  max-width: 90%;
-}
-
-.cart--record--artist {
-  letter-spacing: 1px;
-  font-weight: 300;
-  font-size: 0.6em;
-  margin-bottom: 0em;
-}
-
-.cart--record--price {
-  position: absolute;
-  right: 1em;
-}
-
-.cart--total--price {
-  font-size: 2.5em;
-  display: flex;
-  justify-content: space-between;
-  margin-top: auto;
-}
-
-.cart-record--total {
-  displaY: flex;
-  justify-content: space-between;
-}
-
-.cart--quantity {
-  padding: 0 0.5em;
-}
-
-.cart--link {
-  width: 2em;
-}
-
-@media (min-width: 768px) {
-  .wishlist--container .page--header:before {
-    left: 2em;
-    width: 160px;
-  }
-  .cart--header .page--header:before {
-    left: 1.3em;
-    width: 90px;
-  }
-  .cart--record {
-    padding: 0.5em;
-    max-height: 18vh;
-  }
-  .cart--record img {
-    margin-right: -0.7em;
-  }
-  .cart--record .cart--record--buying {
-    font-size: 0.8em;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: auto;
-    padding-left: 0.5em;
-  }
-  .cart--record .cart--record--buying button {
-    padding: 0.33em;
-    margin: 0 1em;
-    cursor: pointer;
-  }
-  .cart--record .cart--record--buying button:hover {
-    filter: brightness(80%);
-  }
-  .cart--summary {
-    font-size: 0.5em;
-  }
-  .checkout--button {
-    font-sizE: 0.7em;
-  }
-}
-@media (min-width: 1000px) {
-  .cart--page--container {
-    width: 100%;
-    flex-direction: row;
-    margin-left: 0em;
-    font-size: 0.7em;
-  }
-  .cart--items--container {
-    margin-right: 2em;
-    height: 90%;
-    width: 80%;
-  }
-  .cart--items--container .cart--record {
-    padding: 0.5em;
-    height: 16vh;
-    font-size: 1em;
-    min-height: 13vh;
-  }
-  .cart--items--container .cart--record img {
-    margin-right: -0.7em;
-    max-height: 20vh;
-  }
-  .cart--items {
-    overflow-x: hidden;
-  }
-  .cart--record--artist, .cart--record--name {
-    margin-left: 5%;
-  }
-  .cart--record--buying {
-    padding-left: 4em;
-    margin-bottom: 1em;
-    margin-left: 1em;
-    font-size: 1em;
-  }
-  .cart--record--buying button {
-    font-size: 0.9em;
-  }
-  .cart--record--buying .cart--record--price, .cart--record--buying .cart--quantity {
-    font-size: 0.7em;
-    margin-top: 1em;
-    align-self: center;
-  }
-  .cart--summary {
-    margin-left: 1em;
-    margin-right: -2em;
-    width: 50%;
-  }
-}
-@media (min-width: 1300px) {
-  .cart--page--container {
-    width: 110%;
-    flex-direction: row;
-    margin-left: -2em;
-    font-size: 0.9em;
-  }
-  .cart--page--container .cart--items img {
-    height: 130%;
-    margin-top: -0.75em;
-    margin-left: -0.7em;
-  }
-  .cart--record--buying {
-    margin-left: 1em;
-    margin-bottom: 1em;
-    font-size: 0.8em;
-  }
-  .cart--record--buying button {
-    font-size: 0.6em;
-  }
-  .cart--record--buying .cart--record--price, .cart--record--buying .cart--quantity {
-    font-size: 1em;
-    margin-top: 1em;
-  }
-}
 .new--records .page--header:before {
   width: 2.9em;
 }
@@ -270,6 +56,7 @@
 .current--record {
   display: flex;
   font-sizE: 0.3em;
+  margin-bottom: 1em;
 }
 .current--record img {
   min-width: 42vw;
@@ -293,9 +80,10 @@
   margin-left: 1em;
   position: relative;
   width: 50%;
+  min-height: 42vw;
 }
 
-.current--record--header .page--header:before, .profile--page--header .page--header:before {
+.current--record--header .page--header:before, .profile--page--header .page--header:before, .similar--record--container .page--header:before {
   width: 70vw;
 }
 
@@ -309,6 +97,9 @@
   font-size: 0.7em;
 }
 
+.current--record--buying {
+  margin-top: 1vw;
+}
 .current--record--buying button {
   height: 50%;
   align-self: center;
@@ -380,6 +171,7 @@
 @media (min-width: 1300px) {
   .current--record {
     font-size: 0.8em;
+    margin-bottom: 1em;
   }
   .current--record .current--record--buying {
     font-size: 0.7em;
@@ -833,6 +625,7 @@ li {
 }
 
 .cart--container {
+  margin: 0 1em;
   align-self: flex-end;
   position: relative;
 }
@@ -874,7 +667,7 @@ li {
 
 .toggle--dark--mode--dark {
   align-self: center;
-  width: 9em;
+  width: 8em;
   height: 4em;
   position: relative;
   display: block;
@@ -897,7 +690,7 @@ li {
 
 .toggle-dark--mode--light {
   align-self: center;
-  width: 13em;
+  width: 8em;
   height: 4em;
   position: relative;
   display: block;
@@ -1081,7 +874,7 @@ li {
   font-sizE: 0.5em;
   color: rgba(255, 255, 255, 0.82);
   width: 100vw;
-  height: 19vh;
+  height: 20vh;
   justify-content: space-evenly;
   align-content: center;
   padding-bottom: 1em;
@@ -1117,7 +910,8 @@ li {
   font-family: "Inter";
   cursor: pointer;
   font-weight: bold;
-  height: 2.5em;
+  margin-top: 1em;
+  height: 2em;
   width: 100%;
 }
 .footer--container .signup--container button:hover {
@@ -1285,7 +1079,7 @@ li {
 }
 
 .carousel--container {
-  margin: 0 auto;
+  margin: 1em auto;
   display: flex;
   padding-bottom: 2em;
 }
@@ -1426,7 +1220,7 @@ li {
   .carousel--container {
     margin: 0 auto;
     display: flex;
-    height: 70vh;
+    max-height: 50vh;
     font-size: 1.3em;
     padding-bottom: 2em;
   }
@@ -1545,6 +1339,7 @@ li {
 }
 @media (min-width: 1100px) {
   .carousel--container {
+    min-height: 70vh;
     font-sizE: 1.7em;
   }
   .carousel--container .record {
@@ -1560,8 +1355,13 @@ li {
   max-height: 3em;
 }
 .customer--form .submit--button {
-  max-height: 3em;
-  width: 100%;
+  height: 3em;
+  min-width: 100%;
+  border: 1px solid darkgrey;
+  background: #333;
+}
+.customer--form .submit--button:hover {
+  filter: brightness(80%);
 }
 
 .paypal--container {
@@ -1587,15 +1387,19 @@ li {
 }
 
 .cart--dropdown {
+  overflow-y: scroll;
   position: absolute;
   background: black;
   top: 14em;
   right: 3em;
   min-height: 11em;
-  width: 50em;
+  width: 55vw;
   z-index: 10;
   padding: 2em;
   font-size: 0.8em;
+  border: 1px solid lightgrey;
+  box-shadow: 1px 1px 0 0 rgb(37, 37, 37);
+  background: linear-gradient(rgb(44, 44, 44), rgb(34, 34, 34));
 }
 
 .cart--link {
@@ -1606,6 +1410,266 @@ li {
   text-decoration: none;
 }
 
+.cart--page {
+  height: 100%;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.cart--dropdown--header {
+  text-align: center;
+}
+
+.cart--record {
+  displaY: flex;
+  width: 100%;
+  font-size: 1.9em;
+  min-height: 80%;
+  padding: 0.5em;
+  border-top: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+}
+.cart--record img {
+  max-width: 9em;
+  max-height: 9em;
+  min-height: 9em;
+  min-width: 9em;
+  border-radius: 3px;
+}
+.cart--record .cart--record--buying {
+  font-size: 1em;
+  display: flex;
+  width: 15vw;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-left: 1em;
+  padding-top: 0.5em;
+}
+.cart--record .cart--record--buying button {
+  font-size: 1em;
+  background: none;
+  border: none;
+  color: white;
+  height: 1.5em;
+  margin: 0 0.5em;
+  font-family: "Inter";
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart--record .cart--record--buying button:hover {
+  filter: brightness(80%);
+}
+
+.cart--item--details {
+  display: flex;
+  min-width: 100%;
+  flex-direction: column;
+  font-family: bold;
+  font-size: 1.3em;
+  height: 70%;
+}
+
+.cart--record--name, .cart--record--artist {
+  padding: 0 0 0 15px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.cart--record--name {
+  letter-spacing: 1px;
+  font-size: 1em;
+  max-width: 100%;
+}
+
+.cart--record--artist {
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 0.6em;
+  margin-bottom: 0em;
+}
+
+.cart--record--price {
+  position: absolute;
+  right: 1.3em;
+}
+
+.cart--total--price {
+  font-size: 2em;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.cart-record--total {
+  displaY: flex;
+  justify-content: space-between;
+}
+
+.cart--quantity {
+  padding: 0 1.1em;
+}
+
+.cart--link:link, .cart--link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.cart--link--button {
+  border: 1px solid white;
+  font-size: 1em;
+  width: 50%;
+  margin: 0.5em auto;
+  text-align: center;
+  color: black;
+  background: pink;
+}
+.cart--link--button:hover {
+  filter: brightness(80%);
+}
+
+@media (min-width: 768px) {
+  .cart--dropdown {
+    top: 7em;
+  }
+  .wishlist--container .page--header:before {
+    left: 2em;
+    width: 160px;
+  }
+  .cart--header .page--header:before {
+    left: 1.3em;
+    width: 90px;
+  }
+  .cart--record {
+    padding: 0.5em;
+    max-height: 15vh;
+    font-sizE: 1.6em;
+  }
+  .cart--record img {
+    max-width: 7em;
+    max-height: 7em;
+    min-height: 7em;
+    min-width: 7em;
+  }
+  .cart--record .cart--record--buying {
+    padding-left: 0;
+    font-size: 1em;
+    margin-top: auto;
+  }
+  .cart--record .cart--record--buying button {
+    margin: 0 1em;
+  }
+  .cart--total--price {
+    font-size: 1.6em;
+  }
+  .cart--record--price {
+    right: 1.2em;
+  }
+}
+@media (min-width: 1100px) {
+  .cart--record {
+    padding: 0.5em;
+    max-height: 12vh;
+    font-sizE: 1.6em;
+  }
+  .cart--record img {
+    max-width: 5.5em;
+    max-height: 5.5em;
+    min-height: 5.5em;
+    min-width: 5.5em;
+  }
+  .cart--record .cart--record--buying {
+    padding-left: 0;
+    font-size: 1em;
+    margin-top: auto;
+  }
+  .cart--record .cart--record--buying button {
+    margin: 0 1em;
+  }
+  .cart--dropdown {
+    max-height: 60vh;
+    width: 40vw;
+  }
+}
+.right--checkout--container {
+  display: none;
+  font-size: 0.3em;
+  width: 30vw;
+  height: 100vh;
+  margin-left: 5em;
+  margin-top: 50%;
+}
+.right--checkout--container .cart--items--container {
+  height: 100%;
+}
+.right--checkout--container .cart--items--container .cart--record {
+  min-width: 30vw;
+  max-width: 30vw;
+  font-size: 1.3em;
+}
+.right--checkout--container .cart--items--container .cart--record img {
+  max-height: 5em;
+  min-height: 5em;
+  max-width: 5em;
+  min-width: 5em;
+}
+.right--checkout--container .cart--items--container .cart--record .cart--record--buying {
+  max-width: 10vw;
+}
+.right--checkout--container .cart--items--container .cart--record .cart--record--name, .right--checkout--container .cart--items--container .cart--record .cart--record--artist {
+  margin: 0;
+  font-size: 0.8em;
+}
+.right--checkout--container .cart--items--container .cart--record .cart--record--artist {
+  font-size: 0.6em;
+}
+.right--checkout--container .cart--items--container .cart--record .cart--record--price {
+  right: 7%;
+}
+.right--checkout--container .cart--link--button {
+  display: none;
+}
+.right--checkout--container .cart--total--price {
+  font-size: 1.3em;
+}
+
+@media (min-width: 850px) {
+  .right--checkout--container {
+    display: block;
+  }
+}
+@media (min-width: 1100px) {
+  .right--checkout--container {
+    margin-top: 30%;
+    font-size: 0.4em;
+  }
+}
+.checkout--container {
+  margin: 2em;
+}
+.checkout--container .delivery--header {
+  border-bottom: 5px solid pink;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+}
+.checkout--container h1, .checkout--container h3 {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.checkout--container h3 {
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+.checkout--container p {
+  margin: 0;
+}
+
+@media (min-width: 850px) {
+  .checkout--container {
+    margin: 0.5em;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+  }
+}
 body {
   margin: 0 0em;
   padding: 0;

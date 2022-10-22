@@ -9,6 +9,7 @@
 .current--record {
     display: flex;
     font-sizE: 0.3em;
+    margin-bottom:1em;
     & img {
         min-width: 42vw;
         min-height: 42vw;
@@ -31,8 +32,9 @@
     margin-left: 1em;
     position: relative;
     width: 50%;
+    min-height:42vw;
 }
-.current--record--header, .profile--page--header {
+.current--record--header, .profile--page--header, .similar--record--container {
     & .page--header {
         &:before {
             width:70vw;
@@ -50,6 +52,7 @@
     font-size: 0.7em;
 }
 .current--record--buying {
+    margin-top:1vw;
     & button {
         @include button;
         margin: 1em 0;
@@ -108,6 +111,8 @@
 @media (min-width: 1300px) {
     .current--record {
         font-size: 0.8em;
+        margin-bottom: 1em;
+
     .current--record--buying {
         font-size: 0.7em;
         width:90%;

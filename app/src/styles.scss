@@ -1,4 +1,3 @@
-@import "./styles/cart";
 @import "./styles/pages/homeNewRecords";
 @import "./styles/pages/currentRecord";
 @import "./styles/components/filter";
@@ -13,6 +12,8 @@
 @import './styles/components/carousel';
 @import './styles/forms/newCustomerForm';
 @import './styles/components/cartDropdown';
+@import './styles/components/checkoutCart';
+@import './styles/pages/checkout';
 
 
 $primary--color: rgb(66, 66, 66);

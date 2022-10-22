@@ -1,5 +1,6 @@
 import React from "react"
 import PastOrders from "../features/ProfilePage/PastOrders";
+import Wishlist from '../features/ProfilePage/Wishlist'
 import { redirect } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -53,6 +54,14 @@ export default function ProfilePage(props) {
         ) : (
             "No user metadata defined"
         )}
+        <Wishlist
+        themeStyles={props.themeStyles}
+        inputThemeStyles={props.inputThemeStyles}
+        recordData={props.recordData}
+        cart={props.cart}
+        wishlist={props.wishlist}
+        addToCart={props.addToCart}
+        deleteFromWishlist={props.deleteFromWishlist}/>
     </div>
     )
 }}

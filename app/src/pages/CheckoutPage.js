@@ -1,28 +1,33 @@
 import React from 'react';
-import Cart from '../features/CheckoutPage/Cart'
-import PaymentDeatilsInput from '../features/CheckoutPage/PaymentDetailsInput';
-import Wishlist from '../features/CheckoutPage/Wishlist';
+import PaymentConfirm from '../features/CheckoutPage/PaymentConfirm'
 import PayPal from '../features/CheckoutPage/PayPal'
-import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CheckoutPage(props) {
-
-    const { isAuthenticated} = useAuth0()
     
     return (
     <div className='cart--page' style={props.themeStyles} >
-        
-        { (props.checkout) ? (
-        <>
-        { !isAuthenticated ? ( 
-        <PaymentDeatilsInput
-        inputThemeStyles={props.inputThemeStyles}
+        <PaymentConfirm
+         inputThemeStyles={props.inputThemeStyles}
+         goToCheckout={props.goToCheckout}
+         darkTheme={props.darkTheme}
+         checkout={props.checkout}
+         totalQuantity={props.totalQuantity}
+         totalPrice={props.totalPrice}
+         addToWishlist={props.addToWishlist}
+         addToCart={props.ddToCart}
+         decrement={props.decrement}
+         deleteFromCart={props.deleteFromCart}
+         themeStyles={props.themeStyles}
+         cart={props.cart}
+         recordData={props.recordData}
         validated={props.validated}
         setValidated={props.setValidated}
         customerDetails={props.customerDetails}
         formData={props.formData} 
         setFormData={props.setFormData}
-        handleChange={props.handleChange}/>  ) : null }
+        handleChange={props.handleChange}/>
+        { (props.checkout) ? (
+        <>
         <PayPal 
         validated={props.validated}
         customerDetails={props.customerDetails}
@@ -34,29 +39,10 @@ export default function CheckoutPage(props) {
         goToCheckout={props.goToCheckout}
         cart={props.cart}
         totalPrice={props.totalPrice}
-        checkout={props.checkout}/> </>) : 
-        <>
-        <Cart 
-        totalPrice={props.totalPrice}
-        goToCheckout={props.goToCheckout}
-        addToWishlist={props.addToWishlist}
-        addToCart={props.addToCart}
-        decrement={props.decrement}
-        deleteFromCart={props.deleteFromCart}
-        inputThemeStyles={props.inputThemeStyles}
-        themeStyles={props.themeStyles}
-        cart={props.cart}
-        recordData={props.recordData}/>
-        <Wishlist
-        themeStyles={props.themeStyles}
-        inputThemeStyles={props.inputThemeStyles}
-        recordData={props.recordData}
-        cart={props.cart}
-        wishlist={props.wishlist}
-        addToCart={props.addToCart}
-        deleteFromWishlist={props.deleteFromWishlist}/>
+        checkout={props.checkout}/></> ) : null }
+        <> 
+    
         </>
-        }
     </div>
     )
 }

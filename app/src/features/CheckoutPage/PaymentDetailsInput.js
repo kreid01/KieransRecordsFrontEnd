@@ -13,11 +13,11 @@ export default function PaymentDeatilsInput(props) {
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
-        }
-        event.preventDefault();
+        } else {
+          props.setValidated(true);
+          event.preventDefault();
           event.stopPropagation();
-        props.setValidated(true);
-
+        }
       };
     return (
         <>
@@ -95,7 +95,7 @@ export default function PaymentDeatilsInput(props) {
                 <Form.Control 
                 style={props.inputThemeStyles}
                 type='text' 
-                reuiqred
+                required
                 placeholder="First line of address"
                 name='addressFirstLine'
                 class="form-control"
@@ -136,9 +136,8 @@ export default function PaymentDeatilsInput(props) {
               </FloatingLabel>
               </Form.Group>
             </Row>
-            <Button 
-            style={props.inputThemeStyles}
-            className='submit--button' type='submit'>Continue</Button>
+            <Button
+            className='submit--button' type='submit'>Continue to Payment</Button>
             </Form>
             </>
     )

@@ -13,12 +13,7 @@ export default function FeaturedRecords(props) {
         record.name === 'Either/Or'
         )
     
-    const featuredRecordMapped = featuredRecords.map(record => {
-        const id = props.recordData.indexOf(record)
-    })
-    
-
-    return (
+      return (
         <section style={props.themeStyles} className='featured--records'>
         <h2 className='page--header'>Featured Records</h2>
             <div className ='featured--record--container'>

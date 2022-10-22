@@ -482,27 +482,26 @@ React.useEffect(() => {
       handleChange={handleChange}
       setFormData={setFormData}
       formData={formData}
+      recordData={recordData}
       recordDataUnique={recordDataUnique}
       emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
       cartDataFromAPI={cartDataFromAPI}
       themeStyles={themeStyles}
-      inputThemeStyles={inputThemeStyles}
       checkout={checkout}
       goToCheckout={goToCheckout}
-      deleteFromWishlist={deleteFromWishlist}
-      addToWishlist={addToWishlist}
-      decrement={decrement}
-      addToCart={addToCart}
-      recordData={recordData} 
-      wishlist={wishlist}
-      deleteFromCart={deleteFromCart} 
+      decrement={decrement}      
       totalPrice={totalPrice}
       cart={cart}/>}>
       </Route>
       <Route path='/profilepage' element={<ProfilePage
       customerOrders={customerOrders}
       customerDetails={customerDetails}
-      setCustomerDetails={setCustomerDetails} />}></Route>
+      recordData={recordData}
+      addToCart={addToCart}
+      setCustomerDetails={setCustomerDetails}
+      deleteFromWishlist={deleteFromWishlist}
+      addToWishlist={addToWishlist}
+      wishlist={wishlist} />}></Route>
       <Route path='*' element={<NotFoundPage />}></Route>
   </Routes>
   </div>
