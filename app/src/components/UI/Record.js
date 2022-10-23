@@ -18,13 +18,13 @@ export default function Record(props) {
             <h3 className='record--artist'><span className='record--artist--span'>{props.artist}</span></h3>
         </div>
             {(props.isFromCollection) ?
-             <button className='record--list--cart--add' style={props.inputThemeStyles}
-            onClick={() => props.deleteFromCollection(props.id)}>Delete from Collection</button> :
+             <button 
+             className='record--button' 
+            onClick={() => props.deleteFromCollection(props.i)}><i class="fa-solid fa-x"></i></button> :
             (props.isFromWishlist) ? 
             <button 
-            style={props.inputThemeStyles} 
-            className='record--wishlist--add'
-            onClick={() => props.deleteFromWishlist(props.record, props.id)}>Delete from wishlist</button>: null}
+            className='record--button'
+            onClick={() => props.deleteFromWishlist(props.record, props.id)}><i class="fa-solid fa-x"></i></button>: null}
     </div>
     )
 }

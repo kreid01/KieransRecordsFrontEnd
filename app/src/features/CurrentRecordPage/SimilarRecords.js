@@ -4,40 +4,34 @@ import Carousel from "../../components/UI/Carousel";
 export default function SimilarRecords(props) {
     
     const recordData = props.recordData
+    const recordDataUnique = props.recordDataUnique
     const id = props.id 
-      
-    const similarRecords = props.recordDataUnique.reduce((acc, record, i) => {   
-        if(record !== props.recordData[id] && record.name !== props.recordData[id].name ) {
-        if(record.genres.includes(
-            recordData[id].genres[0] || 
-            recordData[id].genres[1] || 
-            recordData[id].genres[2])) {
-          return acc.concat(record)
-        }}
-        return acc
-    }, [])
-  
-    // eslint-disable-next-line array-callback-return
-    const similarRecordsData = similarRecords.map((record, i) => {
-        if (i < 1) {
-        
-        // eslint-disable-next-line no-unused-vars, array-callback-return
-        return (
-            <Carousel 
-            records={similarRecords}
-            recordData={props.recordData}
-            inputThemeStyles={props.inputThemeStyles}
-            addToCart={props.addToCart}/>
-        )
-        }
+    const similarRecords = []
+   
+     recordDataUnique.filter(record => {
+        recordData[id].genres.map(genre => {
+            if(record.genres.includes(genre)) {
+                similarRecords.push(record)
+            }
+        })
     })
     
-
+    const recordsForCarousel = similarRecords.reduce((acc, rec) => {
+        if(!acc.find(u => u.name === rec.name)) {
+            acc.push(rec)
+        }
+        return acc
+      }, [])
+   
     return (
     <section className='similar--record--container' style={props.themeStyles}>
         <h1 style={props.themeStyles} className='page--header'>Similar Records</h1>
         <div className='similar--records' style={props.themeStyles}>
-             {similarRecordsData}
+        <Carousel 
+            records={recordsForCarousel}
+            recordData={props.recordData}
+            inputThemeStyles={props.inputThemeStyles}
+            addToCart={props.addToCart}/>
         </div>
      </section> 
     )

@@ -1,114 +1,67 @@
 @import '../mixins';
 
-.carousel--container {
-    margin: 1em auto;
-    display: flex;
-    padding-bottom:1em;
-    & button {
-        font-size:1.2em;
-        height:2.5em;
-        width: 2.5em;
-        margin: 1vw;
-        align-self: center;
-        background: none;
-        color:black;
-        bordeR:none;
-    }
-
-}
-.slides--container {
-    padding:0;
-    width:100vw;
-    margin: 5vw;
-    display: flex;
-    overflow-x: show;
-    overflow-x: hidden;
+.carousel {
+    width:100%;
+    margin-bottom: 1em;
+    margin-lefT:0.5em;
     & .record {
     @include record;
     display: flex;
-    position: relative;
     border:none;
     padding-bottom:2em;
-    min-width:70vw;
-    height:90vw;;
+    min-width:30vw;
+    height: 5;;
     margin-right:5vw;
-    &  .record--wishlist--add {
-        @include button;
-        width:90%;
-        position: absolute;
-        bottom:10%;
-        margin-bottom: 0.5em;
-    }
     & img {
-        margin-bottom: 1em;
+        position: relative;
+        margin-bottom:0.5em;
         border-radius: 5px;
-        min-width: 66vw;;
-        max-width: 66vw;
-        max-height:66vw;
-        min-height:66vw;
-    }
-    }
-    & .record--buttons{
-        min-height: 50%;
-    }
-}
-@media (min-width: 768px) {
-    .carousel--container {
-        margin: 1em auto;
-        display: flex;
-        min-height:20vh;
-        max-height: 40vh;
-        & button {
-            font-sizE: 0.6em;
-            height:1.5em;
-            width: 1.5em;
-            margin: .25vw;
-            align-self: center;
-            border-radius: 50%;
-            bordeR:none;
-        }
-    }
-    .slides--container {  
-        font-size: 0.5em;
-        margin: 0 3vw;
-        width:100%;
-        display: grid;
-        grid-template-columns: repeat(3 , 1fr);
-        overflow-x:visible;
-        overflow-y:visible;
-        & .record {
-        margin:0 0.2em;
-        paddinG:0.3em;
-        padding:0.3em;
-        padding-bottom:2em;
-        min-width:26vw;
-        max-width:26vw;
-        max-height: 30vh;;
+        min-width: 28vw;;
+        max-width: 28vw;
+        max-height:28vw;
+        min-height:28vw;
+       }
         & h3 {
-            font-sizE: 1.5em;
-        }
-        & .record--wishlist--add {
-            font-size:0.4em;
-            width: 95%;
-        }
-        & img {
-            margin-bottom: 0.3em;
-            border-radius: 5px;
-            min-width: 25vw;;
-            max-width: 25vw;
-            max-height:25vw;
-            min-height:25vw;
-        }
+            font-size:0.9em;
+            margin:0;
         }
     }
 }
-@media (min-width: 1200px) {
-    .carousel--container {
-        min-height:50vh;
-        font-sizE: 1.7em;
+.record--button {
+    font-weight: bold;
+    color:pink;
+    font-size:2em;
+    border:none;
+    position: absolute;
+    background: none;
+    top:0;
+    right: 1em;;
+    border-radius: 0;
+    transition: scale 500ms ease-in-out;
+    &:hover {
+        scale: 1.1;
+    }
+}
+@media (min-width: 1000px) {
+    .record--button {
+        right:0;
+    }
+    .carousel {
         & .record {
-            margin:0 0.4em;
-            max-height: 45vh;
+        min-width:22vw;
+        height: 5;;
+        margin-right:5vw;
+        & img {
+            position: relative;
+            min-width: 21vw;;
+            max-width: 21vw;
+            max-height:21vw;
+            min-height:21vw;
+           }
+            & h3 {
+                font-size:0.8em;
+                margin:0;
+            }
         }
     }
 }

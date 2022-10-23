@@ -18,19 +18,15 @@ export default function CurrentRecordPage(props) {
         alt=''
         />
         <div className='current--record--info'>
-            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>{props.recordData[id].quantity} Left</div></h3>
-            <p className='current--record--details'>{recordData[id].releaseYear}  • {props.recordData[id].songCount} songs </p>
+            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>£{recordData[id].price} {props.recordData[id].quantity} Left</div></h3>
+            <p className='current--record--details'>Released: <strong>{recordData[id].releaseYear}</strong> • <strong>{props.recordData[id].songCount} songs</strong> </p>
             <div className='current--record-genres'>
                 {genresData}
             </div>
-            <p className='current--record--price'>£{recordData[id].price}</p>
-            <div className='current--record--buying'>
+            <div className='current--record--buttons'>
                 <button 
                 style={props.inputThemeStyles}
                 onClick={() => props.addToWishlist(recordData[id], id)}className='wishlist--add'>+Wishlist</button>
-                <button 
-                style={props.inputThemeStyles}
-                onClick={() => props.addToCollection(recordData[id], id)}className='wishlist--add'>+Collection</button>
                 <button 
                 style={props.inputThemeStyles}
                 onClick={() => props.addToCart(recordData[id], id)}>Add to Cart</button>

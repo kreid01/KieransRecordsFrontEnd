@@ -10,7 +10,8 @@ export default function FeaturedRecords(props) {
         record.name === 'The Glow Pt. 2' ||
         record.name === 'Somewhere City' ||
         record.name === 'Unknown Pleasures' ||
-        record.name === 'Either/Or'
+        record.name === 'Either/Or' || 
+        record.name === 'Rain Dogs'
         )
     
       return (

@@ -4,57 +4,37 @@
 .record--list--page {
     height:100%;
 } 
-.record--list--header{
-    justify-content: space-between;
-    display:flex;
-    width: 96%;;
-        & button {
-        min-height:2em;
-        align-self: center;
-        border-radius: 5px;
-        border:none;
-        font-size:0.9em;
-        margin-top:1em;
-        margin-right:1.7em;
-        width: 7em;
-        font-family: 'Inter';
-        cursor:pointer;
-        font-weight: bold;
-        &:hover {
-            filter:brightness(80%);
+.collection--page {
+    min-height: 100vh;
+}
+.record--collection--container, .record--container {
+    margin:1em;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    & .record {
+        @include record;
+        position: relative;
+        margin: 0em;
+        padding-bottom:2em;
+        max-width:40vw;
+       max-height: 50vh;
+       & h3 {
+        font-sizE: 0.9em;
+       }
+        & img {
+            margin-bottom: 1em;
+            border-radius: 5px;
+            min-width: 39vw;
+            max-width: 39vw;
+            max-height:39vw;
+            min-height: 39vw;
+        }
+        & .record--artist {
+            padding-bottom:1em;
         }
     }
-    & .page--number {
-        margin-top:0.5em;
-        font-size: 1.5em;;
-        align-self: center;
-    }
 }
-.record {
-    @include record;
-    position: relative;
-    margin: 1em auto;
-    padding-bottom:2em;
-    width:80%;
-    height: 90%;
-    & .record--list--cart--add {
-        @include button;
-        width: 95%;
-        position: absolute;
-        bottom: 2%;
-    }
-    & img {
-        margin-bottom: 1em;
-        border-radius: 5px;
-        min-width: 74vw;;
-        max-width: 74vw;
-        max-height:74vw;
-        min-height: 74vw;
-    }
-    & .record--artist {
-        padding-bottom:1em;
-    }
-}
+
 .page--number--container {
     display:flex;
     justify-content:space-between;
@@ -88,8 +68,9 @@
 @media (min-width: 768px) {
     .record--container, .record--collection--container {
         grid-template-columns:  repeat(3, 1fr);
-        width: 100%;
+        width:90%;
         font-size: 0.5em;
+        margin:  0 1.5em;;
         & .record {
             margin:0.3em;
             border-radius: 5px;;
@@ -129,10 +110,9 @@
     }
 }
 @media (min-width: 1200px) {
-    .record--container {
+    .record--container, .record--collection--container {
         grid-template-columns:  repeat(4, 1fr);
         & .record {
-            
             padding-bottom:-1em;
             min-width: 22vw;
             max-width: 22vw;

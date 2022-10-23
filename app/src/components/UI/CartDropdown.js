@@ -65,7 +65,7 @@ export default function CartDropdown(props) {
 
     return (
         <div className='cart--dropdown'>
-            <h2 className='cart--dropdown--header'>Your Cart</h2>   
+            <h2 className='cart--dropdown--header'>YOUR CART</h2>   
             <div className='cart--items--container'>
                {cartData}
             </div>

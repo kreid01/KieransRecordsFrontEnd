@@ -1,25 +1,30 @@
 @import "../mixins";
 .current--record--page {
    min-height: 45vh;
-   font-sizE:0.6em;
+   font-sizE:1em;
    .page--header {
     margin-bottom: 1em;
    }
 }
 .current--record {
     display: flex;
-    font-sizE: 0.3em;
-    margin-bottom:1em;
+    font-sizE: 0.5em;
+    margin: 0 1em;
     & img {
-        min-width: 42vw;
-        min-height: 42vw;
+        min-width: 40vw;
+        min-height: 40vw;
+        max-width:40vw;
+        max-height:40vw;
         margin-left: 1em;
+        border: 1px solid rgb(228, 228, 228);
     }
     & .current--record-genres {
         display: flex;
         & .genre {
             padding: 0 0.2em;
             border-radius: 2px;
+            max-width:30em;
+            min-width:1em;
             margin: 0 0.1em;
             margin-bottom: 1em;
             background: pink;
@@ -32,14 +37,7 @@
     margin-left: 1em;
     position: relative;
     width: 50%;
-    min-height:42vw;
-}
-.current--record--header, .profile--page--header, .similar--record--container {
-    & .page--header {
-        &:before {
-            width:70vw;
-        }
-    }
+    min-height:30vw;
 }
 
 .current--record--artist {
@@ -51,87 +49,68 @@
 .quantity--remaining {
     font-size: 0.7em;
 }
-.current--record--buying {
+.current--record--buttons {
     margin-top:1vw;
+    margin-bottom:6%;
     & button {
         @include button;
+        border-radius: 0;
         margin: 1em 0;
         width: 100%;
         font-size:0.8em;
     }
 }
 @media (max-width: 768px) {
+    .current--record--container {
+        background-color:white;
+        width:90vw;
+        margin: 0 auto;
+    }
     .current--record {
         font-size: 1.4em;
-        width:85%;
-        margin: 0 auto;
+        width:92%;
+        margin:1em 3%;
+        padding-top:6%;
         display: flex;
         flex-direction: column;
         & img {
             margin-bottom: 1em;
-            border-radius: 5px;
-            min-width: 75vw;;
-            max-width: 75vw;
-            max-height:75vw;
-            min-height:75vw;
+            border-radius: 3px;
+            min-width: 78vw;;
+            max-width: 78vw;
+            max-height:78vw;
+            min-height:78vw;
         }
         .current--record--info {
-            width:90%;
+            width:92%;
         }
     }
 }
 
-@media (min-width: 768px) {
-    .current--record--page {
-        font-sizE:1em;
-    }
-    .current--record {
-        font-sizE: 0.5em;
-        img {
-            max-height: 40vw;
-            max-width: 40vw;
-        }
-    }
-}
-@media (max-width: 900px) {
-    .current--record  {
-        min-width:40vw;
-        img {
-            max-height: 39vw;
-            max-width: 39vw;
-        }
-    }
-}
 @media (min-width: 1100px) {
     .current--record {
-        font-sizE: 0.75em;
-    }
-}
-
-@media (min-width: 1300px) {
-    .current--record {
-        font-size: 0.8em;
-        margin-bottom: 1em;
-    .current--record--buying {
-        font-size: 0.7em;
-        width:90%;
-    }
+        font-sizE: 0.7em;
+        margin: 0 2.5em;
         & img {
-            max-height: 27vw;
-            min-height: 27vw;
-            min-width: 27vw;
+            margin-bottom: 1em;
+            border-radius: 3px;
+            min-width: 33vw;;
+            max-width: 33vw;
+            max-height:33vw;
+            min-height:33vw;
         }
     }
 }
+
 @media (min-width: 1600px) {
     .current--record {
         font-size: 0.8em;
+        margin: 0 10em;
         & img {
-            min-height: 23vw;
-            max-height: 23vw;
-            min-height: 23vw;
-            min-width: 23vw;
+            min-width: 27vw;;
+            max-width: 27vw;
+            max-height:27vw;
+            min-height:27vw;
         }
     }
-
 }

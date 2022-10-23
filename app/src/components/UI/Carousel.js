@@ -1,35 +1,35 @@
 import React from 'react'
 import Record from './Record'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Carousel(props) {
 
-    const [current, setCurrent] = React.useState(0);
-    const [secondSlide, setSecondSlide] = React.useState(1);
-    const [thirdSlide, setThirdSlide] = React.useState(2)
-    const length = props.records.length;
     const records = props.records
 
-    const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1 );
-        setSecondSlide(current === length - 2 ? 0 : current === length - 1 ?
-           1 :  secondSlide + 1);
-         setThirdSlide(current === length - 3 ? 0 : 
-            current === length - 2 ? 1 : current === length -  1 ?
-           2 : thirdSlide + 1);
-
-        console.log(current, secondSlide, thirdSlide, records)
-        };  
-    
-
-    const prevSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1);
-        }
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        responsive: [
+            {
+              breakpoint: 1000,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+      }]}
 
     const CarouselData = records.map((record, i) => {
 
         const id = props.recordData.indexOf(record)
 
-        if(i === current ||  i  === secondSlide || i === thirdSlide) {
            
             return (
             <Record
@@ -48,16 +48,14 @@ export default function Carousel(props) {
             isFromWishlist={props.isFromWishlist}
             iFromCollection={props.isFromCollection}
             deleteFromCollection={props.deleteFromCollection}/>
-            )}
+            )
     })
 
     return (
-        <div className='carousel--container'>
-            <button  onClick={prevSlide}><i class="fa-sharp fa-solid fa-arrow-left"></i></button>
-            <div className='slides--container'>
+        <div className='carousel'>
+            <Slider  {...settings}>
                 {CarouselData}
-            </div>
-            <button  onClick={nextSlide}><i class="fa-sharp fa-solid fa-arrow-right"></i></button>
+            </Slider>
         </div>
   )
 }

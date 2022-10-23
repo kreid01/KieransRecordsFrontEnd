@@ -127,7 +127,6 @@ export default function NewRecordForm(props) {
                     className='mb-3'>
                     <Form.Control
                     type='text' 
-                    style={props.inputThemeStyles}
                     name='name'
                     placeholder='Ablum title'
                     class='form-control'
@@ -143,7 +142,6 @@ export default function NewRecordForm(props) {
                       label='Artist'
                       className='mb-3'>
                       <Form.Control
-                        style={props.inputThemeStyles}
                         for='artist'
                         type='text' 
                         name='artist'
@@ -162,7 +160,6 @@ export default function NewRecordForm(props) {
                         label='Image URL'
                         className='mb-3'>
                         <Form.Control
-                        style={props.inputThemeStyles}
                         type='text' 
                         name='imageUrl'
                         placeholder=' '
@@ -181,7 +178,6 @@ export default function NewRecordForm(props) {
                     label='Release Year'
                     className='mb-3'>
                     <Form.Control 
-                     style={props.inputThemeStyles}
                     type='number' 
                     name='releaseYear'
                     placeholder=' '
@@ -197,7 +193,6 @@ export default function NewRecordForm(props) {
                     label='Song Count'
                     className='mb-3'>
                     <Form.Control 
-                     style={props.inputThemeStyles}
                     type='number' 
                     placeholder=' '
                     name='songCount'
@@ -214,7 +209,6 @@ export default function NewRecordForm(props) {
                     label='Price'
                     className='mb-3'>
                     <Form.Control 
-                     style={props.inputThemeStyles} 
                     type='decimal' 
                     placeholder='Record Price'
                     name='price'
@@ -227,8 +221,7 @@ export default function NewRecordForm(props) {
                     </Form.Group>
                     </Row>
                     <div className='genre--selectors'>
-                    <select 
-                     style={props.inputThemeStyles}
+                    <Form.Select
                     type='text' 
                     placeholder='Record Genre'
                     name='genres'
@@ -237,9 +230,8 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </select>                
-                    <select 
-                     style={props.inputThemeStyles}
+                    </Form.Select>                
+                    <Form.Select 
                     type='text' 
                     placeholder='Record Genre'
                     name='genres'
@@ -248,9 +240,8 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </select>
-                    <select 
-                     style={props.inputThemeStyles}
+                    </Form.Select>
+                    <Form.Select 
                     type='text' 
                     class='form-control'
                     placeholder='Record Genre'
@@ -258,7 +249,7 @@ export default function NewRecordForm(props) {
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </select>
+                    </Form.Select>
                     </div>
                     <Button 
                      style={props.inputThemeStyles}

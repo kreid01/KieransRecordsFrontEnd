@@ -1,15 +1,7 @@
 .blog--page {
     margin:0;
-    height: 75vh;
+    min-height: 75vh;
     padding-bottom: 1em;
-    .page--header {
-        padding-bottom :0.5em;
-        margin-left: 1.75em;
-        &:before {
-            width: 1.1em;
-            left: 1.5em;
-        }
-    }
 }
 .post--container {
     displaY:flex;
@@ -96,11 +88,11 @@
         }
     }
     .post--container {
-        width: 110%;
-        margin-left: 1em;
+        width: 90%;
+        margin-left: 3em;
         font-size: 0.9em;;
         & img {
-            width: 30%;
+            width: 25%;
             height: 30%;
             order: 2;
         }
@@ -128,10 +120,10 @@
         }
     }
     .post--container {
-        margin-left :1em;
+        margin-left :7em;
         font-size: 0.8em;;
         & img {
-            width: 20%;
+            width: 15%;
             order: 2;
         }
     }

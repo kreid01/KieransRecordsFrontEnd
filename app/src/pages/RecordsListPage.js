@@ -1,6 +1,5 @@
 /* eslint-disable array-callback-return */
 import React from 'react';
-import { Link } from 'react-router-dom'
 import Filter from '../features/RecordList/Filter';
 import Record from '../components/UI/Record'
 
@@ -55,8 +54,6 @@ export default function RecordsList(props) {
     return (
         <div className='record--list--page'>
             <header style={props.themeStyles} className='record--list--header'>
-                <h1 className='page--header'>Records</h1>
-                <p className='page--number'>{props.pageNumber}</p>
             </header>
                 <div style={props.themeStyles} className='record--list--container'>
                 <div className='filter--conatiner'>

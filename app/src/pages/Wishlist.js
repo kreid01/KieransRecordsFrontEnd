@@ -1,12 +1,12 @@
 import React from 'react';
 import Record from '../components/UI/Record'
 
-export default function Collection(props) {
+export default function Wishlist(props) {
        
-    if(props.collection.length > 0) {
+    if(props.wishlist.length > 0) {
 
 
-        const mappedData = props.collection.map((record, i) => {
+        const mappedData = props.wishlist.map((record, i) => {
         let id = 0
 
         // eslint-disable-next-line array-callback-return
@@ -28,15 +28,15 @@ export default function Collection(props) {
                     price={record.price}
                     imageUrl={record.imageUrl}
                     inputThemeStyles={props.inputThemeStyles}
-                    deleteFromCollection={props.deleteFromCollection}
-                    isFromCollection={true}/>
+                    deleteFromWishlist={props.deleteFromWishlist}
+                    isFromWishlist={true}/>
                     )
             })
          
     return (
         <main className='collection--page' style={props.themeStyles}>
             <header style={props.themeStyles} className='collection--header'>
-                <h1 className='page--header'>Collection</h1>
+                <h1 className='page--header'>Wishlist</h1>
             </header>
             <div style={props.themeStyles} className='record--container'>
                 {mappedData}

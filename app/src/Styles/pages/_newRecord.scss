@@ -1,47 +1,52 @@
 .preview--record--container {
     padding-bottom:3em;
-}
-.preview--title {
-    margin-left:1em;
-}
-.preview--artist {
-    font-size: 0.3em;
-}
-.preview--record--image {
-    width: 40%;
-    margin: 0 2em;
-}
-.preview--new--record {
-    padding-bottom: 4ems;
-}
-.preview--record--container .page--header {
-    &:before {
-        width:5.3em;
+    & .record {
+        margin-left: 1em;
+        & img {
+            width:97%; 
+        }
+        & .record--name {
+            margin-top: 0.5em;
+        }
+        & h3 {
+            font-sizE:1.2em;
+        }
+        & h2, p ,div {
+            font-size :.8em;
+            margin:0;
+        }
     }
 }
 @media (min-width: 768px) {
-    .preview--title, .preview--new--record {
-        font-size: 0.7em;
-    }
-    .preview--title {
-        margin-left:2em;
-    }
-    .new--record--container .page--header {
-        &:before {
-            width:6em;
-        }
-    }
-    .preview--record--image {
-        max-width: 25%;
-        min-height: 25%
-    }
+    .preview--record--container {
+        padding-bottom:3em;
+        padding-left:1em;
+            & .record {
+                display:flex;
+                font-sizE:0.7em;
+                margin: 0 3.5 3.5em 3.5em;
+                & img {
+                    width:50%; 
+                }
+                & p, div, h3, h2 {
+                    scale:1.1;
+                    margin-left:5%;
+                }
+             }
+      }
 }
 @media (min-width: 1500px) {
-    .new--record--page {
-        display: flex;
-    }
-    .preview--record--image {
-        max-width: 50%;
-        height: 50%
+    .preview--record--container {
+        padding-bottom:3em;
+        padding-left:1em;
+       & .preview--record {
+            & .record {
+                font-sizE:0.9em;
+                margin: 0 3.5 3.5em 3.5em;
+                & img {
+                    width:50%;
+                } 
+            }
+        }
     }
 }

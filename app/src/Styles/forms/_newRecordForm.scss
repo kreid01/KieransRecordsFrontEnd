@@ -1,10 +1,6 @@
 /* Form  */
 .new--record--form {
     & .page--header {
-        &:before {
-            left:2.6em;
-            width:3.6em;
-        }
         margin-bottom: 1em;
     }
 }
@@ -43,14 +39,15 @@ form input, form button, select, input, .search--button {
         display:flex;
     }
     .form {
+        width:40vw;
         font-size: 0.5em;
-        height:40vh;
+        height:50vh;
         & input, select, .search--button {
             max-height:3em;
         }
         & .genre--selectors {
             & select {
-                min-width:32%;
+                min-width:30%;
             }
          }
     }

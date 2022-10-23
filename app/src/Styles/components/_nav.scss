@@ -37,7 +37,7 @@ li {
     text-decoration: none;
     letter-spacing: 1px;
     font-size: 1.5em;
-    padding:2.5em 0em;
+    padding:2.6em 1em;
     margin:0;
 }
 .nav--item {
@@ -157,6 +157,7 @@ li {
     display: grid;
     position: absolute;
     height:6em;
+    left:0.5em;
     font-size:2em;
     margin: 0.5em 0;
     z-index: 1;
@@ -196,7 +197,7 @@ li {
         height:6em;
         font-size:1em;
         margin: 0.5em 0;
-        left:0.7em;
+        left:1.7em;
         z-index: 1;
         padding: 0.5em;
         border:1px solid #343434;
@@ -234,7 +235,7 @@ li {
         margin-bottom: 1.5em;
     }
     .nav--item, .nav--item--records {
-        padding:  1.9em 0;
+        padding:  1.9em 1em;
         font-size: 1em;
         margin-left: 0.5em
     }

@@ -30,7 +30,6 @@ export default function PaymentDeatilsInput(props) {
                  className='mb-3'>
                 <Form.Control
                 type='text' 
-                style={props.inputThemeStyles}
                 placeholder='First Name'
                 name='firstName'
                 value={props.formData.firstName.value}
@@ -46,7 +45,6 @@ export default function PaymentDeatilsInput(props) {
                  className='mb-3'>
                 <Form.Control
               class="form-control"
-              style={props.inputThemeStyles}
               for='secondName'
               type='text' 
               name='secondName'
@@ -62,7 +60,6 @@ export default function PaymentDeatilsInput(props) {
                  label='Phone Number'
                  className='mb-3'>
                 <Form.Control
-                style={props.inputThemeStyles}
                 type='number' 
                 name='phoneNumber'
                 class="form-control"
@@ -77,7 +74,6 @@ export default function PaymentDeatilsInput(props) {
               label='Email address'
               className='mb-3'>
               <Form.Control
-              style={props.inputThemeStyles}
               type='email' 
               name='email'
               class="form-control"
@@ -93,7 +89,6 @@ export default function PaymentDeatilsInput(props) {
                  label='First line of address'
                  className='mb-3'>
                 <Form.Control 
-                style={props.inputThemeStyles}
                 type='text' 
                 required
                 placeholder="First line of address"
@@ -109,7 +104,6 @@ export default function PaymentDeatilsInput(props) {
                  label='Second line of address'
                  className='mb-3'>
                 <Form.Control 
-                style={props.inputThemeStyles}
                 type='text' 
                 required
                 class="form-control"
@@ -125,7 +119,6 @@ export default function PaymentDeatilsInput(props) {
                  label='Postcode'
                  className='mb-3'>
                  <Form.Control 
-                 style={props.inputThemeStyles} 
                 type='text' 
                 required
                 placeholder='Postcode'

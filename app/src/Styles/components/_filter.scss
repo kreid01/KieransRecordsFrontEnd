@@ -20,11 +20,9 @@
     margin-right:0;
 }
 .display--sort--selector {
-    background-color: whitesmoke;
     margin-left: 1.5em;
     width: 20vw;
     border:none;
-    box-shadow: 1px 1px 1px 0 lightgrey;
     height: 2.3em;
 }
 .search--input {
@@ -39,6 +37,8 @@
     width:11vw;
     border:none;
     box-shadow: 1px 1px 1px 0 lightgrey;
+    color:black;
+    background: white;
 }
 
 @media (min-width: 768px) {

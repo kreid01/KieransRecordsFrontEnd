@@ -1,35 +1,40 @@
 @import '../mixins';   
-
 .new--record--container {
     displaY:grid;
-    margin: 0 auto;
+    margin: 1em auto;
     font-size: 1.3em;
-}
-@media(min-width: 768px) {
-    .new--record--container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        font-size: 0.5em;
-        & .record  {
-            padding-left: 0.5em;;
-            min-width: 29vw;
-            max-width: 29vw;;
-            min-height: 29vh;
-            max-height:56vh;        
-            & img {
-            max-width:27.5vw;
-            min-width:27.5vw;
-            max-height:27.5vw;
-            min-height:27.5vw;
-            }
-            & h3 {
-                font-sizE:1.5em;
-            }
+    margin-bottom:-2em;;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 0.5em;
+    & .record  {
+        padding-lefT:2em;
+        min-width: 29vw;
+        max-width: 29vw;;
+        min-height: 29vh;
+        max-height:56vh;        
+        & img {
+        max-width:27.5vw;
+        min-width:27.5vw;
+        max-height:27.5vw;
+        min-height:27.5vw;
+        }
+        & h3 {
+            font-sizE:1.5em;
+            margin:0;
+        }
+        & .record--name {
+            margin-top: 0.5em;
         }
     }
 } 
+@media (min-width: 768px) {
+    .new--record--container {
+        margin-bottom: 2em;
+    }
+}
 @media(min-width: 1200px) {
     .new--record--container {
         font-size: 0.7em;
+        margin-bottom:5em;
     }
 }

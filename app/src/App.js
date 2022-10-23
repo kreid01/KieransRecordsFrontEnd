@@ -12,7 +12,7 @@ import Record from './pages/CurrentRecordPage'
 import NewRecord from './pages/NewRecordPage'
 import NotFoundPage from './pages/NotFoundPage'
 import NavBar from './components/UI/NavBar';
-import Collection from './pages/CollectionPage';
+import Wishlist from './pages/Wishlist';
 import ProfilePage from './pages/ProfilePage';
 import Blog from './pages/BlogPage'
 import Footer from './components/UI/Footer'
@@ -62,11 +62,6 @@ const [checkout, setCheckout] = React.useState(false)
 const [recordData, setRecordData] = React.useState([])
 const [recordDataForPaging, setRecordDataForPaging] = React.useState([])
 const [cart, setCart] = React.useState([])
-const [collection, setCollection] = React.useState(() => {
-  const saved = localStorage.getItem("userCollection");
-  const initialValue = JSON.parse(saved);
-  return initialValue || "";
-})
 const [customerDetails, setCustomerDetails] = React.useState([])
 const [newRecord, setNewRecord] = React.useState({
   name:'',
@@ -104,10 +99,6 @@ const recordDataUnique = recordData.reduce((acc, rec) => {
 React.useEffect(() => {
   localStorage.setItem('userWishlist', JSON.stringify(wishlist));
 }, [wishlist]);
-
-React.useEffect(() => {
-  localStorage.setItem('userCollection', JSON.stringify(collection));
-}, [collection]);
 
 React.useEffect(() => {
  getAllRecords(setRecordData)}, [])
@@ -287,34 +278,6 @@ function deleteFromWishlist(id) {
     setWishlist([])
   }
 }
-
-function addToCollection(record, id) {
-  let isRecordPresent = false
-  if(collection.length >=  1) {
-  // eslint-disable-next-line array-callback-return
-    collection.map(rec => {
-    if(rec.name === record.name) {
-      isRecordPresent = true
-    }
-  })}
-  if(isRecordPresent) {
-  } else {
-  setCollection(prevArr => [...prevArr, recordData[id]])
-  console.log(collection)
-  }
-}
-
-function deleteFromCollection(id) {
-  if(collection.length > 1){
-    const newArr = [...collection]
-    newArr.splice(id, 1)
-    setCollection(newArr)
-  } else {
-    setCollection(collection.pop(id))
-    setCollection([])
-  }
-}
-
 async function selectGenre(e) {
   if(e.target.value === '0') {
   setGenreFilter('')
@@ -453,7 +416,6 @@ React.useEffect(() => {
       themeStyles={themeStyles}
       inputThemeStyles={inputThemeStyles}
       changePage={changePage}
-      addToCollection={addToCollection}
       addToWishlist={addToWishlist}
       recordData={recordData}
       addToCart={addToCart}/>}></Route>
@@ -469,13 +431,13 @@ React.useEffect(() => {
       <Route path='/blog' element={<Blog 
       recordData={recordData}
       themeStyles={themeStyles}/>}></Route>
-      <Route path='/collection' element={<Collection
+      <Route path='/collection' element={<Wishlist
       inputThemeStyles={inputThemeStyles}
       themeStyles={themeStyles}
-      deleteFromCollection={deleteFromCollection}
+      deleteFromWishlist={deleteFromWishlist}
       recordData={recordData}
       addToCart={addToCart}
-      collection={collection}
+      wishlist={wishlist}
       />}></Route>
       <Route path='/cart' 
       element={<CheckoutPage

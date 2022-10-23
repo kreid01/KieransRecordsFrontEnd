@@ -4,7 +4,6 @@
 @import "./styles/forms/newRecordForm";
 @import "./styles/pages/recordlist";
 @import "./styles/components/nav";
-@import "./styles/pages/collections";
 @import "./styles/components/footer";
 @import "./styles/pages/blog";
 @import "./styles/pages/profilepage";
@@ -14,6 +13,7 @@
 @import './styles/components/cartDropdown';
 @import './styles/components/checkoutCart';
 @import './styles/pages/checkout';
+@import './styles/pages/newRecord';
 
 
 $primary--color: rgb(66, 66, 66);
@@ -68,11 +68,11 @@ body {
 }
 @media (min-width: 768px) {
 .page {
-    margin: 0 01em;
+    margin: 0 1em;
     }
 }
 @media (min-width: 1000px) {
     .page {
-        margin: 0 1em;
+        margin: 0 1.5em;
         }
     }

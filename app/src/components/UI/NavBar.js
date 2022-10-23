@@ -61,7 +61,7 @@ export default function NavBar(props) {
               className='nav--item'
                 style = {({ isActive }) => {
                   return isActive ? { background : 'rgb(56, 56, 56)'} : {}
-                }} end to='/collection'>Collection
+                }} end to='/collection'>Wishlist
             </NavLink>
             </li>
             {isAuthenticated && <Profile /> }

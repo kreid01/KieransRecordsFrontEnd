@@ -51,14 +51,6 @@ export default function ProfilePage(props) {
                 "No user metadata defined"
             )}
         </div>
-            <Wishlist
-            themeStyles={props.themeStyles}
-            inputThemeStyles={props.inputThemeStyles}
-            recordData={props.recordData}
-            cart={props.cart}
-            wishlist={props.wishlist}
-            addToCart={props.addToCart}
-            deleteFromWishlist={props.deleteFromWishlist}/>
     </div>
     )
 }}
