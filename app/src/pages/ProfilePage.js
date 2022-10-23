@@ -8,35 +8,30 @@ export default function ProfilePage(props) {
 
     const { user, isAuthenticated, getAccessTokenSilently} = useAuth0();
     const [userMetadata, setUserMetadata] = React.useState(null) 
+
+    React.  useEffect(() => {
+      (async () => {
+        try {
+          const token = await getAccessTokenSilently({
+            audience: 'http://localhost:7143', // Value in Identifier field for the API being called.
+            scope: 'records:read-write' 
+          });
+          console.log(token)
+          const response = await fetch('https://localhost:7143/customer', {
+            headers: {
+            Authorization: `Bearer ${token}`,
+            },
+          });
+          console.log((await response.json()));
+        } catch (e) {
+          console.error(e);
+        }
+      })();
+    }, [getAccessTokenSilently]);
   
-    React.useEffect(() => {
-        const getUserMetadata = async () => {
-          const domain = "dev-v7gopbxg.us.auth0.com";
+
       
-          try {
-            const accessToken = await getAccessTokenSilently({
-              audience: `https://${domain}/api/v2/`,
-              scope: "read:current_user",
-            });
-      
-            const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
-      
-            const metadataResponse = await fetch(userDetailsByIdUrl, {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            });
-      
-            const { user_metadata } = await metadataResponse.json();
-      
-            setUserMetadata(user_metadata);
-          } catch (e) {
-            console.log(e.message);
-          }
-        };
-      
-        getUserMetadata();
-      }, [getAccessTokenSilently, user?.sub]);
+
 
     if (!isAuthenticated) {redirect('/')} else {
     

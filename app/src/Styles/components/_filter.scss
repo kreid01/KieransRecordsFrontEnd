@@ -12,8 +12,7 @@
     }
 }
 .filter--select{
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin: 0 1em;
     width:20vw;
     height:2.3em;
 }
@@ -21,35 +20,23 @@
     margin-right:0;
 }
 .display--sort--selector {
-    margin-left: 1em;
+    background-color: whitesmoke;
+    margin-left: 1.5em;
     width: 20vw;
-    border-radius: 5px;
     border:none;
     box-shadow: 1px 1px 1px 0 lightgrey;
     height: 2.3em;
 }
 .search--input {
-    width:20vw;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 0%;
+    width:30vw;
+
 }
 .search--container {
     display:flex;
 }
-
-#search--button {
-    border-radius: 5px;
-    align-self: center;
-    border:none;
-    box-shadow: 1px 1px 1px 0 lightgrey;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%;
-    height: 2.5em;
-}
 .reset--button {
-    margin-left: 0.5em;
+    margin-left: 1em;
     width:11vw;
-    border-radius: 5px;
     border:none;
     box-shadow: 1px 1px 1px 0 lightgrey;
 }
@@ -62,8 +49,5 @@
             & input, button, select {
                 font-sizE:1em;
             }
-        #search--button {
-            height: 2.4em;
-         }
     }
 }

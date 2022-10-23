@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
@@ -8,7 +7,6 @@ export default function Filter(props) {
     // eslint-disable-next-line react/jsx-no-comment-textnodes
     <div className='filter--container'> 
        <Form.Select 
-       style={props.inputThemeStyles}
        className='display--sort--selector'
         onChange={(e) => props.changeSortBy(e)}>
         <option value="Price >">Price Acending</option>
@@ -24,7 +22,6 @@ export default function Filter(props) {
         onChange={(e) => props.selectGenre(e)}
         className='filter--select'
         name='genreSelector'
-        style={props.inputThemeStyles}
         value={props.genreFilter.value}>
         <option value="0">All Records</option>
         <option value="Art Rock">Art Rock</option>
@@ -122,21 +119,13 @@ export default function Filter(props) {
         <div className='search--container'>
             <Form.Control
                 className='search--input' 
-                style={props.inputThemeStyles}
                 type='text'
+                placeholder='Search'
                 value={props.searchParams} 
                 onChange={(e) => props.changeSearchParams(e)}
                 />
-            <Link to ='/searchresults'>
-                <Button 
-                style={props.inputThemeStyles}
-                    id='search--button'>
-                    Search
-                </Button>
-            </Link>
             <Button 
             className='reset--button' 
-            style={props.inputThemeStyles}
             onClick={props.resetFilters}>Reset</Button>
         </div>
     </div>

@@ -34,21 +34,22 @@ body {
 }
 .page--container {
     padding-top:9vh;
+    padding-bottom:1em;
 }
 .page--header {
     padding-top:0.5em;
     padding-left:0.5em;
     margin-bottom:0;
     position: relative;
-    margin-bottom: 0.3em;
+    margin-bottom: 1em;
     &:before {
         position: absolute;
-        left: 4em;
+        left: 0.55em;
         top: 1.7em;
         height: 0;
-        width: 70px;
+        width: 95vw;;
         content: '';
-        border-top: 2px solid pink;
+        border-top: 4px solid black;
       }   
     & .record--buying {
         margin-top:auto;
@@ -72,6 +73,6 @@ body {
 }
 @media (min-width: 1000px) {
     .page {
-        margin: 0 sem;
+        margin: 0 1em;
         }
     }

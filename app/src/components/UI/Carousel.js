@@ -10,14 +10,13 @@ export default function Carousel(props) {
     const records = props.records
 
     const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1);
+        setCurrent(current === length - 1 ? 0 : current + 1 );
         setSecondSlide(current === length - 2 ? 0 : current === length - 1 ?
            1 :  secondSlide + 1);
          setThirdSlide(current === length - 3 ? 0 : 
             current === length - 2 ? 1 : current === length -  1 ?
            2 : thirdSlide + 1);
-        const startToEndAlbum = records.shift()
-        records.push(startToEndAlbum)
+
         console.log(current, secondSlide, thirdSlide, records)
         };  
     

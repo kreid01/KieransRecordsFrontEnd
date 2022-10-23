@@ -14,20 +14,14 @@ export default function Record(props) {
         />
         </Link>
         <div className='record--details'>
-            <div className='record--name--price'>
             <h3 className='record--name'><strong>{props.name}</strong></h3>
-            <p className='record--price'>£{props.price}</p>
-            </div>
-            <h3 className='record--artist'>{props.artist}</h3>
+            <h3 className='record--artist'><span className='record--artist--span'>{props.artist}</span></h3>
         </div>
-        <p className='record--info'>{props.releaseYear}  • 
-        {props.songCount} songs</p>
             {(props.isFromCollection) ?
              <button className='record--list--cart--add' style={props.inputThemeStyles}
-            onClick={() => props.deleteFromCollection(props.id)}>Delete from Collection</button> : 
-            <button style={props.inputThemeStyles} className='record--list--cart--add' 
-            onClick={() => props.addToCart(props.record, props.id)}>Add to Cart</button>}
-            {(props.isFromWishlist) ? <button 
+            onClick={() => props.deleteFromCollection(props.id)}>Delete from Collection</button> :
+            (props.isFromWishlist) ? 
+            <button 
             style={props.inputThemeStyles} 
             className='record--wishlist--add'
             onClick={() => props.deleteFromWishlist(props.record, props.id)}>Delete from wishlist</button>: null}

@@ -355,11 +355,11 @@ React.useEffect(() => {
    if (isAuthenticated) {getCustomerDetails(user.sub, setCustomerDetails)
 }},[isAuthenticated]);
 
-React.useEffect(() => {
-  if(isAuthenticated) {
-  getCustomerOrders(user.sub, setCustomerOrders)
-}
-},[isAuthenticated]);
+//React.useEffect(() => {
+ // if(isAuthenticated) {
+  //getCustomerOrders(user.sub, setCustomerOrders)
+///}
+//},[isAuthenticated]);
 
   return (
   <div className='site' style={themeStyles}>

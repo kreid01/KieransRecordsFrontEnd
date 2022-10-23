@@ -47,16 +47,13 @@ export default function RecordsList(props) {
                    releaseYear={record.releaseYear}
                    price={record.price}
                    record={record}
-                   addToCart={props.addToCart}
                    inputThemeStyles={props.inputThemeStyles}
-                   buttonText='Add to Cart'
-                   buttonFunction={props.addToCart}
                    />
                 )}
             )
         
     return (
-        <main className='record--list--page'>
+        <div className='record--list--page'>
             <header style={props.themeStyles} className='record--list--header'>
                 <h1 className='page--header'>Records</h1>
                 <p className='page--number'>{props.pageNumber}</p>
@@ -79,7 +76,7 @@ export default function RecordsList(props) {
                     {pageNumberData}
                 </div>            
             </div>
-        </main>
+        </div>
 
     )
 }

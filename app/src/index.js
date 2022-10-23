@@ -15,7 +15,9 @@ root.render(
       domain="dev-v7gopbxg.us.auth0.com"
       clientId="Au67YXhjip0DgKBzLD0AlUlrEF7xVCPD"
       redirectUri="http://localhost:3000"
-      responseType="toke id_token">
+      response_type="token"
+      audience='https://dev-v7gopbxg.us.auth0.com/api/v2/'
+      scope="records:read-write">
         <ThemeProvider>
           <App />
         </ThemeProvider>
