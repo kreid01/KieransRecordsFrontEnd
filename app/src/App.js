@@ -39,12 +39,12 @@ const [customerOrders, setCustomerOrders] = React.useState([])
 const darkTheme = useTheme()
 const themeStyles = {
   backgroundColor: darkTheme ? '#333': 'whitesmoke',
-  color: darkTheme ? '#CCC' : '#333',
+  color: darkTheme ? 'whitesmoke' : '#333',
   borderColor: darkTheme ? 'whitesmoke' : 'black'
 }
 const inputThemeStyles = {
-  backgroundColor: darkTheme ? '#CCC': '#333',
-  color: darkTheme ? '#333': '#CCC',
+  backgroundColor: darkTheme ? 'whitesmoke': 'black',
+  color: darkTheme ? 'black': 'white',
 }
 
 const cartId = React.useMemo(() => nanoid(), []);
@@ -403,7 +403,8 @@ React.useEffect(() => {
       // eslint-disable-next-line array-callback-return
       record => record.genres.includes(genreFilter)): (searchParams.length < 2) ? 
       recordDataForPaging : recordData).filter(record => {
-        if(record.name.includes(searchParams) || record.artist.includes(searchParams)) {
+        if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
+        record.artist.toLowerCase().includes(searchParams.toLowerCase())) {
           return record
         }
       }).sort(function(a, b) {

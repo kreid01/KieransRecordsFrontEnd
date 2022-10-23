@@ -335,7 +335,6 @@ form input, form button, select, input, .search--button {
 /* Record */
 .record--list--page {
   height: 100%;
-  margin-bottom: -2em;
 }
 
 .record--list--header {
@@ -388,6 +387,9 @@ form input, form button, select, input, .search--button {
   padding-bottom: 2em;
   width: 80%;
   height: 100%;
+}
+.record .record--name, .record .record--artist, .record .record--name--price {
+  margin: 0;
 }
 .record:after {
   content: "";
@@ -888,6 +890,7 @@ li {
   color: rgba(255, 255, 255, 0.82);
   width: 100vw;
   height: 20vh;
+  margin-top: -2em;
   justify-content: space-evenly;
   align-content: center;
   padding-bottom: 1em;
@@ -1092,13 +1095,16 @@ li {
 
 .prev--order--albums {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .prev--order--details {
   background: pink;
   color: black;
   margin: 0.5em 0;
+  padding: 0 0.2em;
   margin-right: 1em;
+  min-width: 20%;
 }
 .prev--order--details strong {
   margin-right: 0.3em;
@@ -1161,8 +1167,11 @@ li {
   border: none;
   padding-bottom: 2em;
   min-width: 68vw;
-  height: 120vw;
+  height: 100vw;
   margin-right: 5vw;
+}
+.slides--container .record .record--name, .slides--container .record .record--artist, .slides--container .record .record--name--price {
+  margin: 0;
 }
 .slides--container .record:after {
   content: "";
@@ -1238,6 +1247,9 @@ li {
 .slides--container .record .record--wishlist--add:hover {
   filter: brightness(80%);
 }
+.slides--container .record .record--name {
+  font-size: 1.7em;
+}
 .slides--container .record img {
   margin-bottom: 1em;
   border-radius: 5px;
@@ -1260,6 +1272,7 @@ li {
   .carousel--container {
     margin: 0 auto;
     display: flex;
+    min-height: 20vh;
     max-height: 50vh;
     font-size: 1.3em;
     padding-bottom: 2em;
@@ -1281,19 +1294,6 @@ li {
     overflow-y: visible;
   }
   .slides--container .record {
-    position: relative;
-    displaY: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    border-left: 1px solid rgba(150, 150, 150, 0.7);
-    border-right: 1px solid rgba(150, 150, 150, 0.7);
-    border-bottom: 1px solid rgba(150, 150, 150, 0.7);
-    padding: 0.5em;
-    min-width: 25vh;
-    min-height: 20vh;
-    font-size: 0.8em;
-    transition: scale 500ms ease-in-out;
-    z-index: 1;
     margin: 0 0.2em;
     paddinG: 0.3em;
     padding: 0.3em;
@@ -1305,38 +1305,6 @@ li {
   .slides--container .record p {
     font-size: 0.3em;
   }
-  .slides--container .record:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0%;
-    left: 0em;
-    bottom: 0em;
-    border: 3px solid pink;
-    transition: width 800ms ease-in-out;
-    z-index: -1;
-  }
-  .slides--container .record:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    top: 0em;
-    border-radius: 5px;
-    border: 1px solid pink;
-    transition: width 800ms ease-in-out;
-  }
-  .slides--container .record img {
-    min-height: 25vh;
-    min-width: 25vh;
-    border: 0.5px solid grey;
-  }
-  .slides--container .record:hover {
-    scale: 1;
-  }
-  .slides--container .record:hover:after {
-    width: 100%;
-  }
   .slides--container .record button {
     max-height: 2em;
   }
@@ -1344,24 +1312,8 @@ li {
     font-size: 0.32em;
   }
   .slides--container .record .record--list--cart--add, .slides--container .record .record--wishlist--add {
-    height: 50%;
-    align-self: center;
-    background-color: rgb(66, 66, 66);
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-size: 1em;
-    display: block;
-    width: 7em;
-    height: 2.7em;
-    font-family: "Inter";
-    cursor: pointer;
-    font-weight: bold;
     font-size: 0.4em;
     width: 95%;
-  }
-  .slides--container .record .record--list--cart--add:hover, .slides--container .record .record--wishlist--add:hover {
-    filter: brightness(80%);
   }
   .slides--container .record img {
     margin-bottom: 0.3em;
@@ -1370,6 +1322,12 @@ li {
     max-width: 23vw;
     max-height: 23vw;
     min-height: 23vw;
+  }
+  .slides--container .record .record--name {
+    font-size: 0.37em;
+  }
+  .slides--container .record .record--artist, .slides--container .record .record--info {
+    font-size: 0.4em;
   }
   .slides--container .record .record--name--price {
     width: 95%;
@@ -1621,6 +1579,7 @@ li {
   display: none;
   font-size: 0.3em;
   padding-right: 2em;
+  margin-top: -3em;
   width: 100%;
   min-height: 70vh;
   margin-left: 5em;

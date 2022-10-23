@@ -7,23 +7,26 @@ export default function Carousel(props) {
     const [secondSlide, setSecondSlide] = React.useState(1);
     const [thirdSlide, setThirdSlide] = React.useState(2)
     const length = props.records.length;
+    const records = props.records
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1);
         setSecondSlide(current === length - 2 ? 0 : current === length - 1 ?
-           1 :  current + 2);
+           1 :  secondSlide + 1);
          setThirdSlide(current === length - 3 ? 0 : 
             current === length - 2 ? 1 : current === length -  1 ?
-           2 : current + 3);
+           2 : thirdSlide + 1);
+        const startToEndAlbum = records.shift()
+        records.push(startToEndAlbum)
+        console.log(current, secondSlide, thirdSlide, records)
         };  
     
 
     const prevSlide = () => {
         setCurrent(current === 0 ? length - 1 : current - 1);
-        console.log(current)
         }
 
-    const CarouselData = props.records.map((record, i) => {
+    const CarouselData = records.map((record, i) => {
 
         const id = props.recordData.indexOf(record)
 

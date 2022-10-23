@@ -30,6 +30,9 @@
     font-size: 0.8em;
     transition: scale 500ms ease-in-out;
     z-index:1;
+    & .record--name, .record--artist, .record--name--price {
+        margin:0;
+    }
     &:after {
         content: '';
         display: block;
