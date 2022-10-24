@@ -25,16 +25,17 @@ export default function CurrentRecordPage(props) {
             </div>
             <div className='current--record--buttons'>
                 <button 
-                style={props.inputThemeStyles}
-                onClick={() => props.addToWishlist(recordData[id], id)}className='wishlist--add'>+Wishlist</button>
-                <button 
-                style={props.inputThemeStyles}
+                 className='cart--add'
                 onClick={() => props.addToCart(recordData[id], id)}>Add to Cart</button>
+                 <p className='wishlist--or'> - or -</p>
+                 <button 
+                onClick={() => props.addToWishlist(recordData[id], id)}
+                className='wishlist--add'>add to wishlist</button>
             </div>
         </div>
     </div>
     return (
-    <div className='current--record--page' style={props.themeStyles}>
+    <div className='current--record--page'>
         <div className='current--record--header'>
             <h1 className='page--header'><strong>{recordData[id].name}</strong></h1>
         </div>

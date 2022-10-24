@@ -36,8 +36,8 @@ const blogData = blog.map((post , i)=> {
 )
     return (
         <>
-        <div style={props.themeStyles} className='blog--page'>
-            <h1 style={props.themeStyles} className="page--header">Blog</h1>
+        <div className='blog--page'>
+            <h1 className="page--header">Blog</h1>
             <section className='blog--container' style={props.themeStyles}>
                 {blogData}
             </section>

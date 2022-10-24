@@ -26,6 +26,23 @@
 .new--record--container .record .record--name {
   margin-top: 0.5em;
 }
+.new--record--container .record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  left: 1.5em;
+  top: -1em;
+  border: 3px solid pink;
+  transition: width 800ms ease-in-out;
+  z-index: -1;
+}
+.new--record--container .record:hover {
+  scale: 1;
+}
+.new--record--container .record:hover:after {
+  width: 100%;
+}
 
 @media (min-width: 768px) {
   .new--record--container {
@@ -61,14 +78,18 @@
 }
 .current--record .current--record-genres {
   display: flex;
+  flex-wrap: wrap;
+  height: 10%;
+  width: 100%;
+  margin-bottom: 7vw;
 }
 .current--record .current--record-genres .genre {
-  padding: 0 0.2em;
+  padding: 0 0.3em;
   border-radius: 2px;
-  max-width: 30em;
-  min-width: 1em;
-  margin: 0 0.1em;
-  margin-bottom: 1em;
+  height: 1.5em;
+  min-width: 20%;
+  margin: 0 0.2em;
+  margin-bottom: 0.3em;
   background: pink;
   color: #333;
 }
@@ -92,8 +113,8 @@
 }
 
 .current--record--buttons {
-  margin-top: 1vw;
-  margin-bottom: 6%;
+  display: flex;
+  flex-direction: column;
 }
 .current--record--buttons button {
   height: 50%;
@@ -110,12 +131,71 @@
   cursor: pointer;
   font-weight: bold;
   border-radius: 0;
-  margin: 1em 0;
+  margin-top: 3em;
   width: 100%;
   font-size: 0.8em;
+  align-self: flex-end;
 }
 .current--record--buttons button:hover {
   filter: brightness(80%);
+}
+.current--record--buttons .cart--add {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 18px;
+  height: 52px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.current--record--buttons .cart--add:hover {
+  box-shadow: rgba(0, 1, 0, 0.2) 0 2px 8px;
+  opacity: 0.85;
+}
+.current--record--buttons .cart--add:active {
+  outline: 0;
+}
+.current--record--buttons .cart--add:focus {
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 3px;
+}
+.current--record--buttons .wishlist--add, .current--record--buttons .wishlist--or {
+  align-self: flex-start;
+  max-width: 8.1em;
+  background: none;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  height: 1.5em;
+  color: #333;
+  text-decoration: underline;
+}
+.current--record--buttons .wishlist--or {
+  padding: 0 2.5em;
+  margin-bottom: 0;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -142,6 +222,21 @@
   }
   .current--record .current--record--info {
     width: 92%;
+  }
+  .current--record .current--record-genres {
+    margin-bottom: 5vw;
+  }
+  .current--record .current--record--buttons .wishlist--add, .current--record .current--record--buttons .wishlist--or {
+    max-width: 8em;
+    margin-top: 0.5em;
+    height: 1.5em;
+    color: #333;
+    text-decoration: underline;
+  }
+  .current--record .current--record--buttons .wishlist--or {
+    padding: 0 2em;
+    margin-bottom: 0;
+    text-decoration: none;
   }
 }
 @media (min-width: 1100px) {
@@ -526,8 +621,7 @@ li {
 }
 
 .nav--buttons {
-  min-width: 30%;
-  margin-left: 1.5em;
+  min-width: 16%;
   display: flex;
   justify-content: flex-end;
 }
@@ -763,6 +857,7 @@ li {
 }
 .footer--container {
   border-top: 1px solid lightgrey;
+  background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));
   display: flex;
   font-sizE: 0.5em;
   color: rgba(255, 255, 255, 0.82);
@@ -804,6 +899,8 @@ li {
   font-family: "Inter";
   cursor: pointer;
   font-weight: bold;
+  background-color: #ccc;
+  color: black;
   margin-top: 1em;
   height: 2em;
   width: 100%;
@@ -1053,6 +1150,23 @@ li {
 .carousel .record h3 {
   font-size: 0.9em;
   margin: 0;
+}
+.carousel .record:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  left: 0em;
+  top: -0.5em;
+  border: 3px solid pink;
+  transition: width 800ms ease-in-out;
+  z-index: -1;
+}
+.carousel .record:hover {
+  scale: 1;
+}
+.carousel .record:hover:after {
+  width: 100%;
 }
 
 .record--button {
@@ -1332,6 +1446,8 @@ li {
   width: 100%;
   min-height: 90vh;
   margin-left: 5em;
+  background-color: #333;
+  color: white;
 }
 .right--checkout--container .cart--checkout {
   margin-left: 1em;

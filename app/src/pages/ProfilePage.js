@@ -1,6 +1,5 @@
 import React from "react"
 import PastOrders from "../features/ProfilePage/PastOrders";
-import Wishlist from '../features/ProfilePage/Wishlist'
 import { redirect } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react'
 

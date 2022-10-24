@@ -29,24 +29,12 @@ import updateRecord from './services/records/updateRecord';
 import getCustomerDetails from './services/customer/getCustomerDetails'
 import getCustomerOrders from './services/customer/getCustomerOrders'
 // Context
-import { useTheme } from "./context/ThemeContext"
 
 function App() {
 
 const [validated, setValidated] = React.useState(false)
 const {user, isAuthenticated} = useAuth0()
 const [customerOrders, setCustomerOrders] = React.useState([])
-const darkTheme = useTheme()
-const themeStyles = {
-  backgroundColor: darkTheme ? '#333': 'whitesmoke',
-  color: darkTheme ? 'whitesmoke' : '#333',
-  borderColor: darkTheme ? 'whitesmoke' : 'black'
-}
-const inputThemeStyles = {
-  backgroundColor: darkTheme ? 'whitesmoke': 'black',
-  color: darkTheme ? 'black': 'white',
-}
-
 const cartId = React.useMemo(() => nanoid(), []);
 const [sortBy, setSortBy] = React.useState('')
 const [searchParams, setSearchParams] = React.useState('')
@@ -325,13 +313,11 @@ React.useEffect(() => {
 //},[isAuthenticated]);
 
   return (
-  <div className='site' style={themeStyles}>
+  <div className='site'>
   <NavBar 
-  inputThemeStyles={inputThemeStyles}
   goToCheckout={goToCheckout}
   cart={cart}
   recordData={recordData}
-  darkTheme={darkTheme}
   checkout={checkout}
   totalQuantity={totalQuantity}
   totalPrice={totalPrice}
@@ -339,22 +325,18 @@ React.useEffect(() => {
   addToCart={addToCart}
   decrement={decrement}
   deleteFromCart={deleteFromCart}
-  themeStyles={themeStyles}/>
-  <div className='page--container' style={themeStyles}>
+ />
+  <div className='page--container'>
   <div className='page'>
   <Routes>
     <Route exact path='/' element={<Home
     recordDataUnique={recordDataUnique}
-    themeStyles={themeStyles}
-    inputThemeStyles={inputThemeStyles}
     addToCart={addToCart}
     recordData={recordData} />}></Route>
     <Route path='/records'>
       <Route index element={<RecordsList
       resetFilters={resetFilters}
-      themeStyles={themeStyles}
       changePage={changePage}
-      inputThemeStyles={inputThemeStyles}
       changeSortBy={changeSortBy}
       changeSearchParams={changeSearchParams}
       searchData={searchParams} 
@@ -413,15 +395,11 @@ React.useEffect(() => {
       <Route 
       path=':id' element={<Record 
       recordDataUnique={recordDataUnique}
-      themeStyles={themeStyles}
-      inputThemeStyles={inputThemeStyles}
       changePage={changePage}
       addToWishlist={addToWishlist}
       recordData={recordData}
       addToCart={addToCart}/>}></Route>
       <Route path='new' element={<NewRecord 
-      inputThemeStyles={inputThemeStyles}
-      themeStyles={themeStyles}
       handleChange={handleChange}
       newRecord={newRecord}
       setNewRecord={setNewRecord}
@@ -429,11 +407,8 @@ React.useEffect(() => {
       />}></Route>
       </Route>
       <Route path='/blog' element={<Blog 
-      recordData={recordData}
-      themeStyles={themeStyles}/>}></Route>
+      recordData={recordData}/>}></Route>
       <Route path='/collection' element={<Wishlist
-      inputThemeStyles={inputThemeStyles}
-      themeStyles={themeStyles}
       deleteFromWishlist={deleteFromWishlist}
       recordData={recordData}
       addToCart={addToCart}
@@ -447,12 +422,10 @@ React.useEffect(() => {
       handleChange={handleChange}
       setFormData={setFormData}
       formData={formData}
-      inputThemeStyles={inputThemeStyles}
       recordData={recordData}
       recordDataUnique={recordDataUnique}
       emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
       cartDataFromAPI={cartDataFromAPI}
-      themeStyles={themeStyles}
       checkout={checkout}
       goToCheckout={goToCheckout}
       decrement={decrement}      
@@ -466,16 +439,13 @@ React.useEffect(() => {
       addToCart={addToCart}
       setCustomerDetails={setCustomerDetails}
       deleteFromWishlist={deleteFromWishlist}
-      inputThemeStyles={inputThemeStyles}
       addToWishlist={addToWishlist}
       wishlist={wishlist} />}></Route>
       <Route path='*' element={<NotFoundPage />}></Route>
   </Routes>
   </div>
   </div>
-  <Footer 
-  inputThemeStyles={inputThemeStyles}
-  themeStyles={themeStyles} />
+  <Footer />
   </div>
   )
 }

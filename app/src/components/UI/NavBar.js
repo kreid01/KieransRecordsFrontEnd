@@ -77,7 +77,6 @@ export default function NavBar(props) {
                 handleClick={handleClick}
                 inputThemeStyles={props.inputThemeStyles}
                 goToCheckout={props.goToCheckout}
-                darkTheme={props.darkTheme}
                 checkout={props.checkout}
                 totalQuantity={props.totalQuantity}
                 totalPrice={props.totalPrice}
@@ -85,10 +84,8 @@ export default function NavBar(props) {
                 addToCart={props.addToCart}
                 decrement={props.decrement}
                 deleteFromCart={props.deleteFromCart}
-                themeStyles={props.themeStyles}
                 cart={props.cart}
                 recordData={props.recordData}/>) : null}
-               <button className={darkThemeToggle} onClick={toggleTheme} style={props.inputThemeStyles}></button>
             </li>
           </ul>                                              
         </nav>

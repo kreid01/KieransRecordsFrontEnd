@@ -30,7 +30,6 @@ export default function PaymentConfirm(props) {
                 {(isAuthenticated) ? ( <>
                     {displayAddress(props.customerDetails)}
                 </>) : (props.validated) ? <> {displayAddress(props.formData)} </> : ( <PaymentDeatilsInput 
-                inputThemeStyles={props.inputThemeStyles}
                 validated={props.validated}
                 setValidated={props.setValidated}
                 customerDetails={props.customerDetails}
@@ -64,7 +63,6 @@ export default function PaymentConfirm(props) {
             </div>
             <div className='right--checkout--container' style={props.inputThemeStyles}>
                 <CheckoutCart
-                inputThemeStyles={props.inputThemeStyles}
                 goToCheckout={props.goToCheckout}
                 darkTheme={props.darkTheme}
                 checkout={props.checkout}
@@ -74,7 +72,6 @@ export default function PaymentConfirm(props) {
                 addToCart={props.addToCart}
                 decrement={props.decrement}
                 deleteFromCart={props.deleteFromCart}
-                themeStyles={props.themeStyles}
                 cart={props.cart}
                 recordData={props.recordData}/>
             </div>

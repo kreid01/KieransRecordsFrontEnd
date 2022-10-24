@@ -25,6 +25,23 @@
         & .record--name {
             margin-top: 0.5em;
         }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width:0%;
+            left:1.5em;
+            top:-1em;
+            border: 3px solid pink;;
+            transition: width 800ms ease-in-out;
+            z-index: -1;
+        }
+        &:hover {
+            scale: 1;
+            &:after {
+                width:100%;
+            }
+        }
     }
 } 
 @media (min-width: 768px) {
