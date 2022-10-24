@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // Packages
 import { Route, Routes} from 'react-router-dom'
-import { nanoid } from 'nanoid'
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 // Components
@@ -20,11 +19,8 @@ import CheckoutPage from './pages/CheckoutPage'
 import './styles.css';
 // Functions 
 import postRecord  from './services/records/postRecord'
-import updateCartAPI from './services/cart/updateCartAPI'
-import postCartAPI from './services/cart/postCartAPI';
 import getAllRecords from './services/records/getAllRecords';
 import updatePage from './services/records/getRecordsForPage';
-import deleteCartAPI from './services/cart/deleteCart';
 import updateRecord from './services/records/updateRecord';
 import getCustomerDetails from './services/customer/getCustomerDetails'
 import getCustomerOrders from './services/customer/getCustomerOrders'
@@ -33,9 +29,9 @@ import getCustomerOrders from './services/customer/getCustomerOrders'
 function App() {
 
 const [validated, setValidated] = React.useState(false)
-const {user, isAuthenticated} = useAuth0()
+const {user, isAuthenticated, getAccessTokenSilently} = useAuth0()
+
 const [customerOrders, setCustomerOrders] = React.useState([])
-const cartId = React.useMemo(() => nanoid(), []);
 const [sortBy, setSortBy] = React.useState('')
 const [searchParams, setSearchParams] = React.useState('')
 const [genreFilter, setGenreFilter] = React.useState('')
@@ -44,7 +40,6 @@ const [wishlist, setWishlist] = React.useState(() => {
   const initialValue = JSON.parse(saved);
   return initialValue || "";
 })
-const [cartDataFromAPI, setCartDataFromAPI] = React.useState([])
 const [pageNumber, setPageNumber] = React.useState('1')
 const [checkout, setCheckout] = React.useState(false)
 const [recordData, setRecordData] = React.useState([])
@@ -60,6 +55,7 @@ const [newRecord, setNewRecord] = React.useState({
   songCount: 0,
   price: 0,
   genres: [],
+  format: ''
 })
 const [formData, setFormData] = React.useState ({
   firstName:'',
@@ -94,35 +90,6 @@ React.useEffect(() => {
 React.useEffect(() => {
 updatePage(pageNumber, setRecordDataForPaging)}, [pageNumber])
 
-React.useEffect(() =>{
-  if(cart.length >= 1) {
-    fetch(`https://localhost:7143/cart/${cartId}`)
-    .then(res => res.json())
-    .then(data => setCartDataFromAPI(data))
-    .catch(err => console.error(err))}
-}, [cart])  
-
-React.useEffect(() => {
-  deleteCartAPI(cart, cartId)},[cart])
-
-React.useEffect(() => { 
-  const recordCartContent = []
-  if(cartDataFromAPI.cartContents) {
-
-    cart.map(rec => {
-        for(let i = 0; i < rec.quantityInCart; i++) {
-      recordCartContent.push({name: rec.name, id: rec._id, price: `${rec.price}`})
-        }
-    })
-      const jsonDataForPosting  = {
-        "cartContents": 
-        recordCartContent
-        ,
-        "Id": `${cartId}`
-        }
-      updateCartAPI(jsonDataForPosting)
-    }}, [cart])
- 
 function goToCheckout() {
   setCheckout(prevState => !prevState)
 }
@@ -154,11 +121,12 @@ function updateRecordsAvialability(record, id) {
     const newArr = [...recordData]
     newArr[id].isReservedInCart = true
     setRecordData(newArr)
+    console.log(recordData[id])
     updateRecord(record)
 }
 
  async function addToCart(record, id) {
-  if(record.quantity >= 1) {
+  if(recordData[id].quantity >= 1) {
   let recordForUpdating = record
   let idForUpdating = id
   if(record.isReservedInCart) {
@@ -173,64 +141,22 @@ function updateRecordsAvialability(record, id) {
   updateWishlistFromCart(recordForUpdating)
   updateCart(recordForUpdating, idForUpdating)
   updateQuantity(id)
-  if(cart.length === 0) {
-  const cartContents = {name: record.name, id: record._id, price: `${record.price}`}
-  const jsonDataForPosting  = {
-    "cartContents" : [cartContents],
-    "Id": `${cartId}`
-    }
-    postCartAPI(jsonDataForPosting)
-      }
+  console.log(cart)
  } }
 
  function emptyCartOnSuccessfulPayment() {
   setCart([])
  }
 
-  function deleteFromCart(id, i) {
-    const newRecordArr = [...recordData]
-    newRecordArr[i].quantity = newRecordArr[i].quantity + cart[id].quantityInCart
-    setRecordData(newRecordArr)
-    const newArr = [...cart]
-    newArr.splice(id, 1)
-    setCart(newArr)
-    const recordToRemove = setRecordData[id].name     
-    const newCartDataArr = cartDataFromAPI
-    newArr.cartContents.remove(recordToRemove)
-    setCartDataFromAPI(newCartDataArr)
-    const recordCartNames = cart.map(rec => {
-      return (
-        rec.name
-      )
-    })
-    const jsonDataForPosting  = {
-      "cartContents": 
-       recordCartNames
-      ,
-      "Id": `${cartId}`
-      }
-    updateCartAPI(jsonDataForPosting)
-}
-
 function decrement(i, id) {
-  do {
-  const index = cartDataFromAPI.cartContents.indexOf(recordData[id].name)
-  const newCartArr = cartDataFromAPI
-  newCartArr.cartContents.splice(index, 1)
-  setCartDataFromAPI(newCartArr)
-  } while (cartDataFromAPI.cartContents.includes(recordData[id].name))
+  const indexOfRecordToDecrement = cart.indexOf(recordData[id].name)
+  const newCartArrForSplicing = cart
+  newCartArrForSplicing.splice(indexOfRecordToDecrement, 1)
+  setCart(newCartArrForSplicing)
+  
   const newRecordArr = [...recordData]
   newRecordArr[id].quantity = newRecordArr[id].quantity + 1
   setRecordData(newRecordArr) 
-  const newArr = [...cart]
-  if(newArr[i].quantityInCart -1 === 0) {
-  newArr.splice(i, 1)
-  setCart(newArr)
-  } else {
-  newArr[i].quantityInCart = newArr[i].quantityInCart - 1
-  newArr[i].totalPrice = newArr[i].price * newArr[i].quantityInCart
-  setCart(newArr)
-  }
 }
 
 function addToWishlist(record, id) {
@@ -303,14 +229,16 @@ function resetFilters() {
 }
 
 React.useEffect(() => {
-   if (isAuthenticated) {getCustomerDetails(user.sub, setCustomerDetails)
-}},[isAuthenticated]);
-
-//React.useEffect(() => {
- // if(isAuthenticated) {
-  //getCustomerOrders(user.sub, setCustomerOrders)
-///}
-//},[isAuthenticated]);
+  (async () => {
+    if(isAuthenticated) {
+    try {
+      getCustomerOrders(setCustomerOrders, user.sub);
+      getCustomerDetails(setCustomerDetails, user.sub)
+    } catch (e) {
+      console.error(e);
+    }
+  }})();
+}, [isAuthenticated]);
 
   return (
   <div className='site'>
@@ -324,7 +252,6 @@ React.useEffect(() => {
   addToWishlist={addToWishlist}
   addToCart={addToCart}
   decrement={decrement}
-  deleteFromCart={deleteFromCart}
  />
   <div className='page--container'>
   <div className='page'>
@@ -425,7 +352,6 @@ React.useEffect(() => {
       recordData={recordData}
       recordDataUnique={recordDataUnique}
       emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
-      cartDataFromAPI={cartDataFromAPI}
       checkout={checkout}
       goToCheckout={goToCheckout}
       decrement={decrement}      

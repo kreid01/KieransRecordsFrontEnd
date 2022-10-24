@@ -16,9 +16,6 @@ export default function PayPal(props) {
      })
 
     // eslint-disable-next-line no-unused-vars
-    const cartDescription = props.cart.map(record => {
-       return `${record.name} by ${record.artist} x ${record.quatity}`
-    })
     React.useEffect(() => {
         
         window.paypal.Buttons({
@@ -36,10 +33,10 @@ export default function PayPal(props) {
             onApprove: async (data, action) => {
                 const order = await action.order.capture()
                 const userToken = (isAuthenticated) ? user.sub : null
-                const userData = (isAuthenticated) ? props.customerDetails : props.formData
+                const userData = (isAuthenticated && props.customerDetails) ? props.customerDetails : props.formData
                 updateDatabase() 
-                postOrder(props.cartDataFromAPI, props.formData, userToken)
-                postCustomer(userData, props.customerDetails, userToken)
+                postOrder(props.cart, userData, userToken)
+                postCustomer(userData, userToken)
                 props.goToCheckout()
                 props.emptyCartOnSuccessfulPayment()
                 console.log(order)

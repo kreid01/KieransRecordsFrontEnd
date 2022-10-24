@@ -1,14 +1,18 @@
+import { nanoid } from "nanoid"
+
 export default function postOrder(cart, formData, linkToken) {
     const orderDetails = []
-    cart.cartContents.map(record => {
+    const id = nanoid()
+   
+    cart.map(record => {
         return (
-           orderDetails.push({name: record.name, id: record.id, price: `${record.price}`})
+           orderDetails.push({name: record.name, id: `${record._id}`, price: `${record.price}`})
         )
     })
     const currentTime = new Date()
     const json = {
-        "id": `${cart.id}`,
-        "customerId": `${linkToken}`,
+        "id": `${id}`,
+        "customerLinkToken": `${linkToken}`,
         "orderContents": orderDetails,
         "timeOfOrder": `${currentTime}`,
         "isShippied": false,
@@ -22,6 +26,7 @@ export default function postOrder(cart, formData, linkToken) {
             "postcode": `${formData.postcode}`
         }
       }
+    console.log(json)
     fetch('https://localhost:7143/order', {
     method: 'POST', 
     headers: { 'Content-Type': 'application/json' },  

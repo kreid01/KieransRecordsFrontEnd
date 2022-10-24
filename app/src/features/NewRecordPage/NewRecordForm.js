@@ -172,7 +172,7 @@ export default function NewRecordForm(props) {
                         </FloatingLabel>
                     </Form.Group>
                     <Row>
-                    <Form.Group as={Col} md='4'>
+                    <Form.Group as={Col} md='3'>
                     <FloatingLabel
                     controlId='floatingInput'
                     label='Release Year'
@@ -187,7 +187,7 @@ export default function NewRecordForm(props) {
                     class='form-control'/>
                     </FloatingLabel>
                     </Form.Group>
-                    <Form.Group as={Col} md='4'>
+                    <Form.Group as={Col} md='3'>
                     <FloatingLabel
                     controlId='floatingInput'
                     label='Song Count'
@@ -203,7 +203,7 @@ export default function NewRecordForm(props) {
                     />
                     </FloatingLabel>
                     </Form.Group>
-                    <Form.Group as={Col} md='4'>
+                    <Form.Group as={Col} md='3'>
                     <FloatingLabel
                     controlId='floatingInput'
                     label='Price'
@@ -212,13 +212,27 @@ export default function NewRecordForm(props) {
                     type='decimal' 
                     placeholder='Record Price'
                     name='price'
-                    data-val="true"
                     value={props.newRecord.price.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
                     required
                     class='form-control'/>
                     </FloatingLabel>
                     </Form.Group>
+                    <Form.Group as={Col} md='3'>
+                    <Form.Select
+                    type='text' 
+                    placeholder='Format'
+                    name='format'
+                    value={props.newRecord.format.value}
+                    onChange={(e) => props.handleChange(e, props.setNewRecord)}
+                    required
+                    class='form-control'>
+                    <option value='LP'>LP</option>
+                    <option value='EP'>EP</option>
+                    <option value='S'>Single</option>
+                    <option value='C'>Compilation</option>
+                    </Form.Select>
+                    </Form.Group>                    
                     </Row>
                     <div className='genre--selectors'>
                     <Form.Select

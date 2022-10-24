@@ -42,7 +42,6 @@ export default function Carousel(props) {
             price={record.price}
             songCount={record.songCount}
             releaseYear={record.releaseYear}
-            inputThemeStyles={props.inputThemeStyles}
             addToCart={props.addToCart}
             record={record}
             isFromWishlist={props.isFromWishlist}

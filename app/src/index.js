@@ -14,10 +14,8 @@ root.render(
     <Auth0Provider
       domain="dev-v7gopbxg.us.auth0.com"
       clientId="Au67YXhjip0DgKBzLD0AlUlrEF7xVCPD"
-      redirectUri="http://localhost:3000"
-      response_type="token"
-      audience='https://dev-v7gopbxg.us.auth0.com/api/v2/'
-      scope="records:read-write">
+      redirectUri={window.location.origin}
+      audience='https://dev-v7gopbxg.us.auth0.com/api/v2/'>
         <ThemeProvider>
           <App />
         </ThemeProvider>

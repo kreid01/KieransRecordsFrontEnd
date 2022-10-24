@@ -5,10 +5,10 @@ export default function CurrentRecordPage(props) {
     const recordData = props.recordData
     const id = props.id
 
-    const genresData = recordData[id].genres.map(genre  => {
+    const genresData = recordData[id].genres.map((genre, i)  => {
         if(genre !== "undefined") {
         return (
-         <div className="genre">{genre}</div>
+         <div key={i} className="genre">{genre}</div>
         )}
     })
     const currentRecordData =
@@ -18,7 +18,7 @@ export default function CurrentRecordPage(props) {
         alt=''
         />
         <div className='current--record--info'>
-            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>£{recordData[id].price} {props.recordData[id].quantity} Left</div></h3>
+            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>£{recordData[id].price} {recordData[id].quantity} Left</div></h3>
             <p className='current--record--details'>Released: <strong>{recordData[id].releaseYear}</strong> • <strong>{props.recordData[id].songCount} songs</strong> </p>
             <div className='current--record-genres'>
                 {genresData}

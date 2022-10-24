@@ -27,7 +27,7 @@ export default function PaymentConfirm(props) {
                 <div className="delivery--header"><h1>DELIVERY</h1></div>
                 <div className='delivery--container'>
                     <h3>DELIVERY ADDRESS</h3>
-                {(isAuthenticated) ? ( <>
+                {(isAuthenticated && props.customerDetails) ? ( <>
                     {displayAddress(props.customerDetails)}
                 </>) : (props.validated) ? <> {displayAddress(props.formData)} </> : ( <PaymentDeatilsInput 
                 validated={props.validated}

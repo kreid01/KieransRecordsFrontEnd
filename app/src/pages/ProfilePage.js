@@ -5,34 +5,9 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export default function ProfilePage(props) {
 
-    const { user, isAuthenticated, getAccessTokenSilently} = useAuth0();
-    const [userMetadata, setUserMetadata] = React.useState(null) 
+    const { user, isAuthenticated} = useAuth0();
 
-    React.  useEffect(() => {
-      (async () => {
-        try {
-          const token = await getAccessTokenSilently({
-            audience: 'http://localhost:7143', // Value in Identifier field for the API being called.
-            scope: 'records:read-write' 
-          });
-          console.log(token)
-          const response = await fetch('https://localhost:7143/customer', {
-            headers: {
-            Authorization: `Bearer ${token}`,
-            },
-          });
-          console.log((await response.json()));
-        } catch (e) {
-          console.error(e);
-        }
-      })();
-    }, [getAccessTokenSilently]);
-  
-
-      
-
-
-    if (!isAuthenticated) {redirect('/')} else {
+       if (!isAuthenticated) {redirect('/')} else {
     
         return (
     <div className='profile--page'>
@@ -43,12 +18,6 @@ export default function ProfilePage(props) {
         customerDetails={props.customerDetails}
         recordData={props.recordData}
         />
-        <h3>Meta</h3>
-        {userMetadata ?
-          (<pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-            ) : (
-                "No user metadata defined"
-            )}
         </div>
     </div>
     )

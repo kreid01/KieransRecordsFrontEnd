@@ -42,6 +42,7 @@
             font-size: 0.6em;
         }
         & .cart--record--price {
+            font-size: 1em;
             right: 0;
         }
     }
@@ -56,13 +57,9 @@
     }
 }
 
-@media (min-width: 850px) {
-    .right--checkout--container {
-        display: block;
-    }
-}
 @media (min-width: 1100px) {
     .right--checkout--container {
+        display:block;
         & .cart--checkout {
             margin-top: 30%;
         }

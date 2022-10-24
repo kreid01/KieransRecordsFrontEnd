@@ -1,9 +1,6 @@
 import { nanoid } from "nanoid"
 
-export default function postCustomer(formData, customerDetails, linkToken) {
-    if(customerDetails) {
-
-    } else {
+export default function postCustomer(formData, linkToken) {
     const id = nanoid()
     const json = {
         "id": `${id}`,
@@ -19,7 +16,6 @@ export default function postCustomer(formData, customerDetails, linkToken) {
     console.log(json)
     fetch('https://localhost:7143/customer', {
     method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },  
+    headers: { 'Content-Type': 'application/json' , Authorization: `Bearer ${linkToken}`},  
     body:JSON.stringify(json)})
-    }
 }   

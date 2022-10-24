@@ -33,6 +33,14 @@ form input, form button, select, input, .search--button {
 }
 .submit--button {
     width: 101%;
+    background-color: #333;
+    &:hover {
+        background:#333;
+        filter: brightness(80%)
+    }
+}
+.form-control {
+    font-size: 0.9em;
 }
 @media( min-width: 768px) {
     .new--record--page {
