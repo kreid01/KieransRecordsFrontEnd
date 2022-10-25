@@ -37,6 +37,8 @@ export default function NewRecordForm(props) {
     <option value="Space Rock">Space Rock</option>
     <option value="Jazz Rock">Jazz Rock</option>
     <option value="Funk Rock">Funk Rock</option>
+    <option value="Acoustic Rock">Acoustic Rock</option>
+    <option value="Grunge Rock">Grunge Rock</option>
     <option value="Shoegaze">Shoegaze</option>
     <option value="Slowcore">Slowcore</option>
     <option value="Drone">Drone</option>
@@ -123,12 +125,12 @@ export default function NewRecordForm(props) {
                     <Form.Group as={Col} md='6'>
                     <FloatingLabel
                     controlId='floatingInput'
-                    label='Ablum title'
+                    label='Record title'
                     className='mb-3'>
                     <Form.Control
                     type='text' 
                     name='name'
-                    placeholder='Ablum title'
+                    placeholder='Record title'
                     class='form-control'
                     value={props.newRecord.name.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
@@ -165,7 +167,7 @@ export default function NewRecordForm(props) {
                         placeholder=' '
                         value={props.newRecord.imageUrl.value}
                         onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                        pattern="/(https?:\/\/.*\.(?: png|jpg))/i"
+                        pattern="/(https?:\/\/.*\.(?: png|jpg|jpeg))/i"
                         required
                         class='form-control'/>
                         <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>

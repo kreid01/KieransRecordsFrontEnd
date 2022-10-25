@@ -1,6 +1,8 @@
 export default function updateRecord(record) {
     const recordDataForDatabase =  {
                 "_id": `${record._id}`,
+                "stockNumber": `${record.stockNumber}`,
+                "format": `${record.format}`,
                 "name":`${record.name}`,
                 "artist": `${record.artist}`,
                 "releaseYear": record.releaseYear,
@@ -15,6 +17,6 @@ export default function updateRecord(record) {
                 "isReservedInCart": record.isReservedInCart
         }
             fetch(`https://localhost:7143/records?id=${record._id}`, { 
-            method: 'PUT',headers: { 'Content-Type': 'application/json' },  
+            method: 'PUT' ,headers: { 'Content-Type': 'application/json' },  
             body:JSON.stringify(recordDataForDatabase)})
 }

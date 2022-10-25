@@ -33,7 +33,7 @@ export default function CartDropdown(props) {
         })
         let quantityOfRecord = 0
         props.cart.map(rec => {
-            if(record.name === rec.name) { quantityOfRecord++ }
+            if(record.name === rec.name) { quantityOfRecord++}
         })
 
 
@@ -53,7 +53,7 @@ export default function CartDropdown(props) {
                     </div>
                     <div className='cart--record--buying'>
                         <button 
-                        onClick={() => props.decrement(i, id)}><i class="fa-solid fa-minus"></i></button>
+                        onClick={() => props.decrementRecordInCart(i, id)}><i class="fa-solid fa-minus"></i></button>
                         <p className='cart--quantity'>{quantityOfRecord}</p>
                         <button  onClick={() => props.addToCart(record, id)}><i class="fa-solid fa-plus"></i></button>
                         <p className='cart--record--price'>£{record.totalPrice.toFixed(2)}</p>

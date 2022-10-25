@@ -4,6 +4,8 @@ import Filter from '../features/RecordList/Filter';
 import Record from '../components/UI/Record'
 
 export default function RecordsList(props) {
+
+    console.log(props.recordData[1])
             
             const emptyArr = Array(7).fill('')
             const pageNumberData = emptyArr.map((item, i) =>  {
@@ -46,7 +48,6 @@ export default function RecordsList(props) {
                    releaseYear={record.releaseYear}
                    price={record.price}
                    record={record}
-                   inputThemeStyles={props.inputThemeStyles}
                    />
                 )}
             )
@@ -59,7 +60,6 @@ export default function RecordsList(props) {
                 <div className='filter--conatiner'>
                     <Filter
                     resetFilters={props.resetFilters}
-                    inputThemeStyles={props.inputThemeStyles} 
                     changeSortBy={props.changeSortBy}
                     genreFilter={props.genreFilter}
                     selectGenre={props.selectGenre}

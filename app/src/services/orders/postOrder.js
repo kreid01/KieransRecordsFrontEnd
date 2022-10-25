@@ -6,7 +6,7 @@ export default function postOrder(cart, formData, linkToken) {
    
     cart.map(record => {
         return (
-           orderDetails.push({name: record.name, id: `${record._id}`, price: `${record.price}`})
+           orderDetails.push({name: record.name, stockNumber: `${record.stockNumber}`, price: `${record.price}`})
         )
     })
     const currentTime = new Date()

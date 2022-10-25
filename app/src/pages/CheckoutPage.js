@@ -56,6 +56,7 @@ export default function PaymentConfirm(props) {
                 recordData={props.recordData}
                 goToCheckout={props.goToCheckout}
                 cart={props.cart}
+                setRecordsAsSold={props.setRecordsAsSold}
                 totalPrice={props.totalPrice}
                 checkout={props.checkout}/></> ) : null }
                 <>
@@ -70,7 +71,7 @@ export default function PaymentConfirm(props) {
                 totalPrice={props.totalPrice}
                 addToWishlist={props.addToWishlist}
                 addToCart={props.addToCart}
-                decrement={props.decrement}
+                decrementRecordInCart={props.decrementRecordInCart}
                 deleteFromCart={props.deleteFromCart}
                 cart={props.cart}
                 recordData={props.recordData}/>

@@ -34,6 +34,7 @@ export default function PayPal(props) {
                 const order = await action.order.capture()
                 const userToken = (isAuthenticated) ? user.sub : null
                 const userData = (isAuthenticated && props.customerDetails) ? props.customerDetails : props.formData
+                props.setRecordsAsSold()
                 updateDatabase() 
                 postOrder(props.cart, userData, userToken)
                 postCustomer(userData, userToken)

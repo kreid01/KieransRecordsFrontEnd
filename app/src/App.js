@@ -94,37 +94,6 @@ function goToCheckout() {
   setCheckout(prevState => !prevState)
 }
   
-function updateWishlistFromCart(record) {
-  wishlist.map((rec , i) => {
-    if(rec.name === record.name) {
-      const newArrForDeletingOffWishlist = [...wishlist]
-      newArrForDeletingOffWishlist.splice(i, 1)
-      setWishlist(newArrForDeletingOffWishlist)
-    }
-  })
-}
-
-function updateQuantity(id) {
-  const newArrForChaningQuantity = [...recordData]
-  newArrForChaningQuantity[id].quantity = newArrForChaningQuantity[id].quantity - 1
-  setRecordData(newArrForChaningQuantity)
-}
-
-function updateCart(record, id) {
-      setCart(prevArr => [...prevArr, {
-      ...recordData[id],
-      quantityInCart: 1,
-      totalPrice: recordData[id].price}])
-}
-
-function updateRecordsAvialability(record, id) {
-    const newArr = [...recordData]
-    newArr[id].isReservedInCart = true
-    setRecordData(newArr)
-    console.log(recordData[id])
-    updateRecord(record)
-}
-
  async function addToCart(record, id) {
   if(recordData[id].quantity >= 1) {
   let recordForUpdating = record
@@ -139,48 +108,89 @@ function updateRecordsAvialability(record, id) {
   }
   updateRecordsAvialability(recordForUpdating, idForUpdating)
   updateWishlistFromCart(recordForUpdating)
-  updateCart(recordForUpdating, idForUpdating)
-  updateQuantity(id)
+  updateCart(idForUpdating)
+  decrementRecordQuantity(id)
   console.log(cart)
  } }
+
+ function updateWishlistFromCart(record) {
+  wishlist.map((rec , i) => {
+    if(rec.name === record.name) {
+      const newArrForDeletingOffWishlist = [...wishlist]
+      newArrForDeletingOffWishlist.splice(i, 1)
+      setWishlist(newArrForDeletingOffWishlist)
+    }
+  })
+}
+
+function decrementRecordQuantity(id) {
+  const newArrForChanging = [...recordData]
+  newArrForChanging[id].quantity = newArrForChanging[id].quantity - 1 
+  setRecordData(newArrForChanging)
+}
+
+function updateCart(id) {
+      setCart(prevArr => [...prevArr, {
+      ...recordData[id],
+      quantityInCart: 1,
+      totalPrice: recordData[id].price}])
+}
+
+function updateRecordsAvialability(record, id) {
+    const newArr = [...recordData]
+    newArr[id].isReservedInCart = true
+    setRecordData(newArr)
+    console.log(recordData[id])
+    updateRecord(record)
+}
 
  function emptyCartOnSuccessfulPayment() {
   setCart([])
  }
 
-function decrement(i, id) {
-  const indexOfRecordToDecrement = cart.indexOf(recordData[id].name)
-  const newCartArrForSplicing = cart
-  newCartArrForSplicing.splice(indexOfRecordToDecrement, 1)
-  setCart(newCartArrForSplicing)
+ function setRecordsAsSold() {
+  const newCartArr = [...cart] 
+  newCartArr.map(record => {
+      record.isAvailable = false 
+  })
+  setCart(newCartArr)
+}
+
+function decrementRecordInCart(i, id) {
+  updateCartQuantity(id)
   
-  const newRecordArr = [...recordData]
-  newRecordArr[id].quantity = newRecordArr[id].quantity + 1
-  setRecordData(newRecordArr) 
+  incrementRecordQuantity(id, ) 
+}
+
+function incrementRecordQuantity(id) {
+  const newArrForChanging = [...recordData]
+  newArrForChanging[id].quantity = newArrForChanging[id].quantity - 1 
+  setRecordData(newArrForChanging)
+}
+
+function updateCartQuantity(id) {
+  const recordToDecrement = cart.indexOf(recordData[id].name)
+  const newCartArr = cart
+  newCartArr.splice(recordToDecrement, 1)
+  setCart(newCartArr)
 }
 
 function addToWishlist(record, id) {
-  let isRecordPresent = false
-  if(wishlist.length >= 1){
-  // eslint-disable-next-line array-callback-return
-  cart.map((rec , i) => {
-    if(rec.name === record.name) {
-      const newArr = [...wishlist]
-      newArr.splice(i, 1)
-      setCart(newArr)
-    }
-  })
-  // eslint-disable-next-line array-callback-return
-  wishlist.map(rec => {
-    if(rec.name === record.name) {
-      isRecordPresent = true
-    }
-  })}
-  if(isRecordPresent) {
-  } else {
+  let isRecordPresent = checkIfRecordAlreadyPresent(record)
+  console.log(isRecordPresent)
+  if(!isRecordPresent) {
   setWishlist(prevArr => [...prevArr, recordData[id]])
   }
 }
+
+function checkIfRecordAlreadyPresent(record) {
+  let isRecordPresent = false
+  wishlist.map(rec => {
+    if(rec.name === record.name) {
+      isRecordPresent = true
+    }})
+  return isRecordPresent
+  }
 
 function deleteFromWishlist(id) {
   if(wishlist.length > 1){
@@ -192,7 +202,8 @@ function deleteFromWishlist(id) {
     setWishlist([])
   }
 }
-async function selectGenre(e) {
+
+function selectGenre(e) {
   if(e.target.value === '0') {
   setGenreFilter('')
   } else {
@@ -251,7 +262,7 @@ React.useEffect(() => {
   totalPrice={totalPrice}
   addToWishlist={addToWishlist}
   addToCart={addToCart}
-  decrement={decrement}
+  decrementRecordInCart={decrementRecordInCart}
  />
   <div className='page--container'>
   <div className='page'>
@@ -354,9 +365,10 @@ React.useEffect(() => {
       emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
       checkout={checkout}
       goToCheckout={goToCheckout}
-      decrement={decrement}      
+      decrementRecordInCart={decrementRecordInCart}     
       totalPrice={totalPrice}
-      cart={cart}/>}>
+      cart={cart}
+      setRecordsAsSold={setRecordsAsSold}/>}>
       </Route>
       <Route path='/profilepage' element={<ProfilePage
       customerOrders={customerOrders}
