@@ -4,9 +4,7 @@ import Filter from '../features/RecordList/Filter';
 import Record from '../components/UI/Record'
 
 export default function RecordsList(props) {
-
-    console.log(props.recordData[1])
-            
+         
             const emptyArr = Array(7).fill('')
             const pageNumberData = emptyArr.map((item, i) =>  {
                 return (

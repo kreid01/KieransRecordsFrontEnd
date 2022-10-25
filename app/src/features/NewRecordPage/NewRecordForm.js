@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import InputGroup from 'react-bootstrap/InputGroup'
 
 export default function NewRecordForm(props) {
 
@@ -125,6 +126,7 @@ export default function NewRecordForm(props) {
                     <Form.Group as={Col} md='6'>
                     <FloatingLabel
                     controlId='floatingInput'
+                    style ={{fontSize: '14px'}}
                     label='Record title'
                     className='mb-3'>
                     <Form.Control
@@ -140,6 +142,7 @@ export default function NewRecordForm(props) {
                     </Form.Group>
                     <Form.Group as={Col} md='6' controlId='validateCustom01'>
                       <FloatingLabel
+                      style ={{fontSize: '14px'}}
                       controlId='floatingInput'
                       label='Artist'
                       className='mb-3'>
@@ -156,8 +159,10 @@ export default function NewRecordForm(props) {
                      </FloatingLabel>
                     </Form.Group>
                     </Row>
-                        <Form.Group as={Col} md={12}>
+                    <Row>
+                        <Form.Group as={Col} md='9'>
                         <FloatingLabel
+                        style ={{fontSize: '14px'}}
                         controlId='floatingInput'
                         label='Image URL'
                         className='mb-3'>
@@ -167,15 +172,39 @@ export default function NewRecordForm(props) {
                         placeholder=' '
                         value={props.newRecord.imageUrl.value}
                         onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                        pattern="/(https?:\/\/.*\.(?: png|jpg|jpeg))/i"
+                        pattern="/\.(jpe?g|png|gif|bmp)$/i"
                         required
                         class='form-control'/>
                         <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>
                         </FloatingLabel>
-                    </Form.Group>
+                        </Form.Group>
+                        <Form.Group as={Col} md='3'>
+                        <FloatingLabel
+                        style ={{fontSize: '14px'}}
+                        controlId='floatingInput'
+                        label='Format'>
+                        <Form.Select
+                        type='text' 
+                        style ={{fontSize: '14px'}}
+                        name='format'
+                        value={props.newRecord.format.value}
+                        onChange={(e) => props.handleChange(e, props.setNewRecord)}
+                        required
+                        size='lg'
+                        className='mb-3'
+                        class='form-control'>                          
+                        <option value='LP'>LP</option>
+                        <option value='EP'>EP</option>
+                        <option value='S'>Single</option>
+                        <option value='C'>Compilation</option>
+                        </Form.Select>
+                        </FloatingLabel>
+                        </Form.Group>
+                    </Row>
                     <Row>
-                    <Form.Group as={Col} md='3'>
+                    <Form.Group as={Col} md='4'>
                     <FloatingLabel
+                    style ={{fontSize: '14px'}}
                     controlId='floatingInput'
                     label='Release Year'
                     className='mb-3'>
@@ -189,8 +218,9 @@ export default function NewRecordForm(props) {
                     class='form-control'/>
                     </FloatingLabel>
                     </Form.Group>
-                    <Form.Group as={Col} md='3'>
+                    <Form.Group as={Col} md='4'>
                     <FloatingLabel
+                    style ={{fontSize: '14px'}}
                     controlId='floatingInput'
                     label='Song Count'
                     className='mb-3'>
@@ -205,8 +235,11 @@ export default function NewRecordForm(props) {
                     />
                     </FloatingLabel>
                     </Form.Group>
-                    <Form.Group as={Col} md='3'>
+                    <Form.Group as={Col} md='4'>
+                    <InputGroup>
+                    <InputGroup.Text className='input--group--£'>£</InputGroup.Text>
                     <FloatingLabel
+                    style ={{fontSize: '14px'}}
                     controlId='floatingInput'
                     label='Price'
                     className='mb-3'>
@@ -218,46 +251,60 @@ export default function NewRecordForm(props) {
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}
                     required
                     class='form-control'/>
-                    </FloatingLabel>
-                    </Form.Group>
-                    <Form.Group as={Col} md='3'>
-                    <Form.Select
-                    type='text' 
-                    placeholder='Format'
-                    name='format'
-                    value={props.newRecord.format.value}
-                    onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                    required
-                    class='form-control'>
-                    <option value='LP'>LP</option>
-                    <option value='EP'>EP</option>
-                    <option value='S'>Single</option>
-                    <option value='C'>Compilation</option>
-                    </Form.Select>
+                   </FloatingLabel>
+                   </InputGroup>
                     </Form.Group>                    
                     </Row>
-                    <div className='genre--selectors'>
+                    <Row>
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                      style ={{fontSize: '14px'}}
+                      controlId='floatingInput'
+                      label='Image URL'
+                      className='mb-3'>
                     <Form.Select
+                    style ={{fontSize: '14px'}}
                     type='text' 
                     placeholder='Record Genre'
                     name='genres'
-                    required
+                    required 
+                    size='m'
                     class='form-control'
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
-                    </Form.Select>                
+                    </Form.Select>    
+                    </FloatingLabel>   
+                    </Form.Group>     
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                      style ={{fontSize: '14px'}}
+                      controlId='floatingInput'
+                      label='Image URL'
+                      className='mb-3'>   
                     <Form.Select 
+                    style ={{fontSize: '14px'}}
                     type='text' 
                     placeholder='Record Genre'
                     name='genres'
                     required
+                    size='m'
                     class='form-control'
                     value={props.newRecord.genres.value}
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
                     </Form.Select>
-                    <Form.Select 
+                    </FloatingLabel> 
+                    </Form.Group>
+                    <Form.Group as={Col} md='4'>
+                    <FloatingLabel
+                      style ={{fontSize: '14px'}}
+                      controlId='floatingInput'
+                      label='Image URL'
+                      className='mb-3'>
+                    <Form.Select
+                    style ={{fontSize: '14px'}}
+                    size='m' 
                     type='text' 
                     class='form-control'
                     placeholder='Record Genre'
@@ -266,7 +313,9 @@ export default function NewRecordForm(props) {
                     onChange={(e) => props.handleChange(e, props.setNewRecord)}>
                         {genreOptions}
                     </Form.Select>
-                    </div>
+                    </FloatingLabel>
+                    </Form.Group>
+                    </Row>
                     <Button 
                      style={props.inputThemeStyles}
                      className='submit--button'

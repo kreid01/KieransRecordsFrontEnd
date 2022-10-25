@@ -239,6 +239,14 @@ function resetFilters() {
   setSortBy('')
 }
 
+function setGenreFromCurrentRecord(genre) {
+  setGenreFilter(genre)
+}
+
+function setGenreFilterFromDropdown(genre) {
+  setGenreFilter(genre)
+}
+
 React.useEffect(() => {
   (async () => {
     if(isAuthenticated) {
@@ -254,6 +262,7 @@ React.useEffect(() => {
   return (
   <div className='site'>
   <NavBar 
+  setGenreFilterFromDropdown={setGenreFilterFromDropdown}
   goToCheckout={goToCheckout}
   cart={cart}
   recordData={recordData}
@@ -283,7 +292,6 @@ React.useEffect(() => {
       allRecords={recordData}
       pageNumber={pageNumber}
       recordData={(genreFilter.length > 5 || genreFilter !== '' ? recordData.filter(
-      // eslint-disable-next-line array-callback-return
       record => record.genres.includes(genreFilter)): (searchParams.length < 2) ? 
       recordDataForPaging : recordData).filter(record => {
         if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
@@ -332,6 +340,7 @@ React.useEffect(() => {
       addToCart={addToCart}/>}></Route>
       <Route 
       path=':id' element={<Record 
+      setGenreFromCurrentRecord={setGenreFromCurrentRecord}
       recordDataUnique={recordDataUnique}
       changePage={changePage}
       addToWishlist={addToWishlist}

@@ -1,4 +1,5 @@
 import React from 'react'; 
+import {Link} from 'react-router-dom'
 
 export default function CurrentRecordPage(props) {
 
@@ -8,7 +9,10 @@ export default function CurrentRecordPage(props) {
     const genresData = recordData[id].genres.map((genre, i)  => {
         if(genre !== "undefined") {
         return (
-         <div key={i} className="genre">{genre}</div>
+         <div key={i} className="genre"><Link
+         to='/records'
+         className='genre--nav'
+         onClick={() => props.setGenreFromCurrentRecord(genre)}>{genre}</Link></div>
         )}
     })
     const currentRecordData =

@@ -15,8 +15,10 @@ export default function SimilarRecords(props) {
             }
         })
     })
-    
-    const recordsForCarousel = similarRecords.reduce((acc, rec) => {
+
+    const removedCurrentRecordArr = similarRecords.filter(rec => rec.name !== recordData[id].name)
+
+    const recordsForCarousel = removedCurrentRecordArr.reduce((acc, rec) => {
         if(!acc.find(u => u.name === rec.name)) {
             acc.push(rec)
         }
@@ -30,7 +32,6 @@ export default function SimilarRecords(props) {
         <Carousel 
             records={recordsForCarousel}
             recordData={props.recordData}
-            inputThemeStyles={props.inputThemeStyles}
             addToCart={props.addToCart}/>
         </div>
      </section> 

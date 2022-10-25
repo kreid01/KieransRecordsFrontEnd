@@ -24,6 +24,11 @@
         height:10%;
         width:100%;
         margin-bottom:7vw;
+        & .genre--nav {
+            &:link, &:visited {
+                color:#333;
+            }
+        }
         & .genre {
             padding: 0 0.3em;
             border-radius: 2px;
@@ -32,7 +37,7 @@
             margin: 0 0.2em;
             margin-bottom: 0.3em;
             background: pink;
-            color:#333
+            color:#333;
         }
     }
 }

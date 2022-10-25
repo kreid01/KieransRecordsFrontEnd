@@ -2,35 +2,87 @@
     padding-bottom:3em;
     & .record {
         margin-left: 1em;
+        width:85%;
         & img {
-            width:97%; 
+            width:80%; 
+            margin-left: 15%;
+        }
+        & .record--info {
+            margin-top: 3%;
+            margin-left: 3%;
         }
         & .record--name {
-            margin-top: 0.5em;
+            font-size:3em;
+            font-weight: bold;
         }
-        & h3 {
-            font-sizE:1.2em;
+        & h2 {
+            font-size: 1.7em;
         }
-        & h2, p ,div {
-            font-size :.8em;
-            margin:0;
+        & .new--record--genres {
+            display: flex;
+            flex-wrap: wrap;
+            height:10%;
+            width:100%;
+            margin-bottom:7vw;
+            font-size: 1.5em;
+            margin-top:1em;
+            & .genre {
+                padding: 0 0.3em;
+                border-radius: 2px;
+                height: 1.5em;
+                min-width:20%;
+                margin: 0 0.2em;
+                margin-bottom: 0.3em;
+                background: pink;
+                color:#333
+            }
         }
     }
 }
-@media (min-width: 1000px) {
+@media (min-width: 768px) {
     .preview--record--container {
-        padding-bottom:3em;
-        padding-left:1em;
             & .record {
                 display:flex;
-                font-sizE:0.7em;
-                margin: 0 3.5 3.5em 3.5em;
+                width:90vw;
+            & .record--info {
+                margin-top:0;
+            }
+            & img {
+                width: 40vw;
+                height:40vw;
+                margin-lefT:0;
+            }
+            & .record--name {
+                font-sizE: 1.5em;
+            }
+            & h2 {
+                font-size: 0.9em;
+            }
+            & .new--record--genres {
+                font-size: 0.7em;
+            }
+        }  
+    }
+}
+@media (min-width: 1300px) {
+    .preview--record--container {
+        width:55vw;;
+            & .record {
                 & img {
-                    width:50%; 
+                    max-width:19vw;; 
+                    max-height:19vw;
                 }
-                & p, div, h3, h2 {
-                    scale:1.1;
-                    margin-left:5%;
+                & .record--info {
+                    margin-left:2%;
+                    min-width:27vw;
+                    max-width:27vw;
+                }
+                & .record--name {
+                    width:100%;
+                    font-size:1em;
+                }
+                & h2 {
+                    font-sizE: 0.8em;
                 }
              }
       }
@@ -41,8 +93,7 @@
         padding-left:1em;
        & .preview--record {
             & .record {
-                font-sizE:0.9em;
-                margin: 0 3.5 3.5em 3.5em;
+                font-sizE:1.1em;
                 & img {
                     width:50%;
                 } 

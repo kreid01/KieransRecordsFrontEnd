@@ -12,14 +12,24 @@ import CartDropdown from './CartDropdown';
 export default function NavBar(props) {
 
     const {isAuthenticated} = useAuth0()
-    const toggleTheme = useThemeUpdate()
-    const darkThemeToggle = (props.darkTheme) ? 'toggle--dark--mode--dark' : 'toggle-dark--mode--light'
-
     const [open, setOpen] = React.useState(false)
-
     const handleClick = () => {
       setOpen(!open)
     }
+
+    const genres = ['Rock', 'Pop', 'Hip-Hop', 'Metal', 'Jazz']
+
+    const genreMapForDropdown = genres.map(genre => {
+        return (
+          <li>
+            <NavLink 
+            onClick={() => props.setGenreFilterFromDropdown(genre)}
+            className='dropdown--item' 
+            end to='/records'>{genre}
+            </NavLink>
+          </li>
+        )
+    })
 
     return (
         <header className='nav--bar'>
@@ -41,6 +51,7 @@ export default function NavBar(props) {
                 All Records
                 </NavLink>
                 </li>
+                {genreMapForDropdown}
                 <li>
                   <NavLink className='dropdown--item' 
                   end to='/records/new'>New Record

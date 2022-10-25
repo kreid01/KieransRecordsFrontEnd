@@ -6,30 +6,23 @@
 }
 .form {
     color: black;
-    font-size:0.7em;
-    width: 80%;
+    font-size:0.9em;
+    width: 90%;
     margin: 0 auto;
-    height: 50vh;
+    height: 85vh;
 }
 form input, form button, select, input, .search--button {
-    max-height:2.5em;
+    max-height: 4.7em;
     width: 90%;
     border:none;
     box-shadow: 1px 1px 1px 0 lightgrey;
     align-self: center;
 }
-.genre--selectors {
-    height:4em;
-   display:flex;
-   justify-content: space-evenly;
-   max-width: 100%;
-   margin-bottom: 1em;
-   & select {
-    height:3em;
-    min-width:31%;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-   }
+.search--button, form button {
+    min-height:3.35em;
+}
+.input--group--£  {
+    max-height:3.35em;
 }
 .submit--button {
     width: 101%;
@@ -40,29 +33,34 @@ form input, form button, select, input, .search--button {
     }
 }
 .form-control {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
-@media( min-width: 768px) {
+@media (min-width: 768px) {
+    form {
+        max-height:45vw;
+    & .form-control {
+        font-size: 1em;
+    }
+    & .input--group--£  {
+        max-height:3.7em;
+    }
+}
+}
+@media( min-width: 1300px) {
     .new--record--page {
         display:flex;
     }
     .form {
-        width:40vw;
-        font-size: 0.5em;
+        width:45vw;
         height:50vh;
         & input, select, .search--button {
-            max-height:3em;
+            max-height:4em;
         }
-        & .genre--selectors {
-            & select {
-                min-width:30%;
-            }
-         }
-    }
-}
-@media (min-width: 1200px) {
-    .form {
-        min-height: 70vw;
-        margin-lefT:1em;
+        & select {
+            min-height: 3.2em;
+        }
+        & .input--group--£  {
+            max-height:3.55em;
+        }
     }
 }
