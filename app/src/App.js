@@ -164,7 +164,7 @@ function decrementRecordInCart(i, id) {
 
 function incrementRecordQuantity(id) {
   const newArrForChanging = [...recordData]
-  newArrForChanging[id].quantity = newArrForChanging[id].quantity - 1 
+  newArrForChanging[id].quantity = newArrForChanging[id].quantity + 1 
   setRecordData(newArrForChanging)
 }
 
