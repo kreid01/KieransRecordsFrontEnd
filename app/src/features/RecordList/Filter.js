@@ -9,7 +9,7 @@ export default function Filter(props) {
        <Form.Select 
        className='display--sort--selector'
         onChange={(e) => props.changeSortBy(e)}>
-        <option value='0'>No Sort</option>
+        <option value="0">No Sort</option>
         <option value="Price >">Price Acending</option>
         <option value="Price <">Price Decending</option>
         <option value="Release Year >">Release Year Acending</option>

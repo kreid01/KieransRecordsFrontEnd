@@ -206,11 +206,6 @@ function changeSearchParams(e) {
   setSearchParams(e.target.value)
 }
 
-function changePage(e) {
-  setPageNumber(e.target.name)
-  window.scrollTo(0, 0)
-}
-
 function handleChange(e, setNew) {
   setNew(prevObj => ({
     ...prevObj,
@@ -227,6 +222,13 @@ function resetFilters() {
   updatePage(1, setRecordDataForPaging)
 }
 
+React.useState(() => {
+  setSearchParams('')
+  setGenreFilter('')
+  setSortBy('')
+  updatePage(1, setRecordDataForPaging)
+},[])
+
 function setGenreForPagedRecords(genre) {
   setGenreFilter(genre)
   if(genre === '0' && sortBy === '0'){
@@ -241,6 +243,7 @@ function setGenreForPagedRecords(genre) {
 
 function changeSortBy(e) {
   setSortBy(e.target.value)
+  console.log(e.target.value, genreFilter, pageNumber, recordDataForPaging)
   if(e.target.value === '0' && genreFilter === '0') {
     updatePage(pageNumber, setRecordDataForPaging)
   } else if (e.target.value === '0') {
@@ -251,16 +254,18 @@ function changeSortBy(e) {
   getSortedRecords(e.target.value, pageNumber, setRecordDataForPaging)
 }}
 
-React.useEffect(() => {
+
+function changePage(e) {
+  setPageNumber(e.target.name)
+  window.scrollTo(0, 0)
   if(genreFilter.length > 1 || sortBy.length > 1) {
-    getSortedAndFilteredRecords(genreFilter, sortBy, pageNumber, recordDataForPaging)
+    getSortedAndFilteredRecords(genreFilter, sortBy, e.target.name, recordDataForPaging)
   } else if(genreFilter.length > 1) {
-    getFilteredRecords(genreFilter, pageNumber, setRecordDataForPaging)
+    getFilteredRecords(genreFilter, e.target.name, setRecordDataForPaging)
   } else if(sortBy.length > 1) {
-    getSortedRecords(sortBy, pageNumber, setRecordDataForPaging)
+    getSortedRecords(sortBy, e.target.name, setRecordDataForPaging)
   } else {
-  updatePage(pageNumber, setRecordDataForPaging)}}, [pageNumber])
-  
+  updatePage(e.target.name, setRecordDataForPaging)}}
 
 React.useEffect(() => {
   (async () => {
