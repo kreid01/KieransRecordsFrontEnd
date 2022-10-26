@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useThemeUpdate} from '../../context/ThemeContext'
 import { useAuth0 } from '@auth0/auth0-react'
 import LoginButton from '../buttons/LoginButton';
 import LogoutButton from '../buttons/LogoutButton';
@@ -17,13 +16,13 @@ export default function NavBar(props) {
       setOpen(!open)
     }
 
-    const genres = ['Rock', 'Pop', 'Hip-Hop', 'Metal', 'Jazz']
+    const genres = ['Rock', 'Pop', 'Hip Hop', 'Metal', 'Punk', 'Jazz', 'Folk']
 
     const genreMapForDropdown = genres.map(genre => {
         return (
-          <li>
+          <li className='dropdwon--item--container'>
             <NavLink 
-            onClick={() => props.setGenreFilterFromDropdown(genre)}
+            onClick={() => props.setGenreForPagedRecords(genre)}
             className='dropdown--item' 
             end to='/records'>{genre}
             </NavLink>

@@ -12,7 +12,7 @@ export default function CurrentRecordPage(props) {
          <div key={i} className="genre"><Link
          to='/records'
          className='genre--nav'
-         onClick={() => props.setGenreFromCurrentRecord(genre)}>{genre}</Link></div>
+         onClick={() => props.setGenreForPagedRecords(genre)}>{genre}</Link></div>
         )}
     })
     const currentRecordData =

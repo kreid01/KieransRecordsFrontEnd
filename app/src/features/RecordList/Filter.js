@@ -9,17 +9,16 @@ export default function Filter(props) {
        <Form.Select 
        className='display--sort--selector'
         onChange={(e) => props.changeSortBy(e)}>
+        <option value='0'>No Sort</option>
         <option value="Price >">Price Acending</option>
         <option value="Price <">Price Decending</option>
-        <option value="ReleaseYear >">Release Year Acending</option>
-        <option value="ReleaseYear <">Release Year Decending</option>
-        <option value="Artist >">Artist Acending</option>
-        <option value="Artist <">Artist Decending</option>
+        <option value="Release Year >">Release Year Acending</option>
+        <option value="Release Year <">Release Year Decending</option>
         <option value="Record Name >">Record Name Acending</option>
         <option value="Record Name <">Record Name Decending</option>
         </Form.Select>
         <Form.Select
-        onChange={(e) => props.selectGenre(e)}
+        onChange={(e) => props.setGenreForPagedRecords(e.target.value)}
         className='filter--select'
         name='genreSelector'
         value={props.genreFilter.value}>

@@ -16,7 +16,7 @@ export default function Record(props) {
         addToCart={props.addToCart}
         addToWishlist={props.addToWishlist}
         addToCollection={props.addToCollection}
-        setGenreFromCurrentRecord={props.setGenreFromCurrentRecord}/>
+        setGenreForPagedRecords={props.setGenreForPagedRecords}/>
         <SimilarRecords 
         id={id}
         recordDataUnique={props.recordDataUnique}

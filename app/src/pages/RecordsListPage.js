@@ -60,7 +60,7 @@ export default function RecordsList(props) {
                     resetFilters={props.resetFilters}
                     changeSortBy={props.changeSortBy}
                     genreFilter={props.genreFilter}
-                    selectGenre={props.selectGenre}
+                    setGenreForPagedRecords={props.setGenreForPagedRecords}
                     changeSearchParams={props.changeSearchParams}
                     />
                 </div>

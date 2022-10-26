@@ -10,20 +10,23 @@ import  RecordsList  from './pages/RecordsListPage'
 import Record from './pages/CurrentRecordPage'
 import NewRecord from './pages/NewRecordPage'
 import NotFoundPage from './pages/NotFoundPage'
-import NavBar from './components/UI/NavBar';
-import Wishlist from './pages/Wishlist';
-import ProfilePage from './pages/ProfilePage';
+import NavBar from './components/UI/NavBar'
+import Wishlist from './pages/Wishlist'
+import ProfilePage from './pages/ProfilePage'
 import Blog from './pages/BlogPage'
 import Footer from './components/UI/Footer'
 import CheckoutPage from './pages/CheckoutPage'
-import './styles.css';
+import './styles.css'
 // Functions 
 import postRecord  from './services/records/postRecord'
-import getAllRecords from './services/records/getAllRecords';
-import updatePage from './services/records/getRecordsForPage';
-import updateRecord from './services/records/updateRecord';
+import getAllRecords from './services/records/getAllRecords'
+import updatePage from './services/records/getRecordsForPage'
+import updateRecord from './services/records/updateRecord'
 import getCustomerDetails from './services/customer/getCustomerDetails'
 import getCustomerOrders from './services/customer/getCustomerOrders'
+import getFilteredRecords from './services/records/getFilteredRecords'
+import getSortedRecords from './services/records/getSortedRecords'
+import getSortedAndFilteredRecords from './services/records/getSortedAndFilteredRecords'
 // Context
 
 function App() {
@@ -87,8 +90,6 @@ React.useEffect(() => {
 React.useEffect(() => {
  getAllRecords(setRecordData)}, [])
 
-React.useEffect(() => {
-updatePage(pageNumber, setRecordDataForPaging)}, [pageNumber])
 
 function goToCheckout() {
   setCheckout(prevState => !prevState)
@@ -106,11 +107,10 @@ function goToCheckout() {
       }
     })
   }
-  updateRecordsAvialability(recordForUpdating, idForUpdating)
+  updateRecordsAvailability(recordForUpdating, idForUpdating)
   updateWishlistFromCart(recordForUpdating)
   updateCart(idForUpdating)
   decrementRecordQuantity(id)
-  console.log(cart)
  } }
 
  function updateWishlistFromCart(record) {
@@ -121,6 +121,13 @@ function goToCheckout() {
       setWishlist(newArrForDeletingOffWishlist)
     }
   })
+}
+
+function updateRecordsAvailability(record, id) {
+  const newArr = [...recordData]
+  newArr[id].isReservedInCart = true
+  setRecordData(newArr)
+  updateRecord(record)
 }
 
 function decrementRecordQuantity(id) {
@@ -134,14 +141,6 @@ function updateCart(id) {
       ...recordData[id],
       quantityInCart: 1,
       totalPrice: recordData[id].price}])
-}
-
-function updateRecordsAvialability(record, id) {
-    const newArr = [...recordData]
-    newArr[id].isReservedInCart = true
-    setRecordData(newArr)
-    console.log(recordData[id])
-    updateRecord(record)
 }
 
  function emptyCartOnSuccessfulPayment() {
@@ -203,14 +202,6 @@ function deleteFromWishlist(id) {
   }
 }
 
-function selectGenre(e) {
-  if(e.target.value === '0') {
-  setGenreFilter('')
-  } else {
-  setGenreFilter(e.target.value)
-  }
-}
-
 function changeSearchParams(e) {
   setSearchParams(e.target.value)
 }
@@ -218,10 +209,6 @@ function changeSearchParams(e) {
 function changePage(e) {
   setPageNumber(e.target.name)
   window.scrollTo(0, 0)
-}
-
-function changeSortBy(e) {
-    setSortBy(e.target.value)
 }
 
 function handleChange(e, setNew) {
@@ -237,15 +224,43 @@ function resetFilters() {
   setSearchParams('')
   setGenreFilter('')
   setSortBy('')
+  updatePage(1, setRecordDataForPaging)
 }
 
-function setGenreFromCurrentRecord(genre) {
+function setGenreForPagedRecords(genre) {
   setGenreFilter(genre)
-}
+  if(genre === '0' && sortBy === '0'){
+    updatePage(pageNumber, setRecordDataForPaging)
+  } else if (genre === '0') {
+    getSortedRecords(sortBy, pageNumber, setRecordDataForPaging)
+  } else if(sortBy.length > 1) {
+    getSortedAndFilteredRecords(genre, sortBy, pageNumber, setRecordDataForPaging)  
+  } else {
+    getFilteredRecords(genre, pageNumber, setRecordDataForPaging)
+}}
 
-function setGenreFilterFromDropdown(genre) {
-  setGenreFilter(genre)
-}
+function changeSortBy(e) {
+  setSortBy(e.target.value)
+  if(e.target.value === '0' && genreFilter === '0') {
+    updatePage(pageNumber, setRecordDataForPaging)
+  } else if (e.target.value === '0') {
+    getFilteredRecords(genreFilter, pageNumber, setRecordDataForPaging)
+  } else if(genreFilter.length > 1) {
+  getSortedAndFilteredRecords(genreFilter, e.target.value, pageNumber, setRecordDataForPaging)
+  } else {
+  getSortedRecords(e.target.value, pageNumber, setRecordDataForPaging)
+}}
+
+React.useEffect(() => {
+  if(genreFilter.length > 1 || sortBy.length > 1) {
+    getSortedAndFilteredRecords(genreFilter, sortBy, pageNumber, recordDataForPaging)
+  } else if(genreFilter.length > 1) {
+    getFilteredRecords(genreFilter, pageNumber, setRecordDataForPaging)
+  } else if(sortBy.length > 1) {
+    getSortedRecords(sortBy, pageNumber, setRecordDataForPaging)
+  } else {
+  updatePage(pageNumber, setRecordDataForPaging)}}, [pageNumber])
+  
 
 React.useEffect(() => {
   (async () => {
@@ -262,7 +277,7 @@ React.useEffect(() => {
   return (
   <div className='site'>
   <NavBar 
-  setGenreFilterFromDropdown={setGenreFilterFromDropdown}
+  setGenreForPagedRecords={setGenreForPagedRecords}
   goToCheckout={goToCheckout}
   cart={cart}
   recordData={recordData}
@@ -288,59 +303,18 @@ React.useEffect(() => {
       changeSearchParams={changeSearchParams}
       searchData={searchParams} 
       genreFilter={genreFilter}
-      selectGenre={selectGenre}
+      setGenreForPagedRecords={setGenreForPagedRecords}
       allRecords={recordData}
       pageNumber={pageNumber}
-      recordData={(genreFilter.length > 5 || genreFilter !== '' ? recordData.filter(
-      record => record.genres.includes(genreFilter)): (searchParams.length < 2) ? 
-      recordDataForPaging : recordData).filter(record => {
+      recordData={recordDataForPaging.filter(record => {
         if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
         record.artist.toLowerCase().includes(searchParams.toLowerCase())) {
           return record
-        }
-      }).sort(function(a, b) {
-        if(sortBy === 'Price >') {
-          return parseFloat(a.price) - parseFloat(b.price)
-        } else if(sortBy === 'Price <') {
-          return parseFloat(b.price) - parseFloat(a.price)
-        } else if(sortBy === 'ReleaseYear >') {
-          return parseFloat(a.releaseYear) - parseFloat(b.releaseYear)
-        } else if(sortBy === 'ReleaseYear <') {
-          return parseFloat(b.releaseYear) - parseFloat(a.releaseYear)
-        }else if(sortBy === 'Artist >') {
-          if (a.artist < b.artist) {
-            return -1;
-          } if (a.artist > b.artist) {
-            return 1;
-          }
-          return -0
-        } else if(sortBy === 'Artist <') {
-          if (a.artist > b.artist) {
-            return -1;
-          } if (a.artist <  b.artist) {
-            return 1;
-          }
-          return -0
-        } else if(sortBy === 'Record Name >') {
-          if (a.name < b.name) {
-            return -1;
-          } if (a.name > b.name) {
-            return 1;
-          }
-          return -0
-        } else if(sortBy === 'Record Name <') {
-          if (a.name > b.name) {
-            return -1;
-          } if (a.name <  b.name) {
-            return 1;
-          }
-          return -0
-        }   return recordDataForPaging
-    })}
+      }})}
       addToCart={addToCart}/>}></Route>
       <Route 
       path=':id' element={<Record 
-      setGenreFromCurrentRecord={setGenreFromCurrentRecord}
+      setGenreForPagedRecords={setGenreForPagedRecords}
       recordDataUnique={recordDataUnique}
       changePage={changePage}
       addToWishlist={addToWishlist}
