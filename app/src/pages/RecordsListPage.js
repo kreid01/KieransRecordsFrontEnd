@@ -57,6 +57,7 @@ export default function RecordsList(props) {
                 <div style={props.themeStyles} className='record--list--container'>
                 <div className='filter--conatiner'>
                     <Filter
+                    sortBy={props.sortBy}
                     resetFilters={props.resetFilters}
                     changeSortBy={props.changeSortBy}
                     genreFilter={props.genreFilter}

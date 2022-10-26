@@ -7,15 +7,16 @@ export default function Filter(props) {
     // eslint-disable-next-line react/jsx-no-comment-textnodes
     <div className='filter--container'> 
        <Form.Select 
-       className='display--sort--selector'
-        onChange={(e) => props.changeSortBy(e)}>
+        value={props.sortBy.value}
+        className='display--sort--selector'
+        onChange={(e) => props.changeSortBy(e.target.value)}>
         <option value="0">No Sort</option>
-        <option value="Price >">Price Acending</option>
-        <option value="Price <">Price Decending</option>
-        <option value="Release Year >">Release Year Acending</option>
-        <option value="Release Year <">Release Year Decending</option>
-        <option value="Record Name >">Record Name Acending</option>
-        <option value="Record Name <">Record Name Decending</option>
+        <option value="PriceUp">Price Acending</option>
+        <option value="PriceDown">Price Decending</option>
+        <option value="ReleaseYearUp">Release Year Acending</option>
+        <option value="ReleaseYearDown">Release Year Decending</option>
+        <option value="RecordNameUp">Record Name Acending</option>
+        <option value="RecordNameDown">Record Name Decending</option>
         </Form.Select>
         <Form.Select
         onChange={(e) => props.setGenreForPagedRecords(e.target.value)}

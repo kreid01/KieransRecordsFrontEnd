@@ -35,15 +35,15 @@ const [validated, setValidated] = React.useState(false)
 const {user, isAuthenticated, getAccessTokenSilently} = useAuth0()
 
 const [customerOrders, setCustomerOrders] = React.useState([])
-const [sortBy, setSortBy] = React.useState('')
+const [sortBy, setSortBy] = React.useState('0')
 const [searchParams, setSearchParams] = React.useState('')
-const [genreFilter, setGenreFilter] = React.useState('')
+const [genreFilter, setGenreFilter] = React.useState('0')
 const [wishlist, setWishlist] = React.useState(() => {
   const saved = localStorage.getItem("userWishlist");
   const initialValue = JSON.parse(saved);
   return initialValue || "";
 })
-const [pageNumber, setPageNumber] = React.useState('1')
+const [pageSize, setPageSize] = React.useState(21)
 const [checkout, setCheckout] = React.useState(false)
 const [recordData, setRecordData] = React.useState([])
 const [recordDataForPaging, setRecordDataForPaging] = React.useState([])
@@ -147,7 +147,7 @@ function updateCart(id) {
   setCart([])
  }
 
- function setRecordsAsSold() {
+function setRecordsAsSold() {
   const newCartArr = [...cart] 
   newCartArr.map(record => {
       record.isAvailable = false 
@@ -157,8 +157,7 @@ function updateCart(id) {
 
 function decrementRecordInCart(i, id) {
   updateCartQuantity(id)
-  
-  incrementRecordQuantity(id, ) 
+  incrementRecordQuantity(id) 
 }
 
 function incrementRecordQuantity(id) {
@@ -219,53 +218,51 @@ function resetFilters() {
   setSearchParams('')
   setGenreFilter('')
   setSortBy('')
-  updatePage(1, setRecordDataForPaging)
+  updatePage(pageSize, setRecordDataForPaging)
 }
 
 React.useState(() => {
   setSearchParams('')
   setGenreFilter('')
   setSortBy('')
-  updatePage(1, setRecordDataForPaging)
+  updatePage(pageSize, setRecordDataForPaging)
 },[])
 
 function setGenreForPagedRecords(genre) {
   setGenreFilter(genre)
-  if(genre === '0' && sortBy === '0'){
-    updatePage(pageNumber, setRecordDataForPaging)
-  } else if (genre === '0') {
-    getSortedRecords(sortBy, pageNumber, setRecordDataForPaging)
-  } else if(sortBy.length > 1) {
-    getSortedAndFilteredRecords(genre, sortBy, pageNumber, setRecordDataForPaging)  
+   if (!genre.length > 1) {
+    getSortedRecords(sortBy, pageSize, setRecordDataForPaging)
+  } else if(sortBy.length > 1 ) {
+    getSortedAndFilteredRecords(genre, sortBy, pageSize, setRecordDataForPaging) 
+  } else if(genre.length > 1) {
+    getFilteredRecords(genre, pageSize, setRecordDataForPaging)
   } else {
-    getFilteredRecords(genre, pageNumber, setRecordDataForPaging)
+      updatePage(pageSize, setRecordDataForPaging)
 }}
 
-function changeSortBy(e) {
-  setSortBy(e.target.value)
-  console.log(e.target.value, genreFilter, pageNumber, recordDataForPaging)
-  if(e.target.value === '0' && genreFilter === '0') {
-    updatePage(pageNumber, setRecordDataForPaging)
-  } else if (e.target.value === '0') {
-    getFilteredRecords(genreFilter, pageNumber, setRecordDataForPaging)
-  } else if(genreFilter.length > 1) {
-  getSortedAndFilteredRecords(genreFilter, e.target.value, pageNumber, setRecordDataForPaging)
+function changeSortBy(sorter) {
+  setSortBy(sorter)
+  console.log(sorter)
+  if(!sorter.length > 1) {
+    getFilteredRecords(genreFilter, pageSize, setRecordDataForPaging)
+  } else if (genreFilter.length  > 1) {
+    getSortedAndFilteredRecords(genreFilter, sorter, pageSize, setRecordDataForPaging)
+  } else if(sorter.length > 1) {
+    getSortedRecords(sorter, pageSize, setRecordDataForPaging)
   } else {
-  getSortedRecords(e.target.value, pageNumber, setRecordDataForPaging)
+    updatePage(pageSize, setRecordDataForPaging)
 }}
 
-
-function changePage(e) {
-  setPageNumber(e.target.name)
-  window.scrollTo(0, 0)
-  if(genreFilter.length > 1 || sortBy.length > 1) {
-    getSortedAndFilteredRecords(genreFilter, sortBy, e.target.name, recordDataForPaging)
+function changePage() {
+  if(genreFilter.length > 1 && sortBy.length > 1) {
+    getSortedAndFilteredRecords(genreFilter, sortBy, pageSize, recordDataForPaging)
   } else if(genreFilter.length > 1) {
-    getFilteredRecords(genreFilter, e.target.name, setRecordDataForPaging)
+    getFilteredRecords(genreFilter, pageSize, setRecordDataForPaging)
   } else if(sortBy.length > 1) {
-    getSortedRecords(sortBy, e.target.name, setRecordDataForPaging)
+    getSortedRecords(sortBy, pageSize, setRecordDataForPaging)
   } else {
-  updatePage(e.target.name, setRecordDataForPaging)}}
+  updatePage(pageSize, setRecordDataForPaging)}
+}
 
 React.useEffect(() => {
   (async () => {
@@ -306,11 +303,11 @@ React.useEffect(() => {
       changePage={changePage}
       changeSortBy={changeSortBy}
       changeSearchParams={changeSearchParams}
+      sortBy={sortBy}
       searchData={searchParams} 
       genreFilter={genreFilter}
       setGenreForPagedRecords={setGenreForPagedRecords}
       allRecords={recordData}
-      pageNumber={pageNumber}
       recordData={recordDataForPaging.filter(record => {
         if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
         record.artist.toLowerCase().includes(searchParams.toLowerCase())) {
