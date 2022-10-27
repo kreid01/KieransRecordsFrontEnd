@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // Packages
 import { Route, Routes} from 'react-router-dom'
+import {useState, useEffect, useCallback, useRef} from 'react'
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 // Components
@@ -20,36 +21,37 @@ import './styles.css'
 // Functions 
 import postRecord  from './services/records/postRecord'
 import getAllRecords from './services/records/getAllRecords'
-import updatePage from './services/records/getRecordsForPage'
+import useGetRecordsForPage from './hooks/useGetRecordsForPage'
 import updateRecord from './services/records/updateRecord'
 import getCustomerDetails from './services/customer/getCustomerDetails'
 import getCustomerOrders from './services/customer/getCustomerOrders'
-import getFilteredRecords from './services/records/getFilteredRecords'
-import getSortedRecords from './services/records/getSortedRecords'
-import getSortedAndFilteredRecords from './services/records/getSortedAndFilteredRecords'
-// Context
 
 function App() {
 
-const [validated, setValidated] = React.useState(false)
+const [validated, setValidated] = useState(false)
 const {user, isAuthenticated, getAccessTokenSilently} = useAuth0()
-
-const [customerOrders, setCustomerOrders] = React.useState([])
+const [query, setQuery] = useState({
+  sortBy: '',
+  genreFilter: ''
+});
+const [page, setPage] = useState(0)
+const [isReset, setIsReset] = useState(false)
+const { loading, error, records } = useGetRecordsForPage(query, page, isReset, setIsReset);
+const loader = useRef(null);
+const [customerOrders, setCustomerOrders] = useState([])
 const [sortBy, setSortBy] = React.useState('0')
-const [searchParams, setSearchParams] = React.useState('')
-const [genreFilter, setGenreFilter] = React.useState('0')
-const [wishlist, setWishlist] = React.useState(() => {
+const [searchParams, setSearchParams] = useState('')
+const [genreFilter, setGenreFilter] = useState('0')
+const [wishlist, setWishlist] = useState(() => {
   const saved = localStorage.getItem("userWishlist");
   const initialValue = JSON.parse(saved);
   return initialValue || "";
 })
-const [pageSize, setPageSize] = React.useState(21)
-const [checkout, setCheckout] = React.useState(false)
-const [recordData, setRecordData] = React.useState([])
-const [recordDataForPaging, setRecordDataForPaging] = React.useState([])
+const [checkout, setCheckout] = useState(false)
+const [recordData, setRecordData] = useState([])
 const [cart, setCart] = React.useState([])
-const [customerDetails, setCustomerDetails] = React.useState([])
-const [newRecord, setNewRecord] = React.useState({
+const [customerDetails, setCustomerDetails] = useState([])
+const [newRecord, setNewRecord] = useState({
   name:'',
   artist:'',
   releaseYear: 0,
@@ -60,7 +62,7 @@ const [newRecord, setNewRecord] = React.useState({
   genres: [],
   format: ''
 })
-const [formData, setFormData] = React.useState ({
+const [formData, setFormData] = useState ({
   firstName:'',
   secondName:'',
   email: '',
@@ -87,9 +89,9 @@ React.useEffect(() => {
   localStorage.setItem('userWishlist', JSON.stringify(wishlist));
 }, [wishlist]);
 
-React.useEffect(() => {
- getAllRecords(setRecordData)}, [])
-
+useEffect(() => {
+  getAllRecords(setRecordData)
+},[])
 
 function goToCheckout() {
   setCheckout(prevState => !prevState)
@@ -214,55 +216,55 @@ function handleChange(e, setNew) {
     }))
   }
 
+
 function resetFilters() {
   setSearchParams('')
   setGenreFilter('')
   setSortBy('')
-  updatePage(pageSize, setRecordDataForPaging)
+  setPage(1)
+  setIsReset(true)
+  setQuery({
+    sortBy: '',
+    genreFilter: ''
+  })
 }
-
-React.useState(() => {
-  setSearchParams('')
-  setGenreFilter('')
-  setSortBy('')
-  updatePage(pageSize, setRecordDataForPaging)
-},[])
 
 function setGenreForPagedRecords(genre) {
+  setQuery(prevQuery => ({
+    ...prevQuery, genreFilter: genre
+  }))
+  setIsReset(true)
+  setPage(1)
   setGenreFilter(genre)
-   if (!genre.length > 1) {
-    getSortedRecords(sortBy, pageSize, setRecordDataForPaging)
-  } else if(sortBy.length > 1 ) {
-    getSortedAndFilteredRecords(genre, sortBy, pageSize, setRecordDataForPaging) 
-  } else if(genre.length > 1) {
-    getFilteredRecords(genre, pageSize, setRecordDataForPaging)
-  } else {
-      updatePage(pageSize, setRecordDataForPaging)
-}}
+}
 
 function changeSortBy(sorter) {
+  setQuery(prevQuery => ({
+    ...prevQuery, sortBy: sorter
+  }))
+  setIsReset(true)
+  setPage(1)
   setSortBy(sorter)
-  console.log(sorter)
-  if(!sorter.length > 1) {
-    getFilteredRecords(genreFilter, pageSize, setRecordDataForPaging)
-  } else if (genreFilter.length  > 1) {
-    getSortedAndFilteredRecords(genreFilter, sorter, pageSize, setRecordDataForPaging)
-  } else if(sorter.length > 1) {
-    getSortedRecords(sorter, pageSize, setRecordDataForPaging)
-  } else {
-    updatePage(pageSize, setRecordDataForPaging)
-}}
 
-function changePage() {
-  if(genreFilter.length > 1 && sortBy.length > 1) {
-    getSortedAndFilteredRecords(genreFilter, sortBy, pageSize, recordDataForPaging)
-  } else if(genreFilter.length > 1) {
-    getFilteredRecords(genreFilter, pageSize, setRecordDataForPaging)
-  } else if(sortBy.length > 1) {
-    getSortedRecords(sortBy, pageSize, setRecordDataForPaging)
-  } else {
-  updatePage(pageSize, setRecordDataForPaging)}
 }
+
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+    if (target.isIntersecting) {
+      setPage((prev) => prev + 1);
+    }
+  }, []);
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) observer.observe(loader.current);
+  }, [handleObserver]);
+
 
 React.useEffect(() => {
   (async () => {
@@ -291,82 +293,99 @@ React.useEffect(() => {
   decrementRecordInCart={decrementRecordInCart}
  />
   <div className='page--container'>
-  <div className='page'>
-  <Routes>
-    <Route exact path='/' element={<Home
-    recordDataUnique={recordDataUnique}
-    addToCart={addToCart}
-    recordData={recordData} />}></Route>
-    <Route path='/records'>
-      <Route index element={<RecordsList
-      resetFilters={resetFilters}
-      changePage={changePage}
-      changeSortBy={changeSortBy}
-      changeSearchParams={changeSearchParams}
-      sortBy={sortBy}
-      searchData={searchParams} 
-      genreFilter={genreFilter}
-      setGenreForPagedRecords={setGenreForPagedRecords}
-      allRecords={recordData}
-      recordData={recordDataForPaging.filter(record => {
-        if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
-        record.artist.toLowerCase().includes(searchParams.toLowerCase())) {
-          return record
-      }})}
-      addToCart={addToCart}/>}></Route>
-      <Route 
-      path=':id' element={<Record 
-      setGenreForPagedRecords={setGenreForPagedRecords}
-      recordDataUnique={recordDataUnique}
-      changePage={changePage}
-      addToWishlist={addToWishlist}
-      recordData={recordData}
-      addToCart={addToCart}/>}></Route>
-      <Route path='new' element={<NewRecord 
-      handleChange={handleChange}
-      newRecord={newRecord}
-      setNewRecord={setNewRecord}
-      postRecord={postRecord}
-      />}></Route>
-      </Route>
-      <Route path='/blog' element={<Blog 
-      recordData={recordData}/>}></Route>
-      <Route path='/collection' element={<Wishlist
-      deleteFromWishlist={deleteFromWishlist}
-      recordData={recordData}
-      addToCart={addToCart}
-      wishlist={wishlist}
-      />}></Route>
-      <Route path='/cart' 
-      element={<CheckoutPage
-      validated={validated}
-      setValidated={setValidated}
-      customerDetails={customerDetails}
-      handleChange={handleChange}
-      setFormData={setFormData}
-      formData={formData}
-      recordData={recordData}
-      recordDataUnique={recordDataUnique}
-      emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
-      checkout={checkout}
-      goToCheckout={goToCheckout}
-      decrementRecordInCart={decrementRecordInCart}     
-      totalPrice={totalPrice}
-      cart={cart}
-      setRecordsAsSold={setRecordsAsSold}/>}>
-      </Route>
-      <Route path='/profilepage' element={<ProfilePage
-      customerOrders={customerOrders}
-      customerDetails={customerDetails}
-      recordData={recordData}
-      addToCart={addToCart}
-      setCustomerDetails={setCustomerDetails}
-      deleteFromWishlist={deleteFromWishlist}
-      addToWishlist={addToWishlist}
-      wishlist={wishlist} />}></Route>
-      <Route path='*' element={<NotFoundPage />}></Route>
-  </Routes>
-  </div>
+    <div className='page'>
+      <Routes>
+        <Route exact path='/' element={<Home
+        recordDataUnique={recordDataUnique}
+        addToCart={addToCart}
+        recordData={recordData} />}>
+        </Route>
+        <Route 
+        path='/records'>
+          <Route index element={<RecordsList
+          resetFilters={resetFilters}
+          changeSortBy={changeSortBy}
+          changeSearchParams={changeSearchParams}
+          sortBy={sortBy}
+          searchData={searchParams} 
+          genreFilter={genreFilter}
+          setGenreForPagedRecords={setGenreForPagedRecords}
+          allRecords={recordData}
+          recordData={records.filter(record => {
+            if(record.name.toLowerCase().includes(searchParams.toLowerCase()) || 
+            record.artist.toLowerCase().includes(searchParams.toLowerCase())) {
+              return record
+          }})}
+          addToCart={addToCart}
+          loader={loader}
+          loading={loading}
+          error={error}/>}>
+          </Route>
+          <Route 
+          path=':id' 
+          element={<Record 
+          setGenreForPagedRecords={setGenreForPagedRecords}
+          recordDataUnique={recordDataUnique}
+          addToWishlist={addToWishlist}
+          recordData={recordData}
+          addToCart={addToCart}/>}>
+
+          </Route>
+          <Route 
+          path='new' element={<NewRecord 
+          handleChange={handleChange}
+          newRecord={newRecord}
+          setNewRecord={setNewRecord}
+          postRecord={postRecord}/>}>
+          </Route>
+          </Route>
+          <Route path='/blog' 
+          element={<Blog 
+          recordData={recordData}/>}>
+          </Route>
+          <Route 
+          path='/collection' 
+          element={<Wishlist
+          deleteFromWishlist={deleteFromWishlist}
+          recordData={recordData}
+          addToCart={addToCart}
+          wishlist={wishlist}/>}>
+          </Route>
+          <Route path='/cart' 
+          element={<CheckoutPage
+          validated={validated}
+          setValidated={setValidated}
+          customerDetails={customerDetails}
+          handleChange={handleChange}
+          setFormData={setFormData}
+          formData={formData}
+          recordData={recordData}
+          recordDataUnique={recordDataUnique}
+          emptyCartOnSuccessfulPayment={emptyCartOnSuccessfulPayment}
+          checkout={checkout}
+          goToCheckout={goToCheckout}
+          decrementRecordInCart={decrementRecordInCart}     
+          totalPrice={totalPrice}
+          cart={cart}
+          setRecordsAsSold={setRecordsAsSold}/>}>
+          </Route>
+          <Route
+          path='/profilepage' 
+          element={<ProfilePage
+          customerOrders={customerOrders}
+          customerDetails={customerDetails}
+          recordData={recordData}
+          addToCart={addToCart}
+          setCustomerDetails={setCustomerDetails}
+          deleteFromWishlist={deleteFromWishlist}
+          addToWishlist={addToWishlist}
+          wishlist={wishlist} />}>
+          </Route>
+          <Route path='*'
+          element={<NotFoundPage />}>
+          </Route>
+      </Routes>
+    </div>
   </div>
   <Footer />
   </div>

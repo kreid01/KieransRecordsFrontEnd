@@ -18,9 +18,9 @@ export default function NavBar(props) {
 
     const genres = ['Rock', 'Pop', 'Hip Hop', 'Metal', 'Punk', 'Jazz', 'Folk']
 
-    const genreMapForDropdown = genres.map(genre => {
+    const genreMapForDropdown = genres.map((genre, i) => {
         return (
-          <li className='dropdwon--item--container'>
+          <li className='dropdwon--item--container' key={i}>
             <NavLink 
             onClick={() => props.setGenreForPagedRecords(genre)}
             className='dropdown--item' 
@@ -45,6 +45,7 @@ export default function NavBar(props) {
               <ul className='dropdown--menu'>
                 <li>
                 <NavLink 
+                onClick={() => props.setGenreForPagedRecords('')}
                 className='dropdown--item'
                  end to='/records'>
                 All Records

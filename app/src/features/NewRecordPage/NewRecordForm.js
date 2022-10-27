@@ -192,7 +192,8 @@ export default function NewRecordForm(props) {
                         required
                         size='lg'
                         className='mb-3'
-                        class='form-control'>                          
+                        class='form-control'>  
+                        <option value=''>Select Format</option>                        
                         <option value='LP'>LP</option>
                         <option value='EP'>EP</option>
                         <option value='S'>Single</option>
@@ -266,7 +267,7 @@ export default function NewRecordForm(props) {
                     style ={{fontSize: '14px'}}
                     type='text' 
                     placeholder='Record Genre'
-                    name='genres'
+                    name='Genre 1'
                     required 
                     size='m'
                     class='form-control'
@@ -286,7 +287,7 @@ export default function NewRecordForm(props) {
                     style ={{fontSize: '14px'}}
                     type='text' 
                     placeholder='Record Genre'
-                    name='genres'
+                    name='Genre 2'
                     required
                     size='m'
                     class='form-control'
@@ -300,7 +301,7 @@ export default function NewRecordForm(props) {
                     <FloatingLabel
                       style ={{fontSize: '14px'}}
                       controlId='floatingInput'
-                      label='Image URL'
+                      label='Genre 3'
                       className='mb-3'>
                     <Form.Select
                     style ={{fontSize: '14px'}}
@@ -319,7 +320,7 @@ export default function NewRecordForm(props) {
                     <Button 
                      style={props.inputThemeStyles}
                      className='submit--button'
-                    type="Submit" onClick={() => props.postRecord(props.newRecord, props.setNewRecord)}>Submit Record</Button> 
+                    type="Submit" onClick={() => props.postRecord(props.newRecord)}>Submit Record</Button> 
             </Form>
      </div>
      )

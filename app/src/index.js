@@ -6,14 +6,13 @@ import {BrowserRouter} from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Auth0Provider } from '@auth0/auth0-react'
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
     <BrowserRouter>
     <Auth0Provider
-      domain="dev-v7gopbxg.us.auth0.com"
-      clientId="Au67YXhjip0DgKBzLD0AlUlrEF7xVCPD"
+      domain='dev-v7gopbxg.us.auth0.com'
+      clientId='Au67YXhjip0DgKBzLD0AlUlrEF7xVCPD'
       redirectUri={window.location.origin}
       audience='https://dev-v7gopbxg.us.auth0.com/api/v2/'>
         <ThemeProvider>

@@ -1,4 +1,5 @@
-export default function postRecord(newRecord, setNewRecord) {
+export default function postRecord(newRecord) {
+    console.log(newRecord)
     fetch('https://localhost:7143/records', {
     method: 'POST', 
     headers: { 'Content-Type': 'application/json' },  

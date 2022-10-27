@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid"
+import axios from "axios"
 
-export default function postOrder(cart, formData, linkToken) {
+export default async function postOrder(cart, formData, linkToken) {
     const orderDetails = []
     const id = nanoid()
    
@@ -26,9 +27,9 @@ export default function postOrder(cart, formData, linkToken) {
             "postcode": `${formData.postcode}`
         }
       }
-    console.log(json)
-    fetch('https://localhost:7143/order', {
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },  
-    body:JSON.stringify(json)})
+      try {
+        const res = await axios.post(`https://localhost:7143/order`, json)
+    } catch (err) {
+        console.log(err)
+    }
 }

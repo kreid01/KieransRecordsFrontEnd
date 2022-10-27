@@ -4,18 +4,8 @@ import Filter from '../features/RecordList/Filter';
 import Record from '../components/UI/Record'
 
 export default function RecordsList(props) {
+
          
-            const emptyArr = Array(7).fill('')
-            const pageNumberData = emptyArr.map((item, i) =>  {
-                return (
-                    <div key={i} className='page--change--item'>
-                        <button 
-                        name={i+1}
-                        className='page--change--button' 
-                        onClick={(e) => props.changePage(e)}>{i+1}</button>
-                    </div>
-                )
-            })
             const recordData = props.recordData.reduce((acc, rec) => {
                 if(!acc.find(u => u.name === rec.name)) {
                     acc.push(rec)
@@ -68,10 +58,10 @@ export default function RecordsList(props) {
                 <div className='record--container'>
                     {mappedData}
                 </div>
-                <div className='page--number--container'>
-                    {pageNumberData}
-                </div>            
-            </div>
+           </div>  
+            {props.loading && <p>Loading...</p>}
+            {props.error && <p>Error!</p>}
+            <div ref={props.loader} />       
         </div>
 
     )
