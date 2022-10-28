@@ -172,7 +172,6 @@ export default function NewRecordForm(props) {
                         placeholder=' '
                         value={props.newRecord.imageUrl.value}
                         onChange={(e) => props.handleChange(e, props.setNewRecord)}
-                        pattern="/\.(jpe?g|png|gif|bmp)$/i"
                         required
                         class='form-control'/>
                         <Form.Control.Feedback type="invalid">Please provide a valid image url</Form.Control.Feedback>

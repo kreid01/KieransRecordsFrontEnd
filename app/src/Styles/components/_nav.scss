@@ -111,7 +111,8 @@ li {
 .dropdown--menu {
     display: grid;
     position: absolute;
-    min-height:20em;
+    min-height:1em;
+    max-height:1em;
     left:0.5em;
     font-size:1.7em;
     margin: 0.5em 0;
@@ -121,12 +122,14 @@ li {
     box-shadow: 0px 5px rgba(0,0,0,.1);
     background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
     opacity: 0;
-    transform: translateY(-20em);
+    transform: translateY(-17em);
     border-radius: 2px;
     transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
     &:hover {
       opacity: 1;
       transform: translateY(-2em);
+      min-height:20em;
+      max-height: 30em;
     } 
     
   }
@@ -150,28 +153,32 @@ li {
 @media (min-width: 768px) {
     .dropdown--menu {
         display:grid;
-        grid-template-columns: repeat(3,1fr);
-        max-height:9em;
-        min-height:7em;
-        min-width:25em;
+        grid-template-columns: repeat(2,1fr);
+        max-height:13em;
+        min-height:13em;
+        min-width:17em;
+        max-width:17em;
         font-size:1em;
         margin: 0.5em 0;
-        left:1.7em;
+        left:-3em;
         z-index: 1;
         padding: 0.5em;
         border:1px solid #343434;
         box-shadow: 0px 5px rgba(0,0,0,.1);
         background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
         opacity: 0;
-        transform: translateY(-8em);
+        transform: translateY(-14em);
         border-radius: 2px;
         transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
         &:hover {
           opacity: 1;
-          transform: translateY(-2em);
+          transform: translateY(-1em);
+          max-height:13em;
+         min-height:13em;
         } 
         & li {
            min-width:8em;
+           max-width:7em;
            margin:0;
         }
       }

@@ -1,11 +1,9 @@
 import React from 'react';
 import Record from '../components/UI/Record'
+import {Link } from 'react-router-dom'
 
 export default function Wishlist(props) {
        
-    if(props.wishlist.length > 0) {
-
-
         const mappedData = props.wishlist.map((record, i) => {
         let id = 0
 
@@ -38,10 +36,10 @@ export default function Wishlist(props) {
             <header style={props.themeStyles} className='collection--header'>
                 <h1 className='page--header'>Wishlist</h1>
             </header>
-            <div style={props.themeStyles} className='record--container'>
+            {(props.wishlist.length > 0) ? <div style={props.themeStyles} className='record--container'>
                 {mappedData}
-            </div>
+            </div> : <p className='wishlist--empty--text'>You're wishlit appears empty, check out <Link to='/records'>Records</Link> to make additions.</p>}
         </main>
 
     )
-}}
+}
