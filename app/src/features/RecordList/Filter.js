@@ -1,30 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 export default function Filter(props) {
     return (
     // eslint-disable-next-line react/jsx-no-comment-textnodes
     <div className='filter--container'> 
-       <select 
-       style={props.inputThemeStyles}
-       className='display--sort--selector'
-        onChange={(e) => props.changeSortBy(e)}>
-        <option value="Price >">Price Acending</option>
-        <option value="Price <">Price Decending</option>
-        <option value="ReleaseYear >">Release Year Acending</option>
-        <option value="ReleaseYear <">Release Year Decending</option>
-        <option value="Artist >">Artist Acending</option>
-        <option value="Artist <">Artist Decending</option>
-        <option value="Record Name >">Record Name Acending</option>
-        <option value="Record Name <">Record Name Decending</option>
-        </select>
-        <select 
-        onChange={(e) => props.selectGenre(e)}
+       <Form.Select 
+        value={props.sortBy.value}
+        className='display--sort--selector'
+        onChange={(e) => props.changeSortBy(e.target.value)}>
+        <option value="">No Sort</option>
+        <option value="PriceUp">Price Acending</option>
+        <option value="PriceDown">Price Decending</option>
+        <option value="ReleaseYearUp">Release Year Acending</option>
+        <option value="ReleaseYearDown">Release Year Decending</option>
+        <option value="RecordNameUp">Record Name Acending</option>
+        <option value="RecordNameDown">Record Name Decending</option>
+        </Form.Select>
+        <Form.Select
+        onChange={(e) => props.setGenreForPagedRecords(e.target.value)}
         className='filter--select'
         name='genreSelector'
-        style={props.inputThemeStyles}
         value={props.genreFilter.value}>
-        <option value="0">All Records</option>
+        <option value="">All Records</option>
+        <option value="Rock">Rock</option>
         <option value="Art Rock">Art Rock</option>
         <option value="Alternative Rock">Alternative Rock</option>
         <option value="Pop Rock">Pop Rock</option>
@@ -40,10 +40,13 @@ export default function Filter(props) {
         <option value="Space Rock">Space Rock</option>
         <option value="Jazz Rock">Jazz Rock</option>
         <option value="Funk Rock">Funk Rock</option>
+        <option value="Gothic-Rock">Gothic-Rock</option>
+        <option value="Lo-Fi / Slacker Rock">Lo-Fi / Slacker Rock</option>
         <option value="Shoegaze">Shoegaze</option>
         <option value="Slowcore">Slowcore</option>
         <option value="Drone">Drone</option>
         <option value="Noise Rock">Noise Rock</option>
+        <option value="Concious Hip Hop">Hip Hop</option>
         <option value="Concious Hip Hop">Concious Hip Hop</option>
         <option value="West Coast Hip Hop">West Coast Hip Hop</option>
         <option value="East Coast Hip Hop">East Coast Hip Hop</option>
@@ -65,10 +68,10 @@ export default function Filter(props) {
         <option value="Contemporary R&B">Contemporary R&B</option>
         <option value="Alternative R&B">Alternative R&B</option>
         <option value="New Wave">New Wave</option>
-        <option value="Post-Punk">Post-Punk</option>
         <option value="Ska">Ska</option>
-        <option value="Gothic-Rock">Gothic-Rock</option>
         <option value="Colwave">Coldwave</option>
+        <option value='Punk'>Punk</option>
+        <option value="Post-Punk">Post-Punk</option>
         <option value="Proto-Punk">Proto-Punk</option>
         <option value="Art-Punk">Art-Punk</option>
         <option value="Post-Punk Revival">Post-Punk Revival</option>
@@ -77,12 +80,11 @@ export default function Filter(props) {
         <option value="Indie Rock">Indie Rock</option>
         <option value="Psychedelic Folk">Psychedelic Folk</option>
         <option value="Singer-Songwriter">Singer-Songwriter</option>
-        <option value="Lo-Fi / Slacker Rock">Lo-Fi / Slacker Rock</option>
         <option value="Midwest Emo">Midwest Emo</option>
         <option value="Emo">Emo</option>
         <option value="Post-Hardcore">Post-Hardcore</option>
-        <option value="Math Rock">Math Rock</option>
         <option value="Avant-Prog">Avant-Prog</option>
+        <option value="Pop">Pop</option> 
         <option value="Chamber Pop">Chamber Pop</option>
         <option value="Psychedelic Pop">Psychedelic Pop</option>
         <option value="Noise Pop">Noise Pop</option>
@@ -116,26 +118,18 @@ export default function Filter(props) {
         <option value="IDM">IDM</option>
         <option value="Downbeat">Downtempo</option>
         <option value="Ambient Techno">Ambient Techno</option>
-        </select>
+        </Form.Select>
         <div className='search--container'>
-            <input
+            <Form.Control
                 className='search--input' 
-                style={props.inputThemeStyles}
                 type='text'
+                placeholder='Search'
                 value={props.searchParams} 
                 onChange={(e) => props.changeSearchParams(e)}
                 />
-            <Link to ='/searchresults'>
-                <button 
-                style={props.inputThemeStyles}
-                    id='search--button'>
-                    Search
-                </button>
-            </Link>
-            <button 
+            <Button 
             className='reset--button' 
-            style={props.inputThemeStyles}
-            onClick={props.resetFilters}>Reset Filters</button>
+            onClick={props.resetFilters}>Reset</Button>
         </div>
     </div>
     )

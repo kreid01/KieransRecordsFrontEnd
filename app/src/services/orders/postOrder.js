@@ -1,14 +1,19 @@
-export default function postOrder(cart, formData, linkToken) {
+import { nanoid } from "nanoid"
+import axios from "axios"
+
+export default async function postOrder(cart, formData, linkToken) {
     const orderDetails = []
-    cart.cartContents.map(record => {
+    const id = nanoid()
+   
+    cart.map(record => {
         return (
-           orderDetails.push({name: record.name, id: record.id, price: `${record.price}`})
+           orderDetails.push({name: record.name, stockNumber: `${record.stockNumber}`, price: `${record.price}`})
         )
     })
     const currentTime = new Date()
     const json = {
-        "id": `${cart.id}`,
-        "customerId": `${linkToken}`,
+        "id": `${id}`,
+        "customerLinkToken": `${linkToken}`,
         "orderContents": orderDetails,
         "timeOfOrder": `${currentTime}`,
         "isShippied": false,
@@ -22,8 +27,9 @@ export default function postOrder(cart, formData, linkToken) {
             "postcode": `${formData.postcode}`
         }
       }
-    fetch('https://localhost:7143/order', {
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },  
-    body:JSON.stringify(json)})
+      try {
+        const res = await axios.post(`https://localhost:7143/order`, json)
+    } catch (err) {
+        console.log(err)
+    }
 }

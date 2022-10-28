@@ -1,0 +1,84 @@
+@import '../mixins';
+
+.carousel {
+    width:100%;
+    margin-bottom: 1em;
+    margin-lefT:0.5em;
+    & .record {
+    @include record;
+    display: flex;
+    border:none;
+    padding-bottom:2em;
+    min-width:30vw;
+    height: 5;;
+    margin-right:5vw;
+    & img {
+        position: relative;
+        margin-bottom:0.5em;
+        border-radius: 5px;
+        min-width: 28vw;;
+        max-width: 28vw;
+        max-height:28vw;
+        min-height:28vw;
+       }
+        & h3 {
+            font-size:0.9em;
+            margin:0;
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width:0%;
+            left:0em;
+            top:-0.5em;
+            border: 3px solid pink;;
+            transition: width 800ms ease-in-out;
+            z-index: -1;
+        }
+        &:hover {
+            scale: 1;
+            &:after {
+                width:100%;
+            }
+        }
+    }
+}
+.record--button {
+    font-weight: bold;
+    color:pink;
+    font-size:2em;
+    border:none;
+    position: absolute;
+    background: none;
+    top:0;
+    right: 1em;;
+    border-radius: 0;
+    transition: scale 500ms ease-in-out;
+    &:hover {
+        scale: 1.1;
+    }
+}
+@media (min-width: 1000px) {
+    .record--button {
+        right:0;
+    }
+    .carousel {
+        & .record {
+        min-width:22vw;
+        height: 5;;
+        margin-right:5vw;
+        & img {
+            position: relative;
+            min-width: 21vw;;
+            max-width: 21vw;
+            max-height:21vw;
+            min-height:21vw;
+           }
+            & h3 {
+                font-size:0.8em;
+                margin:0;
+            }
+        }
+    }
+}

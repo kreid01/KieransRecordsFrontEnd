@@ -13,18 +13,15 @@ export default function Record(props) {
         <CurrentRecord 
         id={id}
         recordData={recordData}
-        themeStyles={props.themeStyles}
-        inputThemeStyles={props.inputThemeStyles}
         addToCart={props.addToCart}
         addToWishlist={props.addToWishlist}
-        addToCollection={props.addToCollection}/>
+        addToCollection={props.addToCollection}
+        setGenreForPagedRecords={props.setGenreForPagedRecords}/>
         <SimilarRecords 
         id={id}
         recordDataUnique={props.recordDataUnique}
         recordData={recordData}
-        themeStyles={props.themeStyles}
-        addToCart={props.addToCart}
-        inputThemeStyles={props.inputThemeStyles}/>
+        addToCart={props.addToCart}/>
         </>
     )
 }}

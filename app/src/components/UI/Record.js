@@ -10,20 +10,21 @@ export default function Record(props) {
         <img className='record--image'                        
         src={props.imageUrl}
         alt=''
+        onClick={() => window.scrollTo(0, 0)}
         />
         </Link>
         <div className='record--details'>
-            <div className='record--name--price'>
             <h3 className='record--name'><strong>{props.name}</strong></h3>
-            <p className='record--price'>£{props.price}</p>
-            </div>
-            <h3 className='record--artist'>{props.artist}</h3>
+            <h3 className='record--artist'><span className='record--artist--span'>{props.artist}</span></h3>
         </div>
-        <p className='record--info'>{props.releaseYear}  • 
-        {props.songCount} songs</p>
-            
-            <button style={props.inputThemeStyles} className='record--list--cart--add' 
-            onClick={() => props.addToCart(props.record, props.id)}>Add to Cart</button>
+            {(props.isFromCollection) ?
+             <button 
+             className='record--button' 
+            onClick={() => props.deleteFromCollection(props.i)}><i class="fa-solid fa-x"></i></button> :
+            (props.isFromWishlist) ? 
+            <button 
+            className='record--button'
+            onClick={() => props.deleteFromWishlist(props.record, props.id)}><i class="fa-solid fa-x"></i></button>: null}
     </div>
     )
 }

@@ -1,0 +1,70 @@
+.right--checkout--container {
+    display:none;
+    font-size: 0.3em;
+    padding-right: 2em;
+    padding-bottom:2em;
+    margin-top:-28%;
+    width:100%;
+    min-height: 90vh;
+    margin-left: 5em;
+    background-color: #333;
+    color:white;
+    & .cart--checkout {
+        margin-left:1em;
+        margin-top: 40%;
+        padding:2em;
+    }
+    & .cart--items--container {
+        height:100%;
+        max-width: 35vw;
+        & .cart--record {
+            position: relative;
+            min-width:35vw;
+            max-width:35vw;
+            font-size: 1.3em;
+            border-top: 1px solid pink;
+            border-bottom: 1px solid pink;
+        & img {
+            max-height:6em;
+            min-height: 6em;
+            max-width:6em;
+            min-width:6em;
+        }
+        & .cart--record--buying {
+           max-width:30vw;
+           font-weight: bold;
+        }
+        & .cart--record--name, & .cart--record--artist {
+            margin:0;
+            font-size: 0.8em;
+        }
+        & .cart--record--artist {
+            font-size: 0.6em;
+        }
+        & .cart--record--price {
+            font-size: 1em;
+            right: 0;
+        }
+    }
+    }
+    & .cart--link--button {
+        display: none;
+    }
+    & .cart--total--price {
+        font-size: 1.3em;
+        width:35vw;
+        font-weight: bold
+    }
+}
+
+@media (min-width: 1100px) {
+    .right--checkout--container {
+        display:block;
+        & .cart--checkout {
+            margin-top: 30%;
+        }
+    }
+    .right--checkout--container {
+        font-size: 0.4em;
+    }
+}

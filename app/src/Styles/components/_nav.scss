@@ -1,0 +1,222 @@
+@import '../mixins';
+nav h1 {
+    font-sizE:2.3em;
+    align-self: center;
+ }
+.logo--container {
+    height: 100%;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    font-size:0.4em;
+    margin:0;
+    background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));
+    color:white;
+    border-bottom: 1px solid rgb(161, 161, 161);
+    height: 7vh;
+    z-index: 10;
+}
+ul {
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:-4.7em;
+    margin-top:3em
+}
+
+li {
+    list-style: none;
+    align-self: center;
+    width:100%;
+    margin-right:6%;
+}
+.nav--item, .nav--item--records {
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    padding:2.6em 1em;
+    margin:0;
+}
+.nav--item {
+    &:hover {
+        background-color:rgb(56, 56, 56);
+    }
+    &:visited {
+        text-decoration: none;
+        color:white;
+    }
+
+}
+.nav--buttons {
+    min-width:16%;
+    display: flex;
+    justify-content: flex-end;
+}
+.image--record {
+    margin-bottom:1em;
+    height:25px;
+    align-self: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 50%;;
+}
+.cart--container {
+    margin: 0 1em;
+    align-self: flex-end;
+    position: relative;
+}
+.counter {
+    background-color: rgb(255, 220, 220);
+    border-radius: 50%;
+    padding: 0.3em;
+    position: absolute;
+    top: -5px;
+    lefT: -5px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    &:visited {
+        text-decoration: none;
+        color:white;
+    }
+}
+.cart {
+    height: 25px;
+    border: 1px solid black;
+    margin:0;
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.home--link {
+    text-decoration: none;
+    color:white;
+    &:visited {
+        text-decoration: none;
+        color:white;
+    }
+}
+.logo--container {
+    margin:1em;
+    displaY:flex;
+}
+.dropdown--menu--main {
+    position: relative;
+}
+.dropdown--menu {
+    display: grid;
+    position: absolute;
+    min-height:1em;
+    max-height:1em;
+    left:0.5em;
+    font-size:1.7em;
+    margin: 0.5em 0;
+    z-index: 1;
+    padding: 0.5em;
+    border:1px solid #343434;
+    box-shadow: 0px 5px rgba(0,0,0,.1);
+    background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
+    opacity: 0;
+    transform: translateY(-17em);
+    border-radius: 2px;
+    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2em);
+      min-height:20em;
+      max-height: 30em;
+    } 
+    
+  }
+.dropdown--item { 
+    padding:0.5em;
+    &:link, &:visited {
+        text-decoration: none;
+        color:whitesmoke
+    }
+}
+.auth--btn {
+    @include button;
+    font-sizE:0.9em;
+    width:6em;
+    height:4em;
+    margin-left: -3em;
+    margin-right: 1em;;
+    background-color: #bfbfbf;
+    color:#343434;
+}
+@media (min-width: 768px) {
+    .dropdown--menu {
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        max-height:13em;
+        min-height:13em;
+        min-width:17em;
+        max-width:17em;
+        font-size:1em;
+        margin: 0.5em 0;
+        left:-3em;
+        z-index: 1;
+        padding: 0.5em;
+        border:1px solid #343434;
+        box-shadow: 0px 5px rgba(0,0,0,.1);
+        background: linear-gradient(rgb(66, 66, 66), rgb(34, 34, 34));    width: 10em;
+        opacity: 0;
+        transform: translateY(-14em);
+        border-radius: 2px;
+        transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+        &:hover {
+          opacity: 1;
+          transform: translateY(-1em);
+          max-height:13em;
+         min-height:13em;
+        } 
+        & li {
+           min-width:8em;
+           max-width:7em;
+           margin:0;
+        }
+      }
+    .auth--btn {
+        font-sizE:0.89em;
+        width:6em;
+        height:2em;
+        margin: 0 1em;
+    }
+    ul {
+        width:100%;
+        margin-top:1.5em;
+    }
+    nav h1 {
+        font-size: 1.2em;
+        margin-bottom: 1.5em;
+    }
+    .nav--item, .nav--item--records {
+        padding:  1.9em 1em;
+        font-size: 1em;
+        margin-left: 0.5em
+    }
+    .image--record {
+        margin-bottom: 2em;
+        margin-right : 3em;
+    }
+    li {
+        padding: 0.4em;
+        width:100%;
+    }
+    .counter {
+        font-sizE: 0.75em;
+        top: -10px
+    }
+    .cart--container {
+        scale: 1.1;
+    }
+    .nav--buttons {
+        margin-right: 0em;
+    }
+}

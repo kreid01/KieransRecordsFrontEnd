@@ -1,40 +1,47 @@
 import React from 'react'; 
+import {Link} from 'react-router-dom'
 
 export default function CurrentRecordPage(props) {
 
     const recordData = props.recordData
     const id = props.id
 
+    const genresData = recordData[id].genres.map((genre, i)  => {
+        if(genre !== "undefined") {
+        return (
+         <div key={i} className="genre"><Link
+         to='/records'
+         className='genre--nav'
+         onClick={() => props.setGenreForPagedRecords(genre)}>{genre}</Link></div>
+        )}
+    })
     const currentRecordData =
     <div className='current--record' id={id} key={id}>
         <img className='current--record--image'                        
         src={recordData[id].imageUrl}
-        alt='radiohead'
+        alt=''
         />
         <div className='current--record--info'>
-            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>{props.recordData[id].quantity} Left</div></h3>
-            <p className='current--record--details'>{recordData[id].releaseYear}  • {props.recordData[id].songCount} songs </p>
+            <h3 className='current--record--artist'>{recordData[id].artist}<div className='quantity--remaining'>£{recordData[id].price} {recordData[id].quantity} Left</div></h3>
+            <p className='current--record--details'>Released: <strong>{recordData[id].releaseYear}</strong> • <strong>{props.recordData[id].songCount} songs</strong> </p>
             <div className='current--record-genres'>
-                {recordData[id].genres.join(', ')}
+                {genresData}
             </div>
-            <p className='current--record--price'>£{recordData[id].price}</p>
-            <div className='current--record--buying'>
+            <div className='current--record--buttons'>
                 <button 
-                style={props.inputThemeStyles}
-                onClick={() => props.addToWishlist(recordData[id], id)}className='wishlist--add'>+Wishlist</button>
-                <button 
-                style={props.inputThemeStyles}
-                onClick={() => props.addToCollection(recordData[id], id)}className='wishlist--add'>+Collection</button>
-                <button 
-                style={props.inputThemeStyles}
+                 className='cart--add'
                 onClick={() => props.addToCart(recordData[id], id)}>Add to Cart</button>
+                 <p className='wishlist--or'> - or -</p>
+                 <button 
+                onClick={() => props.addToWishlist(recordData[id], id)}
+                className='wishlist--add'>add to wishlist</button>
             </div>
         </div>
     </div>
     return (
-    <div className='current--record--page' style={props.themeStyles}>
+    <div className='current--record--page'>
         <div className='current--record--header'>
-            <h1 className='page--header'>{recordData[id].name}</h1>
+            <h1 className='page--header'><strong>{recordData[id].name}</strong></h1>
         </div>
         <div className='current--record--container'>
           {currentRecordData}

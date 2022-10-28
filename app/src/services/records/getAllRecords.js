@@ -1,5 +1,11 @@
-export default function GetAllRecords(setRecordData) {
-    fetch('https://localhost:7143/records/all')
-    .then(res => res.json())
-    .then(data => setRecordData(data))
+import axios from 'axios'
+
+export default async function getAllRecords(setRecordData) {
+
+    try {
+        const res = await axios.get(`https://localhost:7143/records/all`)
+        setRecordData(res.data)
+    } catch (err) {
+       console.log(err)
+    }
 }

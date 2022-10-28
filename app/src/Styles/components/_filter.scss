@@ -1,0 +1,53 @@
+@import '../mixins';
+
+.filter--container {
+    box-sizing: border-box;
+    margin:1em;
+    max-width:100vw;
+    display:flex;
+    font-size:0.5em;
+    & input, button, select {
+        max-height:2.5em;
+        font-sizE:1.5em;
+    }
+}
+.filter--select{
+    margin: 0 1em;
+    width:20vw;
+    height:2.3em;
+}
+.search--record {
+    margin-right:0;
+}
+.display--sort--selector {
+    margin-left: 1.5em;
+    width: 20vw;
+    border:none;
+    height: 2.3em;
+}
+.search--input {
+    width:30vw;
+
+}
+.search--container {
+    display:flex;
+}
+.reset--button {
+    margin-left: 1em;
+    width:11vw;
+    border:none;
+    box-shadow: 1px 1px 1px 0 lightgrey;
+    color:black;
+    background: white;
+}
+
+@media (min-width: 768px) {
+    .filter--container {
+        margin-left:0;
+        max-width: 100vw;
+        font-size:0.5em;
+            & input, button, select {
+                font-sizE:1em;
+            }
+    }
+}

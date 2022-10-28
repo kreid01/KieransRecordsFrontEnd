@@ -1,0 +1,12 @@
+@import '../mixins';
+
+.wishlist--empty--text {
+    font-size: 1em;
+    margin-left: 1em;
+}
+@media(min-width:768px) {
+    .wishlist--empty--text {
+        font-size: 0.7em;
+        margin-left: 1em;
+    }
+}

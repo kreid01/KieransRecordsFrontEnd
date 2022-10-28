@@ -1,0 +1,46 @@
+.checkout--container {
+    margin:2em;
+    & .delivery--header {
+        border-bottom: 5px solid pink;
+        margin-bottom:0.5em;
+        margin-top:2em;
+    }
+    & h1, h3 {
+        font-weight: bold;
+        margin-bottom:0.5em;
+    }
+    & h3 {
+        margin-top:1em;
+        font-size: 0.8em;
+    }
+    & p {
+        margin: 0;
+        font-size: 0.75em;
+    }
+    .continue--button {
+        @include button;
+        font-sizE: 0.75em;
+        width:50%;
+        margin:2em auto;
+    }
+}
+.paypal--container {
+    min-width: 40vw;
+    max-width: 40vw;;
+    height:30vh;
+    padding:1em;
+    margin: 0 auto;
+    & .paypal--button {
+    min-width:40vw;
+    max-width: 40vw;;
+    margin: 0 auto;
+    }
+}
+
+@media (min-width: 1100px) {
+    .checkout--container {
+        margin:0em;
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+    }
+}

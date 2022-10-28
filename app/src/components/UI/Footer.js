@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Fotter(props) {
+export default function Footer(props) {
     return (
-        <div className='footer--container' style={props.themeStyles}>
+        <div className='footer--container'>
              <div className='company-container'>
-                <h2>KR Records</h2>
+                <h2><strong>KR Records</strong></h2>
                 <p>KR records, continuously supplying your favorite for desriable prices.</p>
             </div>  
             <div className='contact--container'>
@@ -14,8 +14,8 @@ export default function Fotter(props) {
             </div> 
             <div className='signup--container'>
                 <h3>Sign-up to be notified on offers and sales</h3>
-                <input style={props.inputThemeStyles} type='text' placeholder='Email'></input>
-                <button style={props.inputThemeStyles}>Subscribe</button>
+                <input  type='text' placeholder='Email'></input>
+                <button >Subscribe</button>
             </div>
         </div>
     )

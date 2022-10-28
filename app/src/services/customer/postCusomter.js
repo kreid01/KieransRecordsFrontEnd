@@ -1,9 +1,7 @@
 import { nanoid } from "nanoid"
+import axios from 'axios'
 
-export default function postCustomer(formData, customerDetails, linkToken) {
-    if(customerDetails) {
-
-    } else {
+export default async function postCustomer(formData, linkToken) {
     const id = nanoid()
     const json = {
         "id": `${id}`,
@@ -16,10 +14,9 @@ export default function postCustomer(formData, customerDetails, linkToken) {
         "addressSecondLine": `${formData.addressSecondLine}`,
         "postcode": `${formData.postcode}`,
     }
-    console.log(json)
-    fetch('https://localhost:7143/customer', {
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },  
-    body:JSON.stringify(json)})
+    try {
+    const res = await axios.post(`https://localhost:7143/customer`, json)
+    } catch (err) {
+    console.log(err)
     }
-}   
+}

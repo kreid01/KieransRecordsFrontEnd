@@ -1,6 +1,11 @@
-export default function updateRecord(record) {
+import axios from 'axios'
+
+export default async function updateRecord(record) {
+
     const recordDataForDatabase =  {
                 "_id": `${record._id}`,
+                "stockNumber": `${record.stockNumber}`,
+                "format": `${record.format}`,
                 "name":`${record.name}`,
                 "artist": `${record.artist}`,
                 "releaseYear": record.releaseYear,
@@ -14,7 +19,10 @@ export default function updateRecord(record) {
                 "isAvailable": record.isAvailable,
                 "isReservedInCart": record.isReservedInCart
         }
-            fetch(`https://localhost:7143/records?id=${record._id}`, { 
-            method: 'PUT',headers: { 'Content-Type': 'application/json' },  
-            body:JSON.stringify(recordDataForDatabase)})
+        
+    try {
+        const res = await axios.put(`https://localhost:7143/records?id=${record._id}`, recordDataForDatabase)
+    } catch (err) {
+        console.log(err)
+    }
 }

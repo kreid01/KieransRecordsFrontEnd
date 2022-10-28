@@ -1,0 +1,200 @@
+@import "../mixins";
+.current--record--page {
+   min-height: 45vh;
+   font-sizE:1em;
+   .page--header {
+    margin-bottom: 1em;
+   }
+}
+.current--record {
+    display: flex;
+    font-sizE: 0.5em;
+    margin: 0 1em;
+    & img {
+        min-width: 40vw;
+        min-height: 40vw;
+        max-width:40vw;
+        max-height:40vw;
+        margin-left: 1em;
+        border: 1px solid rgb(228, 228, 228);
+    }
+    & .current--record-genres {
+        display: flex;
+        flex-wrap: wrap;
+        height:10%;
+        width:100%;
+        margin-bottom:7vw;
+        & .genre--nav {
+            &:link, &:visited {
+                color:#333;
+            }
+        }
+        & .genre {
+            padding: 0 0.3em;
+            border-radius: 2px;
+            height: 1.5em;
+            min-width:20%;
+            margin: 0 0.2em;
+            margin-bottom: 0.3em;
+            background: pink;
+            color:#333;
+        }
+    }
+}
+.current--record--info {
+    margin-right:0;
+    margin-left: 1em;
+    position: relative;
+    width: 50%;
+    min-height:30vw;
+}
+
+.current--record--artist {
+    display:flex;
+    justify-content: space-between;
+    margin: 0;
+
+}
+.quantity--remaining {
+    font-size: 0.7em;
+}
+.current--record--buttons {
+    display: flex;
+    flex-direction: column;
+    & button {
+        @include button;
+        border-radius: 0;
+        margin-top: 3em;
+        width: 100%;
+        font-size:0.8em;
+        align-self: flex-end;
+    }
+    & .cart--add {
+    align-items: center;
+    background-color: initial;
+    background-image: linear-gradient(#464d55, #25292e);
+    border-radius: 8px;
+    border-width: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 18px;
+    height: 52px;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 32px;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all 150ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+        &:hover {
+        box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+        opacity: .85;
+        }
+        &:active {
+        outline: 0;
+        }
+        &:focus {
+        box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+        }
+        }
+        &  .wishlist--add, .wishlist--or {
+            align-self: flex-start;
+            max-width:8.1em;;
+            background: none;
+            font-size:0.8em;
+            margin-top:0.5em;
+            height:1.5em;
+            color:#333;
+            text-decoration: underline;
+        }
+        .wishlist--or {
+            padding: 0 2.5em;
+            margin-bottom:0;
+            text-decoration: none;
+            }
+}
+@media (max-width: 768px) {
+    .current--record--container {
+        background-color:white;
+        width:90vw;
+        margin: 0 auto;
+    }
+    .current--record {
+        font-size: 1.4em;
+        width:92%;
+        margin:1em 3%;
+        padding-top:6%;
+        display: flex;
+        flex-direction: column;
+        & img {
+            margin-bottom: 1em;
+            border-radius: 3px;
+            min-width: 78vw;;
+            max-width: 78vw;
+            max-height:78vw;
+            min-height:78vw;
+        }
+        .current--record--info {
+            width:92%;
+        }
+        & .current--record-genres {
+            margin-bottom:5vw;
+        }
+        & .current--record--buttons {
+            &  .wishlist--add, .wishlist--or {
+                max-width:8em;;
+                margin-top:0.5em;
+                height:1.5em;
+                color:#333;
+                text-decoration: underline;
+            }
+            .wishlist--or {
+                padding: 0 2em;
+                margin-bottom:0;
+                text-decoration: none;
+            }
+        }
+        
+    }
+}
+
+@media (min-width: 1100px) {
+    .current--record {
+        font-sizE: 0.7em;
+        margin: 0 2.5em;
+        & img {
+            margin-bottom: 1em;
+            border-radius: 3px;
+            min-width: 33vw;;
+            max-width: 33vw;
+            max-height:33vw;
+            min-height:33vw;
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .current--record {
+        font-size: 0.8em;
+        margin: 0 10em;
+        & img {
+            min-width: 27vw;;
+            max-width: 27vw;
+            max-height:27vw;
+            min-height:27vw;
+        }
+    }
+}

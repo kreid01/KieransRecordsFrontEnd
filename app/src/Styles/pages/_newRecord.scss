@@ -1,0 +1,103 @@
+.preview--record--container {
+    padding-bottom:3em;
+    & .record {
+        margin-left: 1em;
+        width:85%;
+        & img {
+            width:80%; 
+            margin-left: 15%;
+        }
+        & .record--info {
+            margin-top: 3%;
+            margin-left: 3%;
+        }
+        & .record--name {
+            font-size:3em;
+            font-weight: bold;
+        }
+        & h2 {
+            font-size: 1.7em;
+        }
+        & .new--record--genres {
+            display: flex;
+            flex-wrap: wrap;
+            height:10%;
+            width:100%;
+            margin-bottom:7vw;
+            font-size: 1.5em;
+            margin-top:1em;
+            & .genre {
+                padding: 0 0.3em;
+                border-radius: 2px;
+                height: 1.5em;
+                min-width:20%;
+                margin: 0 0.2em;
+                margin-bottom: 0.3em;
+                background: pink;
+                color:#333
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .preview--record--container {
+            & .record {
+                display:flex;
+                width:90vw;
+            & .record--info {
+                margin-top:0;
+            }
+            & img {
+                width: 40vw;
+                height:40vw;
+                margin-lefT:0;
+            }
+            & .record--name {
+                font-sizE: 1.5em;
+            }
+            & h2 {
+                font-size: 0.9em;
+            }
+            & .new--record--genres {
+                font-size: 0.7em;
+            }
+        }  
+    }
+}
+@media (min-width: 1300px) {
+    .preview--record--container {
+        width:55vw;;
+            & .record {
+                & img {
+                    max-width:19vw;; 
+                    max-height:19vw;
+                }
+                & .record--info {
+                    margin-left:2%;
+                    min-width:27vw;
+                    max-width:27vw;
+                }
+                & .record--name {
+                    width:100%;
+                    font-size:1em;
+                }
+                & h2 {
+                    font-sizE: 0.8em;
+                }
+             }
+      }
+}
+@media (min-width: 1500px) {
+    .preview--record--container {
+        padding-bottom:3em;
+        padding-left:1em;
+       & .preview--record {
+            & .record {
+                font-sizE:1.1em;
+                & img {
+                    width:50%;
+                } 
+            }
+        }
+    }
+}

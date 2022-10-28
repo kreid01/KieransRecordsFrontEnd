@@ -1,10 +1,11 @@
-export default function postRecord(newRecord, setNewRecord) {
-    fetch('https://localhost:7143/records', {
-    method: 'POST', 
-    headers: { 'Content-Type': 'application/json' },  
-    body:JSON.stringify(newRecord)})
-    .then(res => 201)
-    .then(console.log('posted successfully'))
+import axios from 'axios'
+
+export default async function postRecord(newRecord) {
+
+    try {
+        const res = await axios.post(`https://localhost:7143/records`, newRecord)
+        console.log('posted', res.data)
+    } catch (err) {
+      console.log(err)
     }
-    
-  
+}

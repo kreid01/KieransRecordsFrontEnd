@@ -1,0 +1,149 @@
+/* Record */
+@import "../mixins";
+
+.record--list--page {
+    height:100%;
+} 
+.collection--page {
+    min-height: 100vh;
+}
+.record--collection--container, .record--container {
+    margin:1em;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    & .record {
+        @include record;
+        position: relative;
+        margin: 0em;
+        padding-bottom:2em;
+        max-width:40vw;
+       max-height: 50vh;
+       & h3 {
+        font-sizE: 0.9em;
+       }
+        & img {
+            margin-bottom: 1em;
+            border-radius: 5px;
+            min-width: 39vw;
+            max-width: 39vw;
+            max-height:39vw;
+            min-height: 39vw;
+        }
+        & .record--artist {
+            padding-bottom:1em;
+        }
+    }
+}
+
+.page--number--container {
+    display:flex;
+    justify-content:space-between;
+    width: 40%;
+    & button {
+        height:50%;
+    align-self: center;
+    background-color: rgb(66, 66, 66);
+    border-radius: 5px;
+    border:none;
+    color:white;
+    font-size:0.6em;
+    width: 2em;
+    height:2em;
+    font-family: 'Inter';
+    cursor:pointer;
+    font-weight: bold;
+    &:hover {
+        filter:brightness(80%);
+    }
+    }
+    margin: 2em auto;
+    height: 2.5em;
+}
+.record--container, .collection--record--container{
+    width: 100%;
+    displaY:grid;
+    font-size: 1.3em;
+}
+
+@media (min-width: 768px) {
+    .record--container, .record--collection--container {
+        grid-template-columns:  repeat(3, 1fr);
+        width:90%;
+        font-size: 0.5em;
+        margin:  0 1.5em;;
+        & .record {
+            margin:0.3em;
+            border-radius: 5px;;
+            padding-bottom:-1em;
+            margin-bottom: 1em;
+            min-width: 29vw;
+            max-width: 29vw;;
+            min-height: 39vh;
+            max-height:50vh;
+            & .record--name {
+                font-size:1.5em;
+            }
+            & .record--artist {
+                font-size:1em;
+            }
+            & img {
+                border-radius: 5px;
+                min-width: 28vw;;
+                max-width: 28vw;
+                max-height:28vw;
+                min-height: 28vw;
+             }
+        }
+    }
+    .record--list--header{
+            & button {
+            margin-top: 2em;
+            margin-right:-1em;
+            min-height:1.5em;
+            font-size:0.75em;
+            width: 7em;
+        }
+        & .page--number {
+            margin-top:0.5em;
+            font-size: 1em;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .record--container, .record--collection--container {
+        grid-template-columns:  repeat(4, 1fr);
+        & .record {
+            padding-bottom:-1em;
+            min-width: 22vw;
+            max-width: 22vw;
+            max-height: 30vh;
+            min-height:45vh;
+            & img {
+                min-width: 21vw;;
+                max-width: 21vw;
+                max-height:21vw;
+                min-height: 21vw;
+             }
+        }
+    }
+}
+@media (min-width: 1500px) {
+    .record--container {
+        grid-template-columns:  repeat(5, 1fr);
+        & .record {
+            min-width: 18vw;
+            max-width: 18vw;
+            max-height:37vh;
+            min-height:45vh;
+            font-sizE: 0.8em;
+            & img {
+                min-width: 17.5vw;;
+                max-width: 17.5vw;
+                max-height:17.5vw;
+                min-height: 17.5vw;
+             }
+        }
+    }
+}
+
+

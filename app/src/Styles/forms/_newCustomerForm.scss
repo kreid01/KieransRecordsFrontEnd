@@ -1,0 +1,22 @@
+.customer--form {
+    max-width:80vw;
+    margin: 0 auto;
+    padding:1em;
+    & input {
+        max-height: 3em;
+    }
+    & .submit--button {
+         height:3em;
+         min-width:100%;
+         border: 1px solid darkgrey;
+         background: #333;
+         &:hover {
+            filter: brightness(80%);
+         }
+     }
+}
+@media (min-width: 768px) {
+    .customer--form {
+        font-size: 0.5em;
+    }
+}

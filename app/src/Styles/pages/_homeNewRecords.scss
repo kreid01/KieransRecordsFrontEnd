@@ -1,0 +1,57 @@
+@import '../mixins';   
+.new--record--container {
+    displaY:grid;
+    margin: 1em auto;
+    font-size: 1.3em;
+    margin-bottom:-2em;;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 0.5em;
+    & .record  {
+        padding-lefT:2em;
+        min-width: 29vw;
+        max-width: 29vw;;
+        min-height: 29vh;
+        max-height:56vh;        
+        & img {
+        max-width:27.5vw;
+        min-width:27.5vw;
+        max-height:27.5vw;
+        min-height:27.5vw;
+        }
+        & h3 {
+            font-sizE:1.5em;
+            margin:0;
+        }
+        & .record--name {
+            margin-top: 0.5em;
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width:0%;
+            left:1.5em;
+            top:-1em;
+            border: 3px solid pink;;
+            transition: width 800ms ease-in-out;
+            z-index: -1;
+        }
+        &:hover {
+            scale: 1;
+            &:after {
+                width:100%;
+            }
+        }
+    }
+} 
+@media (min-width: 768px) {
+    .new--record--container {
+        margin-bottom: 2em;
+    }
+}
+@media(min-width: 1200px) {
+    .new--record--container {
+        font-size: 0.7em;
+        margin-bottom:5em;
+    }
+}

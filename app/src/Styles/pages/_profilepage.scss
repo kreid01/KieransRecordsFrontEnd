@@ -1,0 +1,30 @@
+.profile--page--container {
+    margin:1em;
+    font-size: 1em;
+}
+.profile--details {
+    margin-bottom: 1em;
+    & p {
+        margin:0;
+    }
+}
+.prev--order--albums {
+    display:flex;
+    flex-wrap: wrap;
+}
+.prev--order--details {
+    background: pink;
+    color: black;
+    margin: 0.5em 0;
+    padding: 0 0.2em;
+    margin-right:1em;
+    min-width: 20%;
+    & strong {
+        margin-right: 0.3em;
+    }
+}
+@media (min-width: 768px) {
+    .profile--page--container {
+        font-sizE: 0.7em;
+    }
+}
